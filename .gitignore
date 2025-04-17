@@ -19,6 +19,7 @@
 
 # production
 /build
+#TODO: make sure it doesnt checkout  /lib/generated/*
 
 # misc
 .DS_Store

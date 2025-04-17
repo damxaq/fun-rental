@@ -13,10 +13,15 @@ import {
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import Link from "next/link";
 import { DropdownMenuSeparator } from "@radix-ui/react-dropdown-menu";
+import { createFunRent } from "../actions";
 
 export async function UserNav() {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
+
+  const createFunRentWithId = createFunRent.bind(null, {
+    userId: user?.id as string,
+  });
 
   return (
     <DropdownMenu>
@@ -38,7 +43,7 @@ export async function UserNav() {
         {user ? (
           <>
             <DropdownMenuItem>
-              <form className="w-full">
+              <form action={createFunRentWithId} className="w-full">
                 <button type="submit" className="w-full text-start">
                   Fun Rent your Boat
                 </button>

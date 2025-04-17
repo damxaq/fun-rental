@@ -2090,6 +2090,10 @@ export namespace Prisma {
     country: string | null
     photo: string | null
     price: number | null
+    categoryName: string | null
+    addedCategory: boolean | null
+    addedDescription: boolean | null
+    addedLocation: boolean | null
     createdAt: Date | null
     userId: string | null
   }
@@ -2104,6 +2108,10 @@ export namespace Prisma {
     country: string | null
     photo: string | null
     price: number | null
+    categoryName: string | null
+    addedCategory: boolean | null
+    addedDescription: boolean | null
+    addedLocation: boolean | null
     createdAt: Date | null
     userId: string | null
   }
@@ -2118,6 +2126,10 @@ export namespace Prisma {
     country: number
     photo: number
     price: number
+    categoryName: number
+    addedCategory: number
+    addedDescription: number
+    addedLocation: number
     createdAt: number
     userId: number
     _all: number
@@ -2142,6 +2154,10 @@ export namespace Prisma {
     country?: true
     photo?: true
     price?: true
+    categoryName?: true
+    addedCategory?: true
+    addedDescription?: true
+    addedLocation?: true
     createdAt?: true
     userId?: true
   }
@@ -2156,6 +2172,10 @@ export namespace Prisma {
     country?: true
     photo?: true
     price?: true
+    categoryName?: true
+    addedCategory?: true
+    addedDescription?: true
+    addedLocation?: true
     createdAt?: true
     userId?: true
   }
@@ -2170,6 +2190,10 @@ export namespace Prisma {
     country?: true
     photo?: true
     price?: true
+    categoryName?: true
+    addedCategory?: true
+    addedDescription?: true
+    addedLocation?: true
     createdAt?: true
     userId?: true
     _all?: true
@@ -2271,6 +2295,10 @@ export namespace Prisma {
     country: string | null
     photo: string | null
     price: number | null
+    categoryName: string | null
+    addedCategory: boolean
+    addedDescription: boolean
+    addedLocation: boolean
     createdAt: Date
     userId: string
     _count: HomeCountAggregateOutputType | null
@@ -2304,6 +2332,10 @@ export namespace Prisma {
     country?: boolean
     photo?: boolean
     price?: boolean
+    categoryName?: boolean
+    addedCategory?: boolean
+    addedDescription?: boolean
+    addedLocation?: boolean
     createdAt?: boolean
     userId?: boolean
     User?: boolean | Home$UserArgs<ExtArgs>
@@ -2319,6 +2351,10 @@ export namespace Prisma {
     country?: boolean
     photo?: boolean
     price?: boolean
+    categoryName?: boolean
+    addedCategory?: boolean
+    addedDescription?: boolean
+    addedLocation?: boolean
     createdAt?: boolean
     userId?: boolean
     User?: boolean | Home$UserArgs<ExtArgs>
@@ -2334,6 +2370,10 @@ export namespace Prisma {
     country?: boolean
     photo?: boolean
     price?: boolean
+    categoryName?: boolean
+    addedCategory?: boolean
+    addedDescription?: boolean
+    addedLocation?: boolean
     createdAt?: boolean
     userId?: boolean
     User?: boolean | Home$UserArgs<ExtArgs>
@@ -2349,11 +2389,15 @@ export namespace Prisma {
     country?: boolean
     photo?: boolean
     price?: boolean
+    categoryName?: boolean
+    addedCategory?: boolean
+    addedDescription?: boolean
+    addedLocation?: boolean
     createdAt?: boolean
     userId?: boolean
   }
 
-  export type HomeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "description" | "guests" | "bedrooms" | "bathrooms" | "country" | "photo" | "price" | "createdAt" | "userId", ExtArgs["result"]["home"]>
+  export type HomeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "description" | "guests" | "bedrooms" | "bathrooms" | "country" | "photo" | "price" | "categoryName" | "addedCategory" | "addedDescription" | "addedLocation" | "createdAt" | "userId", ExtArgs["result"]["home"]>
   export type HomeInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     User?: boolean | Home$UserArgs<ExtArgs>
   }
@@ -2379,6 +2423,10 @@ export namespace Prisma {
       country: string | null
       photo: string | null
       price: number | null
+      categoryName: string | null
+      addedCategory: boolean
+      addedDescription: boolean
+      addedLocation: boolean
       createdAt: Date
       userId: string
     }, ExtArgs["result"]["home"]>
@@ -2814,6 +2862,10 @@ export namespace Prisma {
     readonly country: FieldRef<"Home", 'String'>
     readonly photo: FieldRef<"Home", 'String'>
     readonly price: FieldRef<"Home", 'Int'>
+    readonly categoryName: FieldRef<"Home", 'String'>
+    readonly addedCategory: FieldRef<"Home", 'Boolean'>
+    readonly addedDescription: FieldRef<"Home", 'Boolean'>
+    readonly addedLocation: FieldRef<"Home", 'Boolean'>
     readonly createdAt: FieldRef<"Home", 'DateTime'>
     readonly userId: FieldRef<"Home", 'String'>
   }
@@ -3284,6 +3336,10 @@ export namespace Prisma {
     country: 'country',
     photo: 'photo',
     price: 'price',
+    categoryName: 'categoryName',
+    addedCategory: 'addedCategory',
+    addedDescription: 'addedDescription',
+    addedLocation: 'addedLocation',
     createdAt: 'createdAt',
     userId: 'userId'
   };
@@ -3345,6 +3401,13 @@ export namespace Prisma {
    * Reference to a field of type 'Int[]'
    */
   export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
     
 
 
@@ -3447,6 +3510,10 @@ export namespace Prisma {
     country?: StringNullableFilter<"Home"> | string | null
     photo?: StringNullableFilter<"Home"> | string | null
     price?: IntNullableFilter<"Home"> | number | null
+    categoryName?: StringNullableFilter<"Home"> | string | null
+    addedCategory?: BoolFilter<"Home"> | boolean
+    addedDescription?: BoolFilter<"Home"> | boolean
+    addedLocation?: BoolFilter<"Home"> | boolean
     createdAt?: DateTimeFilter<"Home"> | Date | string
     userId?: StringFilter<"Home"> | string
     User?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
@@ -3462,6 +3529,10 @@ export namespace Prisma {
     country?: SortOrderInput | SortOrder
     photo?: SortOrderInput | SortOrder
     price?: SortOrderInput | SortOrder
+    categoryName?: SortOrderInput | SortOrder
+    addedCategory?: SortOrder
+    addedDescription?: SortOrder
+    addedLocation?: SortOrder
     createdAt?: SortOrder
     userId?: SortOrder
     User?: UserOrderByWithRelationInput
@@ -3480,6 +3551,10 @@ export namespace Prisma {
     country?: StringNullableFilter<"Home"> | string | null
     photo?: StringNullableFilter<"Home"> | string | null
     price?: IntNullableFilter<"Home"> | number | null
+    categoryName?: StringNullableFilter<"Home"> | string | null
+    addedCategory?: BoolFilter<"Home"> | boolean
+    addedDescription?: BoolFilter<"Home"> | boolean
+    addedLocation?: BoolFilter<"Home"> | boolean
     createdAt?: DateTimeFilter<"Home"> | Date | string
     userId?: StringFilter<"Home"> | string
     User?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
@@ -3495,6 +3570,10 @@ export namespace Prisma {
     country?: SortOrderInput | SortOrder
     photo?: SortOrderInput | SortOrder
     price?: SortOrderInput | SortOrder
+    categoryName?: SortOrderInput | SortOrder
+    addedCategory?: SortOrder
+    addedDescription?: SortOrder
+    addedLocation?: SortOrder
     createdAt?: SortOrder
     userId?: SortOrder
     _count?: HomeCountOrderByAggregateInput
@@ -3517,6 +3596,10 @@ export namespace Prisma {
     country?: StringNullableWithAggregatesFilter<"Home"> | string | null
     photo?: StringNullableWithAggregatesFilter<"Home"> | string | null
     price?: IntNullableWithAggregatesFilter<"Home"> | number | null
+    categoryName?: StringNullableWithAggregatesFilter<"Home"> | string | null
+    addedCategory?: BoolWithAggregatesFilter<"Home"> | boolean
+    addedDescription?: BoolWithAggregatesFilter<"Home"> | boolean
+    addedLocation?: BoolWithAggregatesFilter<"Home"> | boolean
     createdAt?: DateTimeWithAggregatesFilter<"Home"> | Date | string
     userId?: StringWithAggregatesFilter<"Home"> | string
   }
@@ -3591,6 +3674,10 @@ export namespace Prisma {
     country?: string | null
     photo?: string | null
     price?: number | null
+    categoryName?: string | null
+    addedCategory?: boolean
+    addedDescription?: boolean
+    addedLocation?: boolean
     createdAt?: Date | string
     User?: UserCreateNestedOneWithoutHomeInput
   }
@@ -3605,6 +3692,10 @@ export namespace Prisma {
     country?: string | null
     photo?: string | null
     price?: number | null
+    categoryName?: string | null
+    addedCategory?: boolean
+    addedDescription?: boolean
+    addedLocation?: boolean
     createdAt?: Date | string
     userId: string
   }
@@ -3619,6 +3710,10 @@ export namespace Prisma {
     country?: NullableStringFieldUpdateOperationsInput | string | null
     photo?: NullableStringFieldUpdateOperationsInput | string | null
     price?: NullableIntFieldUpdateOperationsInput | number | null
+    categoryName?: NullableStringFieldUpdateOperationsInput | string | null
+    addedCategory?: BoolFieldUpdateOperationsInput | boolean
+    addedDescription?: BoolFieldUpdateOperationsInput | boolean
+    addedLocation?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     User?: UserUpdateOneWithoutHomeNestedInput
   }
@@ -3633,6 +3728,10 @@ export namespace Prisma {
     country?: NullableStringFieldUpdateOperationsInput | string | null
     photo?: NullableStringFieldUpdateOperationsInput | string | null
     price?: NullableIntFieldUpdateOperationsInput | number | null
+    categoryName?: NullableStringFieldUpdateOperationsInput | string | null
+    addedCategory?: BoolFieldUpdateOperationsInput | boolean
+    addedDescription?: BoolFieldUpdateOperationsInput | boolean
+    addedLocation?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     userId?: StringFieldUpdateOperationsInput | string
   }
@@ -3647,6 +3746,10 @@ export namespace Prisma {
     country?: string | null
     photo?: string | null
     price?: number | null
+    categoryName?: string | null
+    addedCategory?: boolean
+    addedDescription?: boolean
+    addedLocation?: boolean
     createdAt?: Date | string
     userId: string
   }
@@ -3661,6 +3764,10 @@ export namespace Prisma {
     country?: NullableStringFieldUpdateOperationsInput | string | null
     photo?: NullableStringFieldUpdateOperationsInput | string | null
     price?: NullableIntFieldUpdateOperationsInput | number | null
+    categoryName?: NullableStringFieldUpdateOperationsInput | string | null
+    addedCategory?: BoolFieldUpdateOperationsInput | boolean
+    addedDescription?: BoolFieldUpdateOperationsInput | boolean
+    addedLocation?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -3674,6 +3781,10 @@ export namespace Prisma {
     country?: NullableStringFieldUpdateOperationsInput | string | null
     photo?: NullableStringFieldUpdateOperationsInput | string | null
     price?: NullableIntFieldUpdateOperationsInput | number | null
+    categoryName?: NullableStringFieldUpdateOperationsInput | string | null
+    addedCategory?: BoolFieldUpdateOperationsInput | boolean
+    addedDescription?: BoolFieldUpdateOperationsInput | boolean
+    addedLocation?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     userId?: StringFieldUpdateOperationsInput | string
   }
@@ -3794,6 +3905,11 @@ export namespace Prisma {
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
+  export type BoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
   export type DateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -3820,6 +3936,10 @@ export namespace Prisma {
     country?: SortOrder
     photo?: SortOrder
     price?: SortOrder
+    categoryName?: SortOrder
+    addedCategory?: SortOrder
+    addedDescription?: SortOrder
+    addedLocation?: SortOrder
     createdAt?: SortOrder
     userId?: SortOrder
   }
@@ -3838,6 +3958,10 @@ export namespace Prisma {
     country?: SortOrder
     photo?: SortOrder
     price?: SortOrder
+    categoryName?: SortOrder
+    addedCategory?: SortOrder
+    addedDescription?: SortOrder
+    addedLocation?: SortOrder
     createdAt?: SortOrder
     userId?: SortOrder
   }
@@ -3852,6 +3976,10 @@ export namespace Prisma {
     country?: SortOrder
     photo?: SortOrder
     price?: SortOrder
+    categoryName?: SortOrder
+    addedCategory?: SortOrder
+    addedDescription?: SortOrder
+    addedLocation?: SortOrder
     createdAt?: SortOrder
     userId?: SortOrder
   }
@@ -3874,6 +4002,14 @@ export namespace Prisma {
     _sum?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedIntNullableFilter<$PrismaModel>
     _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
@@ -3952,6 +4088,10 @@ export namespace Prisma {
     decrement?: number
     multiply?: number
     divide?: number
+  }
+
+  export type BoolFieldUpdateOperationsInput = {
+    set?: boolean
   }
 
   export type DateTimeFieldUpdateOperationsInput = {
@@ -4052,6 +4192,11 @@ export namespace Prisma {
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
   export type NestedDateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -4090,6 +4235,14 @@ export namespace Prisma {
     not?: NestedFloatNullableFilter<$PrismaModel> | number | null
   }
 
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
   export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -4114,6 +4267,10 @@ export namespace Prisma {
     country?: string | null
     photo?: string | null
     price?: number | null
+    categoryName?: string | null
+    addedCategory?: boolean
+    addedDescription?: boolean
+    addedLocation?: boolean
     createdAt?: Date | string
   }
 
@@ -4127,6 +4284,10 @@ export namespace Prisma {
     country?: string | null
     photo?: string | null
     price?: number | null
+    categoryName?: string | null
+    addedCategory?: boolean
+    addedDescription?: boolean
+    addedLocation?: boolean
     createdAt?: Date | string
   }
 
@@ -4169,6 +4330,10 @@ export namespace Prisma {
     country?: StringNullableFilter<"Home"> | string | null
     photo?: StringNullableFilter<"Home"> | string | null
     price?: IntNullableFilter<"Home"> | number | null
+    categoryName?: StringNullableFilter<"Home"> | string | null
+    addedCategory?: BoolFilter<"Home"> | boolean
+    addedDescription?: BoolFilter<"Home"> | boolean
+    addedLocation?: BoolFilter<"Home"> | boolean
     createdAt?: DateTimeFilter<"Home"> | Date | string
     userId?: StringFilter<"Home"> | string
   }
@@ -4231,6 +4396,10 @@ export namespace Prisma {
     country?: string | null
     photo?: string | null
     price?: number | null
+    categoryName?: string | null
+    addedCategory?: boolean
+    addedDescription?: boolean
+    addedLocation?: boolean
     createdAt?: Date | string
   }
 
@@ -4244,6 +4413,10 @@ export namespace Prisma {
     country?: NullableStringFieldUpdateOperationsInput | string | null
     photo?: NullableStringFieldUpdateOperationsInput | string | null
     price?: NullableIntFieldUpdateOperationsInput | number | null
+    categoryName?: NullableStringFieldUpdateOperationsInput | string | null
+    addedCategory?: BoolFieldUpdateOperationsInput | boolean
+    addedDescription?: BoolFieldUpdateOperationsInput | boolean
+    addedLocation?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -4257,6 +4430,10 @@ export namespace Prisma {
     country?: NullableStringFieldUpdateOperationsInput | string | null
     photo?: NullableStringFieldUpdateOperationsInput | string | null
     price?: NullableIntFieldUpdateOperationsInput | number | null
+    categoryName?: NullableStringFieldUpdateOperationsInput | string | null
+    addedCategory?: BoolFieldUpdateOperationsInput | boolean
+    addedDescription?: BoolFieldUpdateOperationsInput | boolean
+    addedLocation?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -4270,6 +4447,10 @@ export namespace Prisma {
     country?: NullableStringFieldUpdateOperationsInput | string | null
     photo?: NullableStringFieldUpdateOperationsInput | string | null
     price?: NullableIntFieldUpdateOperationsInput | number | null
+    categoryName?: NullableStringFieldUpdateOperationsInput | string | null
+    addedCategory?: BoolFieldUpdateOperationsInput | boolean
+    addedDescription?: BoolFieldUpdateOperationsInput | boolean
+    addedLocation?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 

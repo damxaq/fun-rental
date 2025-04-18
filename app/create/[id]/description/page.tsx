@@ -1,3 +1,4 @@
+import { createDescription } from "@/app/actions";
 import { Counter } from "@/app/components/Counter";
 import { CreationBottomBar } from "@/app/components/CreationBottomBar";
 import { Card, CardHeader } from "@/components/ui/card";
@@ -18,7 +19,7 @@ export default function DescriptionPage({
         </h2>
       </div>
 
-      <form>
+      <form action={createDescription}>
         <input type="hidden" name="homeId" value={params.id} />
         <div className="w-3/5 mx-auto mt-10 flex flex-col gap-y-5 mb-36">
           <div className="flex flex-col gap-y-2">

@@ -62,12 +62,13 @@ export async function createDescription(formData: FormData) {
   const roomNumber = formData.get("room") as string;
   const bathroomNumber = formData.get("bathroom") as string;
 
-  const { data: imageData } = await supabase.storage
+  const { data: imageData, error: uploadError } = await supabase.storage
     .from("images")
-    .upload(`${imageFile.name}-${new Date()}`, imageFile, {
+    .upload(`${imageFile.name}-${new Date().toUTCString()}`, imageFile, {
       cacheControl: ONE_YEAR,
       contentType: "image/png",
     });
+  if (uploadError) console.log(uploadError);
 
   const data = await prisma.home.update({
     where: {
@@ -81,6 +82,9 @@ export async function createDescription(formData: FormData) {
       bathrooms: bathroomNumber,
       guests: guestNumber,
       photo: imageData?.path,
+      addedDescription: true,
     },
   });
+
+  return redirect(`/create/${homeId}/address`);
 }

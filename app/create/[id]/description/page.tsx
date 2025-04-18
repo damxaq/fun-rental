@@ -5,7 +5,11 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 
-export default function DescriptionPage() {
+export default function DescriptionPage({
+  params,
+}: {
+  params: { id: string };
+}) {
   return (
     <>
       <div className="w-3/5 mx-auto">
@@ -15,6 +19,7 @@ export default function DescriptionPage() {
       </div>
 
       <form>
+        <input type="hidden" name="homeId" value={params.id} />
         <div className="w-3/5 mx-auto mt-10 flex flex-col gap-y-5 mb-36">
           <div className="flex flex-col gap-y-2">
             <Label>Title</Label>
@@ -58,7 +63,7 @@ export default function DescriptionPage() {
                     How many guests you want invite?
                   </p>
                 </div>
-                <Counter />
+                <Counter name="guest" />
               </div>
               <div className="flex items-center justify-between ">
                 <div className="flex flex-col">
@@ -67,7 +72,7 @@ export default function DescriptionPage() {
                     How many rooms do you have?
                   </p>
                 </div>
-                <Counter />
+                <Counter name="room" />
               </div>
               <div className="flex items-center justify-between ">
                 <div className="flex flex-col">
@@ -76,7 +81,7 @@ export default function DescriptionPage() {
                     How many bathrooms do you have?
                   </p>
                 </div>
-                <Counter />
+                <Counter name="bathroom" />
               </div>
             </CardHeader>
           </Card>

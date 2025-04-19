@@ -4,10 +4,13 @@ import { MapFilterItems } from "./components/MapFilterItems";
 import prisma from "@/lib/prisma";
 import { SkeletonCard } from "./components/SkeletonCard";
 import { NoItems } from "./components/NoItems";
+import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 
 async function getData({
   searchParams,
+  userId,
 }: {
+  userId: string | undefined;
   searchParams?: { filter?: string };
 }) {
   const data = await prisma.home.findMany({
@@ -23,6 +26,11 @@ async function getData({
       price: true,
       description: true,
       country: true,
+      Favorite: {
+        where: {
+          userId: userId ?? undefined,
+        },
+      },
     },
   });
 
@@ -49,7 +57,9 @@ async function ShowItems({
 }: {
   searchParams?: { filter?: string };
 }) {
-  const data = await getData({ searchParams });
+  const { getUser } = getKindeServerSession();
+  const user = await getUser();
+  const data = await getData({ searchParams: searchParams, userId: user?.id });
 
   return (
     <>
@@ -64,6 +74,11 @@ async function ShowItems({
               imagePath={item.photo as string}
               location={item.country as string}
               price={item.price as number}
+              userId={user?.id}
+              favoriteId={item.Favorite[0]?.id}
+              isInFavorites={item.Favorite.length > 0}
+              homeId={item.id}
+              pathName={"/"}
             />
           ))}
         </div>

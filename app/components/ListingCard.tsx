@@ -1,12 +1,22 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useCountries } from "../lib/getCountries";
+import {
+  AddToFavoriteButton,
+  DeleteFromFavoriteButton,
+} from "./FavoriteButton";
+import { addToFavorite, removeFromFavorite } from "../actions";
 
 type ListingCardProps = {
   imagePath: string;
   description: string;
   location: string;
   price: number;
+  userId: string | undefined;
+  isInFavorites: boolean;
+  favoriteId: string;
+  homeId: string;
+  pathName: string;
 };
 
 export function ListingCard({
@@ -14,6 +24,11 @@ export function ListingCard({
   imagePath,
   location,
   price,
+  userId,
+  isInFavorites,
+  favoriteId,
+  homeId,
+  pathName,
 }: ListingCardProps) {
   const { getCountryByValue } = useCountries();
   const country = getCountryByValue(location);
@@ -26,6 +41,25 @@ export function ListingCard({
           fill
           className="rounded-lg h-full object-cover mb-3"
         />
+        {userId && (
+          <div className="z-10 absolute top-2 right-2">
+            {isInFavorites ? (
+              <form action={removeFromFavorite}>
+                <input type="hidden" name="favoriteId" value={favoriteId} />
+                <input type="hidden" name="userId" value={userId} />
+                <input type="hidden" name="pathName" value={pathName} />
+                <DeleteFromFavoriteButton />
+              </form>
+            ) : (
+              <form action={addToFavorite}>
+                <input type="hidden" name="homeId" value={homeId} />
+                <input type="hidden" name="userId" value={userId} />
+                <input type="hidden" name="pathName" value={pathName} />
+                <AddToFavoriteButton />
+              </form>
+            )}
+          </div>
+        )}
       </div>
       <Link href={"/"} className="mt-2">
         <h3 className="font-medium text-base">

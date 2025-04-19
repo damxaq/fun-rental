@@ -3,6 +3,7 @@ import { ListingCard } from "./components/ListingCard";
 import { MapFilterItems } from "./components/MapFilterItems";
 import prisma from "@/lib/prisma";
 import { SkeletonCard } from "./components/SkeletonCard";
+import { NoItems } from "./components/NoItems";
 
 async function getData({
   searchParams,
@@ -51,17 +52,23 @@ async function ShowItems({
   const data = await getData({ searchParams });
 
   return (
-    <div className="grid lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-8">
-      {data.map((item: any) => (
-        <ListingCard
-          key={item.id}
-          description={item.description as string}
-          imagePath={item.photo as string}
-          location={item.country as string}
-          price={item.price as number}
-        />
-      ))}
-    </div>
+    <>
+      {data.length === 0 ? (
+        <NoItems />
+      ) : (
+        <div className="grid lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-8">
+          {data.map((item: any) => (
+            <ListingCard
+              key={item.id}
+              description={item.description as string}
+              imagePath={item.photo as string}
+              location={item.country as string}
+              price={item.price as number}
+            />
+          ))}
+        </div>
+      )}
+    </>
   );
 }
 

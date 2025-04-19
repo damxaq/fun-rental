@@ -1,5 +1,6 @@
 import { CategoryShowcase } from "@/app/components/CategoryShowcase";
 import { OfferMap } from "@/app/components/OfferMap";
+import { SelectCalendar } from "@/app/components/SelectCalendar";
 import { useCountries } from "@/app/lib/getCountries";
 import { Separator } from "@/components/ui/separator";
 import prisma from "@/lib/prisma";
@@ -84,6 +85,7 @@ export default async function OfferRoute({
           <Separator className="my-7" />
           <OfferMap locationValue={country?.value as string} />
         </div>
+        <SelectCalendar />
       </div>
     </div>
   );

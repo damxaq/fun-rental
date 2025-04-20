@@ -3,6 +3,7 @@ import Link from "next/link";
 import DesktopLogo from "../../public/fun-rental-desktop.png";
 import MobileLogo from "../../public/fun-rental-mobile.jpg";
 import { UserNav } from "./UserNav";
+import { SearchComponent } from "./SearchComponent";
 
 export function Navbar() {
   return (
@@ -20,9 +21,8 @@ export function Navbar() {
             className="block md:hidden w-12"
           />
         </Link>
-        <div className="rounded-full border px-5 py-2">
-          <h1>Hello</h1>
-        </div>
+
+        <SearchComponent />
 
         <UserNav />
       </div>

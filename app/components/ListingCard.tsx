@@ -40,6 +40,8 @@ export function ListingCard({
           alt="Offer Image"
           fill
           className="rounded-lg h-full object-cover mb-3"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          priority={true}
         />
         {userId && (
           <div className="z-10 absolute top-2 right-2">

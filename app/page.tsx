@@ -47,22 +47,24 @@ async function getData({
   return data;
 }
 
-export default function Home({
+export default async function Home({
   searchParams,
 }: {
-  searchParams?: {
+  searchParams?: Promise<{
     filter?: string;
     country?: string;
     guest?: string;
     room?: string;
     bathroom?: string;
-  };
+  }>;
 }) {
+  const params = await searchParams;
+
   return (
     <div className="container mx-auto px-5 lg:px-10">
       <MapFilterItems />
-      <Suspense key={searchParams?.filter} fallback={<SkeletonLoading />}>
-        <ShowItems searchParams={searchParams} />
+      <Suspense key={params?.filter} fallback={<SkeletonLoading />}>
+        <ShowItems searchParams={params} />
       </Suspense>
     </div>
   );

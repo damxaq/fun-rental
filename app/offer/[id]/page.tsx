@@ -63,6 +63,8 @@ export default async function OfferRoute({
           src={`https://ulsjeycbmhzuambfgfob.supabase.co/storage/v1/object/public/images/${data.photo}`}
           fill
           className="rounded-lg h-full object-cover w-full"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          priority={false}
         />
       </div>
       <div className="flex justify-between gap-x-24 mt-8">

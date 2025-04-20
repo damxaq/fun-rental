@@ -14,11 +14,13 @@ export function Navbar() {
             src={DesktopLogo}
             alt="Desktop Logo"
             className="w-32 hidden md:block"
+            priority={true}
           />
           <Image
             src={MobileLogo}
             alt="Mobile Logo"
             className="block md:hidden w-12"
+            priority={true}
           />
         </Link>
 

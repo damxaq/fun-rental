@@ -1,10 +1,16 @@
+import { createReservation } from "@/app/actions";
 import { CategoryShowcase } from "@/app/components/CategoryShowcase";
 import { OfferMap } from "@/app/components/OfferMap";
 import { SelectCalendar } from "@/app/components/SelectCalendar";
+import { ReservationSubmitButton } from "@/app/components/SubmitButtons";
 import { useCountries } from "@/app/lib/getCountries";
+import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import prisma from "@/lib/prisma";
+import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import Image from "next/image";
+import Link from "next/link";
+import { redirect } from "next/navigation";
 
 async function getData(homeId: string) {
   const data = await prisma.home.findUnique({
@@ -21,6 +27,11 @@ async function getData(homeId: string) {
       categoryName: true,
       price: true,
       country: true,
+      Reservation: {
+        where: {
+          homeId: homeId,
+        },
+      },
       User: {
         select: {
           profileImage: true,
@@ -41,7 +52,8 @@ export default async function OfferRoute({
 
   const { getCountryByValue } = useCountries();
   const country = getCountryByValue(data.country);
-
+  const { getUser } = getKindeServerSession();
+  const user = await getUser();
   return (
     <div className="w-[75%] mx-auto mt-10 mb-20">
       <h1 className="font-medium text-2xl mb-5">{data.title}</h1>
@@ -85,7 +97,20 @@ export default async function OfferRoute({
           <Separator className="my-7" />
           <OfferMap locationValue={country?.value as string} />
         </div>
-        <SelectCalendar />
+        <form action={createReservation}>
+          <input type="hidden" name="userId" value={user?.id} />
+          <input type="hidden" name="homeId" value={params.id} />
+          {/* TODO: position calendar at the bottom on mobile */}
+          <SelectCalendar reservation={data.Reservation} />
+          {user?.id ? (
+            <ReservationSubmitButton />
+          ) : (
+            <Button className="w-full" asChild>
+              {/* TODO: redirect to the same page after login */}
+              <Link href="/api/auth/login">Make a reservation</Link>
+            </Button>
+          )}
+        </form>
       </div>
     </div>
   );

@@ -13,25 +13,23 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { unstable_noStore as noStore } from "next/cache";
 
-async function getData(homeId: string) {
+async function getData(vehicleId: string) {
   noStore();
-  const data = await prisma.home.findUnique({
+  const data = await prisma.vehicle.findUnique({
     where: {
-      id: homeId,
+      id: vehicleId,
     },
     select: {
       photo: true,
       description: true,
       guests: true,
-      bedrooms: true,
-      bathrooms: true,
       title: true,
       categoryName: true,
       price: true,
       country: true,
       Reservation: {
         where: {
-          homeId: homeId,
+          vehicleId: vehicleId,
         },
       },
       User: {
@@ -76,8 +74,7 @@ export default async function OfferRoute({
             {country?.flag} {country?.label} / {country?.region}
           </h3>
           <div className="flex gap-x-2 text-muted-foreground">
-            <p>{data.guests} Guests</p> * <p>{data.bedrooms} Bedrooms</p> *{" "}
-            <p>{data.bathrooms} Bathrooms</p>
+            <p>{data.guests} Guests</p>
           </div>
           <div className="flex items-center mt-6">
             <img
@@ -104,7 +101,7 @@ export default async function OfferRoute({
         </div>
         <form action={createReservation}>
           <input type="hidden" name="userId" value={user?.id} />
-          <input type="hidden" name="homeId" value={id} />
+          <input type="hidden" name="vehicleId" value={id} />
           {/* TODO: position calendar at the bottom on mobile */}
           <SelectCalendar reservation={data.Reservation} />
           {user?.id ? (

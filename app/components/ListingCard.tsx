@@ -15,7 +15,7 @@ type ListingCardProps = {
   userId: string | undefined;
   isInFavorites: boolean;
   favoriteId: string;
-  homeId: string;
+  vehicleId: string;
   pathName: string;
 };
 
@@ -27,7 +27,7 @@ export function ListingCard({
   userId,
   isInFavorites,
   favoriteId,
-  homeId,
+  vehicleId,
   pathName,
 }: ListingCardProps) {
   const { getCountryByValue } = useCountries();
@@ -54,7 +54,7 @@ export function ListingCard({
               </form>
             ) : (
               <form action={addToFavorite}>
-                <input type="hidden" name="homeId" value={homeId} />
+                <input type="hidden" name="vehicle" value={vehicleId} />
                 <input type="hidden" name="userId" value={userId} />
                 <input type="hidden" name="pathName" value={pathName} />
                 <AddToFavoriteButton />
@@ -63,7 +63,7 @@ export function ListingCard({
           </div>
         )}
       </div>
-      <Link href={`/offer/${homeId}`} className="mt-2">
+      <Link href={`/offer/${vehicleId}`} className="mt-2">
         <h3 className="font-medium text-base">
           {country?.flag} {country?.label} / {country?.region}
         </h3>

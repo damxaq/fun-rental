@@ -38,7 +38,7 @@ export default function AddressRoute({
         </h2>
       </div>
       <form action={createLocation}>
-        <input type="hidden" name="homeId" value={id ? id : ""} />
+        <input type="hidden" name="vehicleId" value={id ? id : ""} />
         <input
           type="hidden"
           name="countryValue"

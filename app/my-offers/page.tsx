@@ -7,7 +7,7 @@ import { unstable_noStore as noStore } from "next/cache";
 
 async function getData(userId: string) {
   noStore();
-  const data = await prisma.home.findMany({
+  const data = await prisma.vehicle.findMany({
     where: {
       userId: userId,
       addedCategory: true,
@@ -54,7 +54,7 @@ export default async function MyOffers() {
             <ListingCard
               key={item.id}
               imagePath={item.photo as string}
-              homeId={item.id}
+              vehicleId={item.id}
               price={item.price as number}
               description={item.description as string}
               location={item.country as string}

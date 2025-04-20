@@ -12,7 +12,7 @@ async function getData(userId: string) {
       userId: userId,
     },
     select: {
-      Home: {
+      Vehicle: {
         select: {
           photo: true,
           id: true,
@@ -46,16 +46,16 @@ export default async function FavoriteRoute() {
         <div className="grid lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-3 grid-cols-1 gap-8 mt-8">
           {data.map((item: any) => (
             <ListingCard
-              key={item.Home?.id}
-              description={item.Home?.description as string}
-              location={item.Home?.country as string}
+              key={item.Vehicle?.id}
+              description={item.Vehicle?.description as string}
+              location={item.Vehicle?.country as string}
               pathName="/favorites"
-              homeId={item.Home?.id as string}
-              imagePath={item.Home?.photo as string}
-              price={item.Home?.price as number}
+              vehicleId={item.Vehicle?.id as string}
+              imagePath={item.Vehicle?.photo as string}
+              price={item.Vehicle?.price as number}
               userId={user.id}
-              favoriteId={item.Home?.Favorite[0].id as string}
-              isInFavorites={item.Home?.Favorite.length > 0}
+              favoriteId={item.Vehicle?.Favorite[0].id as string}
+              isInFavorites={item.Vehicle?.Favorite.length > 0}
             />
           ))}
         </div>

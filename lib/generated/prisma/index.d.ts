@@ -19,10 +19,10 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
  */
 export type User = $Result.DefaultSelection<Prisma.$UserPayload>
 /**
- * Model Home
+ * Model Vehicle
  * 
  */
-export type Home = $Result.DefaultSelection<Prisma.$HomePayload>
+export type Vehicle = $Result.DefaultSelection<Prisma.$VehiclePayload>
 /**
  * Model Favorite
  * 
@@ -170,14 +170,14 @@ export class PrismaClient<
   get user(): Prisma.UserDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.home`: Exposes CRUD operations for the **Home** model.
+   * `prisma.vehicle`: Exposes CRUD operations for the **Vehicle** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more Homes
-    * const homes = await prisma.home.findMany()
+    * // Fetch zero or more Vehicles
+    * const vehicles = await prisma.vehicle.findMany()
     * ```
     */
-  get home(): Prisma.HomeDelegate<ExtArgs, ClientOptions>;
+  get vehicle(): Prisma.VehicleDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.favorite`: Exposes CRUD operations for the **Favorite** model.
@@ -639,7 +639,7 @@ export namespace Prisma {
 
   export const ModelName: {
     User: 'User',
-    Home: 'Home',
+    Vehicle: 'Vehicle',
     Favorite: 'Favorite',
     Reservation: 'Reservation'
   };
@@ -660,7 +660,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "home" | "favorite" | "reservation"
+      modelProps: "user" | "vehicle" | "favorite" | "reservation"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -738,77 +738,77 @@ export namespace Prisma {
           }
         }
       }
-      Home: {
-        payload: Prisma.$HomePayload<ExtArgs>
-        fields: Prisma.HomeFieldRefs
+      Vehicle: {
+        payload: Prisma.$VehiclePayload<ExtArgs>
+        fields: Prisma.VehicleFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.HomeFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$HomePayload> | null
+            args: Prisma.VehicleFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VehiclePayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.HomeFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$HomePayload>
+            args: Prisma.VehicleFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VehiclePayload>
           }
           findFirst: {
-            args: Prisma.HomeFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$HomePayload> | null
+            args: Prisma.VehicleFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VehiclePayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.HomeFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$HomePayload>
+            args: Prisma.VehicleFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VehiclePayload>
           }
           findMany: {
-            args: Prisma.HomeFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$HomePayload>[]
+            args: Prisma.VehicleFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VehiclePayload>[]
           }
           create: {
-            args: Prisma.HomeCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$HomePayload>
+            args: Prisma.VehicleCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VehiclePayload>
           }
           createMany: {
-            args: Prisma.HomeCreateManyArgs<ExtArgs>
+            args: Prisma.VehicleCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.HomeCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$HomePayload>[]
+            args: Prisma.VehicleCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VehiclePayload>[]
           }
           delete: {
-            args: Prisma.HomeDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$HomePayload>
+            args: Prisma.VehicleDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VehiclePayload>
           }
           update: {
-            args: Prisma.HomeUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$HomePayload>
+            args: Prisma.VehicleUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VehiclePayload>
           }
           deleteMany: {
-            args: Prisma.HomeDeleteManyArgs<ExtArgs>
+            args: Prisma.VehicleDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.HomeUpdateManyArgs<ExtArgs>
+            args: Prisma.VehicleUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.HomeUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$HomePayload>[]
+            args: Prisma.VehicleUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VehiclePayload>[]
           }
           upsert: {
-            args: Prisma.HomeUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$HomePayload>
+            args: Prisma.VehicleUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VehiclePayload>
           }
           aggregate: {
-            args: Prisma.HomeAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateHome>
+            args: Prisma.VehicleAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateVehicle>
           }
           groupBy: {
-            args: Prisma.HomeGroupByArgs<ExtArgs>
-            result: $Utils.Optional<HomeGroupByOutputType>[]
+            args: Prisma.VehicleGroupByArgs<ExtArgs>
+            result: $Utils.Optional<VehicleGroupByOutputType>[]
           }
           count: {
-            args: Prisma.HomeCountArgs<ExtArgs>
-            result: $Utils.Optional<HomeCountAggregateOutputType> | number
+            args: Prisma.VehicleCountArgs<ExtArgs>
+            result: $Utils.Optional<VehicleCountAggregateOutputType> | number
           }
         }
       }
@@ -1045,7 +1045,7 @@ export namespace Prisma {
   }
   export type GlobalOmitConfig = {
     user?: UserOmit
-    home?: HomeOmit
+    vehicle?: VehicleOmit
     favorite?: FavoriteOmit
     reservation?: ReservationOmit
   }
@@ -1142,13 +1142,13 @@ export namespace Prisma {
    */
 
   export type UserCountOutputType = {
-    Home: number
+    Vehicle: number
     Favorite: number
     Reservation: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    Home?: boolean | UserCountOutputTypeCountHomeArgs
+    Vehicle?: boolean | UserCountOutputTypeCountVehicleArgs
     Favorite?: boolean | UserCountOutputTypeCountFavoriteArgs
     Reservation?: boolean | UserCountOutputTypeCountReservationArgs
   }
@@ -1167,8 +1167,8 @@ export namespace Prisma {
   /**
    * UserCountOutputType without action
    */
-  export type UserCountOutputTypeCountHomeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: HomeWhereInput
+  export type UserCountOutputTypeCountVehicleArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: VehicleWhereInput
   }
 
   /**
@@ -1187,41 +1187,41 @@ export namespace Prisma {
 
 
   /**
-   * Count Type HomeCountOutputType
+   * Count Type VehicleCountOutputType
    */
 
-  export type HomeCountOutputType = {
+  export type VehicleCountOutputType = {
     Favorite: number
     Reservation: number
   }
 
-  export type HomeCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    Favorite?: boolean | HomeCountOutputTypeCountFavoriteArgs
-    Reservation?: boolean | HomeCountOutputTypeCountReservationArgs
+  export type VehicleCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Favorite?: boolean | VehicleCountOutputTypeCountFavoriteArgs
+    Reservation?: boolean | VehicleCountOutputTypeCountReservationArgs
   }
 
   // Custom InputTypes
   /**
-   * HomeCountOutputType without action
+   * VehicleCountOutputType without action
    */
-  export type HomeCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type VehicleCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the HomeCountOutputType
+     * Select specific fields to fetch from the VehicleCountOutputType
      */
-    select?: HomeCountOutputTypeSelect<ExtArgs> | null
+    select?: VehicleCountOutputTypeSelect<ExtArgs> | null
   }
 
   /**
-   * HomeCountOutputType without action
+   * VehicleCountOutputType without action
    */
-  export type HomeCountOutputTypeCountFavoriteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type VehicleCountOutputTypeCountFavoriteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: FavoriteWhereInput
   }
 
   /**
-   * HomeCountOutputType without action
+   * VehicleCountOutputType without action
    */
-  export type HomeCountOutputTypeCountReservationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type VehicleCountOutputTypeCountReservationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: ReservationWhereInput
   }
 
@@ -1394,7 +1394,7 @@ export namespace Prisma {
     firstName?: boolean
     lastName?: boolean
     profileImage?: boolean
-    Home?: boolean | User$HomeArgs<ExtArgs>
+    Vehicle?: boolean | User$VehicleArgs<ExtArgs>
     Favorite?: boolean | User$FavoriteArgs<ExtArgs>
     Reservation?: boolean | User$ReservationArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
@@ -1426,7 +1426,7 @@ export namespace Prisma {
 
   export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "firstName" | "lastName" | "profileImage", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    Home?: boolean | User$HomeArgs<ExtArgs>
+    Vehicle?: boolean | User$VehicleArgs<ExtArgs>
     Favorite?: boolean | User$FavoriteArgs<ExtArgs>
     Reservation?: boolean | User$ReservationArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
@@ -1437,7 +1437,7 @@ export namespace Prisma {
   export type $UserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "User"
     objects: {
-      Home: Prisma.$HomePayload<ExtArgs>[]
+      Vehicle: Prisma.$VehiclePayload<ExtArgs>[]
       Favorite: Prisma.$FavoritePayload<ExtArgs>[]
       Reservation: Prisma.$ReservationPayload<ExtArgs>[]
     }
@@ -1841,7 +1841,7 @@ export namespace Prisma {
    */
   export interface Prisma__UserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    Home<T extends User$HomeArgs<ExtArgs> = {}>(args?: Subset<T, User$HomeArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$HomePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    Vehicle<T extends User$VehicleArgs<ExtArgs> = {}>(args?: Subset<T, User$VehicleArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$VehiclePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     Favorite<T extends User$FavoriteArgs<ExtArgs> = {}>(args?: Subset<T, User$FavoriteArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FavoritePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     Reservation<T extends User$ReservationArgs<ExtArgs> = {}>(args?: Subset<T, User$ReservationArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ReservationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
@@ -2266,27 +2266,27 @@ export namespace Prisma {
   }
 
   /**
-   * User.Home
+   * User.Vehicle
    */
-  export type User$HomeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type User$VehicleArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Home
+     * Select specific fields to fetch from the Vehicle
      */
-    select?: HomeSelect<ExtArgs> | null
+    select?: VehicleSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Home
+     * Omit specific fields from the Vehicle
      */
-    omit?: HomeOmit<ExtArgs> | null
+    omit?: VehicleOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: HomeInclude<ExtArgs> | null
-    where?: HomeWhereInput
-    orderBy?: HomeOrderByWithRelationInput | HomeOrderByWithRelationInput[]
-    cursor?: HomeWhereUniqueInput
+    include?: VehicleInclude<ExtArgs> | null
+    where?: VehicleWhereInput
+    orderBy?: VehicleOrderByWithRelationInput | VehicleOrderByWithRelationInput[]
+    cursor?: VehicleWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: HomeScalarFieldEnum | HomeScalarFieldEnum[]
+    distinct?: VehicleScalarFieldEnum | VehicleScalarFieldEnum[]
   }
 
   /**
@@ -2357,32 +2357,30 @@ export namespace Prisma {
 
 
   /**
-   * Model Home
+   * Model Vehicle
    */
 
-  export type AggregateHome = {
-    _count: HomeCountAggregateOutputType | null
-    _avg: HomeAvgAggregateOutputType | null
-    _sum: HomeSumAggregateOutputType | null
-    _min: HomeMinAggregateOutputType | null
-    _max: HomeMaxAggregateOutputType | null
+  export type AggregateVehicle = {
+    _count: VehicleCountAggregateOutputType | null
+    _avg: VehicleAvgAggregateOutputType | null
+    _sum: VehicleSumAggregateOutputType | null
+    _min: VehicleMinAggregateOutputType | null
+    _max: VehicleMaxAggregateOutputType | null
   }
 
-  export type HomeAvgAggregateOutputType = {
+  export type VehicleAvgAggregateOutputType = {
     price: number | null
   }
 
-  export type HomeSumAggregateOutputType = {
+  export type VehicleSumAggregateOutputType = {
     price: number | null
   }
 
-  export type HomeMinAggregateOutputType = {
+  export type VehicleMinAggregateOutputType = {
     id: string | null
     title: string | null
     description: string | null
     guests: string | null
-    bedrooms: string | null
-    bathrooms: string | null
     country: string | null
     photo: string | null
     price: number | null
@@ -2394,13 +2392,11 @@ export namespace Prisma {
     userId: string | null
   }
 
-  export type HomeMaxAggregateOutputType = {
+  export type VehicleMaxAggregateOutputType = {
     id: string | null
     title: string | null
     description: string | null
     guests: string | null
-    bedrooms: string | null
-    bathrooms: string | null
     country: string | null
     photo: string | null
     price: number | null
@@ -2412,13 +2408,11 @@ export namespace Prisma {
     userId: string | null
   }
 
-  export type HomeCountAggregateOutputType = {
+  export type VehicleCountAggregateOutputType = {
     id: number
     title: number
     description: number
     guests: number
-    bedrooms: number
-    bathrooms: number
     country: number
     photo: number
     price: number
@@ -2432,21 +2426,19 @@ export namespace Prisma {
   }
 
 
-  export type HomeAvgAggregateInputType = {
+  export type VehicleAvgAggregateInputType = {
     price?: true
   }
 
-  export type HomeSumAggregateInputType = {
+  export type VehicleSumAggregateInputType = {
     price?: true
   }
 
-  export type HomeMinAggregateInputType = {
+  export type VehicleMinAggregateInputType = {
     id?: true
     title?: true
     description?: true
     guests?: true
-    bedrooms?: true
-    bathrooms?: true
     country?: true
     photo?: true
     price?: true
@@ -2458,13 +2450,11 @@ export namespace Prisma {
     userId?: true
   }
 
-  export type HomeMaxAggregateInputType = {
+  export type VehicleMaxAggregateInputType = {
     id?: true
     title?: true
     description?: true
     guests?: true
-    bedrooms?: true
-    bathrooms?: true
     country?: true
     photo?: true
     price?: true
@@ -2476,13 +2466,11 @@ export namespace Prisma {
     userId?: true
   }
 
-  export type HomeCountAggregateInputType = {
+  export type VehicleCountAggregateInputType = {
     id?: true
     title?: true
     description?: true
     guests?: true
-    bedrooms?: true
-    bathrooms?: true
     country?: true
     photo?: true
     price?: true
@@ -2495,99 +2483,97 @@ export namespace Prisma {
     _all?: true
   }
 
-  export type HomeAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type VehicleAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Home to aggregate.
+     * Filter which Vehicle to aggregate.
      */
-    where?: HomeWhereInput
+    where?: VehicleWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Homes to fetch.
+     * Determine the order of Vehicles to fetch.
      */
-    orderBy?: HomeOrderByWithRelationInput | HomeOrderByWithRelationInput[]
+    orderBy?: VehicleOrderByWithRelationInput | VehicleOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: HomeWhereUniqueInput
+    cursor?: VehicleWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Homes from the position of the cursor.
+     * Take `±n` Vehicles from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Homes.
+     * Skip the first `n` Vehicles.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned Homes
+     * Count returned Vehicles
     **/
-    _count?: true | HomeCountAggregateInputType
+    _count?: true | VehicleCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: HomeAvgAggregateInputType
+    _avg?: VehicleAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: HomeSumAggregateInputType
+    _sum?: VehicleSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: HomeMinAggregateInputType
+    _min?: VehicleMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: HomeMaxAggregateInputType
+    _max?: VehicleMaxAggregateInputType
   }
 
-  export type GetHomeAggregateType<T extends HomeAggregateArgs> = {
-        [P in keyof T & keyof AggregateHome]: P extends '_count' | 'count'
+  export type GetVehicleAggregateType<T extends VehicleAggregateArgs> = {
+        [P in keyof T & keyof AggregateVehicle]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateHome[P]>
-      : GetScalarType<T[P], AggregateHome[P]>
+        : GetScalarType<T[P], AggregateVehicle[P]>
+      : GetScalarType<T[P], AggregateVehicle[P]>
   }
 
 
 
 
-  export type HomeGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: HomeWhereInput
-    orderBy?: HomeOrderByWithAggregationInput | HomeOrderByWithAggregationInput[]
-    by: HomeScalarFieldEnum[] | HomeScalarFieldEnum
-    having?: HomeScalarWhereWithAggregatesInput
+  export type VehicleGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: VehicleWhereInput
+    orderBy?: VehicleOrderByWithAggregationInput | VehicleOrderByWithAggregationInput[]
+    by: VehicleScalarFieldEnum[] | VehicleScalarFieldEnum
+    having?: VehicleScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: HomeCountAggregateInputType | true
-    _avg?: HomeAvgAggregateInputType
-    _sum?: HomeSumAggregateInputType
-    _min?: HomeMinAggregateInputType
-    _max?: HomeMaxAggregateInputType
+    _count?: VehicleCountAggregateInputType | true
+    _avg?: VehicleAvgAggregateInputType
+    _sum?: VehicleSumAggregateInputType
+    _min?: VehicleMinAggregateInputType
+    _max?: VehicleMaxAggregateInputType
   }
 
-  export type HomeGroupByOutputType = {
+  export type VehicleGroupByOutputType = {
     id: string
     title: string | null
     description: string | null
     guests: string | null
-    bedrooms: string | null
-    bathrooms: string | null
     country: string | null
     photo: string | null
     price: number | null
@@ -2597,34 +2583,32 @@ export namespace Prisma {
     addedLocation: boolean
     createdAt: Date
     userId: string
-    _count: HomeCountAggregateOutputType | null
-    _avg: HomeAvgAggregateOutputType | null
-    _sum: HomeSumAggregateOutputType | null
-    _min: HomeMinAggregateOutputType | null
-    _max: HomeMaxAggregateOutputType | null
+    _count: VehicleCountAggregateOutputType | null
+    _avg: VehicleAvgAggregateOutputType | null
+    _sum: VehicleSumAggregateOutputType | null
+    _min: VehicleMinAggregateOutputType | null
+    _max: VehicleMaxAggregateOutputType | null
   }
 
-  type GetHomeGroupByPayload<T extends HomeGroupByArgs> = Prisma.PrismaPromise<
+  type GetVehicleGroupByPayload<T extends VehicleGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<HomeGroupByOutputType, T['by']> &
+      PickEnumerable<VehicleGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof HomeGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof VehicleGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], HomeGroupByOutputType[P]>
-            : GetScalarType<T[P], HomeGroupByOutputType[P]>
+              : GetScalarType<T[P], VehicleGroupByOutputType[P]>
+            : GetScalarType<T[P], VehicleGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type HomeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type VehicleSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     title?: boolean
     description?: boolean
     guests?: boolean
-    bedrooms?: boolean
-    bathrooms?: boolean
     country?: boolean
     photo?: boolean
     price?: boolean
@@ -2634,19 +2618,17 @@ export namespace Prisma {
     addedLocation?: boolean
     createdAt?: boolean
     userId?: boolean
-    Favorite?: boolean | Home$FavoriteArgs<ExtArgs>
-    Reservation?: boolean | Home$ReservationArgs<ExtArgs>
-    User?: boolean | Home$UserArgs<ExtArgs>
-    _count?: boolean | HomeCountOutputTypeDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["home"]>
+    Favorite?: boolean | Vehicle$FavoriteArgs<ExtArgs>
+    Reservation?: boolean | Vehicle$ReservationArgs<ExtArgs>
+    User?: boolean | Vehicle$UserArgs<ExtArgs>
+    _count?: boolean | VehicleCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["vehicle"]>
 
-  export type HomeSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type VehicleSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     title?: boolean
     description?: boolean
     guests?: boolean
-    bedrooms?: boolean
-    bathrooms?: boolean
     country?: boolean
     photo?: boolean
     price?: boolean
@@ -2656,16 +2638,14 @@ export namespace Prisma {
     addedLocation?: boolean
     createdAt?: boolean
     userId?: boolean
-    User?: boolean | Home$UserArgs<ExtArgs>
-  }, ExtArgs["result"]["home"]>
+    User?: boolean | Vehicle$UserArgs<ExtArgs>
+  }, ExtArgs["result"]["vehicle"]>
 
-  export type HomeSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type VehicleSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     title?: boolean
     description?: boolean
     guests?: boolean
-    bedrooms?: boolean
-    bathrooms?: boolean
     country?: boolean
     photo?: boolean
     price?: boolean
@@ -2675,16 +2655,14 @@ export namespace Prisma {
     addedLocation?: boolean
     createdAt?: boolean
     userId?: boolean
-    User?: boolean | Home$UserArgs<ExtArgs>
-  }, ExtArgs["result"]["home"]>
+    User?: boolean | Vehicle$UserArgs<ExtArgs>
+  }, ExtArgs["result"]["vehicle"]>
 
-  export type HomeSelectScalar = {
+  export type VehicleSelectScalar = {
     id?: boolean
     title?: boolean
     description?: boolean
     guests?: boolean
-    bedrooms?: boolean
-    bathrooms?: boolean
     country?: boolean
     photo?: boolean
     price?: boolean
@@ -2696,22 +2674,22 @@ export namespace Prisma {
     userId?: boolean
   }
 
-  export type HomeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "description" | "guests" | "bedrooms" | "bathrooms" | "country" | "photo" | "price" | "categoryName" | "addedCategory" | "addedDescription" | "addedLocation" | "createdAt" | "userId", ExtArgs["result"]["home"]>
-  export type HomeInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    Favorite?: boolean | Home$FavoriteArgs<ExtArgs>
-    Reservation?: boolean | Home$ReservationArgs<ExtArgs>
-    User?: boolean | Home$UserArgs<ExtArgs>
-    _count?: boolean | HomeCountOutputTypeDefaultArgs<ExtArgs>
+  export type VehicleOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "description" | "guests" | "country" | "photo" | "price" | "categoryName" | "addedCategory" | "addedDescription" | "addedLocation" | "createdAt" | "userId", ExtArgs["result"]["vehicle"]>
+  export type VehicleInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Favorite?: boolean | Vehicle$FavoriteArgs<ExtArgs>
+    Reservation?: boolean | Vehicle$ReservationArgs<ExtArgs>
+    User?: boolean | Vehicle$UserArgs<ExtArgs>
+    _count?: boolean | VehicleCountOutputTypeDefaultArgs<ExtArgs>
   }
-  export type HomeIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    User?: boolean | Home$UserArgs<ExtArgs>
+  export type VehicleIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    User?: boolean | Vehicle$UserArgs<ExtArgs>
   }
-  export type HomeIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    User?: boolean | Home$UserArgs<ExtArgs>
+  export type VehicleIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    User?: boolean | Vehicle$UserArgs<ExtArgs>
   }
 
-  export type $HomePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Home"
+  export type $VehiclePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Vehicle"
     objects: {
       Favorite: Prisma.$FavoritePayload<ExtArgs>[]
       Reservation: Prisma.$ReservationPayload<ExtArgs>[]
@@ -2722,8 +2700,6 @@ export namespace Prisma {
       title: string | null
       description: string | null
       guests: string | null
-      bedrooms: string | null
-      bathrooms: string | null
       country: string | null
       photo: string | null
       price: number | null
@@ -2733,136 +2709,136 @@ export namespace Prisma {
       addedLocation: boolean
       createdAt: Date
       userId: string
-    }, ExtArgs["result"]["home"]>
+    }, ExtArgs["result"]["vehicle"]>
     composites: {}
   }
 
-  type HomeGetPayload<S extends boolean | null | undefined | HomeDefaultArgs> = $Result.GetResult<Prisma.$HomePayload, S>
+  type VehicleGetPayload<S extends boolean | null | undefined | VehicleDefaultArgs> = $Result.GetResult<Prisma.$VehiclePayload, S>
 
-  type HomeCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<HomeFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: HomeCountAggregateInputType | true
+  type VehicleCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<VehicleFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: VehicleCountAggregateInputType | true
     }
 
-  export interface HomeDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Home'], meta: { name: 'Home' } }
+  export interface VehicleDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Vehicle'], meta: { name: 'Vehicle' } }
     /**
-     * Find zero or one Home that matches the filter.
-     * @param {HomeFindUniqueArgs} args - Arguments to find a Home
+     * Find zero or one Vehicle that matches the filter.
+     * @param {VehicleFindUniqueArgs} args - Arguments to find a Vehicle
      * @example
-     * // Get one Home
-     * const home = await prisma.home.findUnique({
+     * // Get one Vehicle
+     * const vehicle = await prisma.vehicle.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends HomeFindUniqueArgs>(args: SelectSubset<T, HomeFindUniqueArgs<ExtArgs>>): Prisma__HomeClient<$Result.GetResult<Prisma.$HomePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends VehicleFindUniqueArgs>(args: SelectSubset<T, VehicleFindUniqueArgs<ExtArgs>>): Prisma__VehicleClient<$Result.GetResult<Prisma.$VehiclePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one Home that matches the filter or throw an error with `error.code='P2025'`
+     * Find one Vehicle that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {HomeFindUniqueOrThrowArgs} args - Arguments to find a Home
+     * @param {VehicleFindUniqueOrThrowArgs} args - Arguments to find a Vehicle
      * @example
-     * // Get one Home
-     * const home = await prisma.home.findUniqueOrThrow({
+     * // Get one Vehicle
+     * const vehicle = await prisma.vehicle.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends HomeFindUniqueOrThrowArgs>(args: SelectSubset<T, HomeFindUniqueOrThrowArgs<ExtArgs>>): Prisma__HomeClient<$Result.GetResult<Prisma.$HomePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends VehicleFindUniqueOrThrowArgs>(args: SelectSubset<T, VehicleFindUniqueOrThrowArgs<ExtArgs>>): Prisma__VehicleClient<$Result.GetResult<Prisma.$VehiclePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Home that matches the filter.
+     * Find the first Vehicle that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {HomeFindFirstArgs} args - Arguments to find a Home
+     * @param {VehicleFindFirstArgs} args - Arguments to find a Vehicle
      * @example
-     * // Get one Home
-     * const home = await prisma.home.findFirst({
+     * // Get one Vehicle
+     * const vehicle = await prisma.vehicle.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends HomeFindFirstArgs>(args?: SelectSubset<T, HomeFindFirstArgs<ExtArgs>>): Prisma__HomeClient<$Result.GetResult<Prisma.$HomePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends VehicleFindFirstArgs>(args?: SelectSubset<T, VehicleFindFirstArgs<ExtArgs>>): Prisma__VehicleClient<$Result.GetResult<Prisma.$VehiclePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Home that matches the filter or
+     * Find the first Vehicle that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {HomeFindFirstOrThrowArgs} args - Arguments to find a Home
+     * @param {VehicleFindFirstOrThrowArgs} args - Arguments to find a Vehicle
      * @example
-     * // Get one Home
-     * const home = await prisma.home.findFirstOrThrow({
+     * // Get one Vehicle
+     * const vehicle = await prisma.vehicle.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends HomeFindFirstOrThrowArgs>(args?: SelectSubset<T, HomeFindFirstOrThrowArgs<ExtArgs>>): Prisma__HomeClient<$Result.GetResult<Prisma.$HomePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends VehicleFindFirstOrThrowArgs>(args?: SelectSubset<T, VehicleFindFirstOrThrowArgs<ExtArgs>>): Prisma__VehicleClient<$Result.GetResult<Prisma.$VehiclePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more Homes that matches the filter.
+     * Find zero or more Vehicles that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {HomeFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {VehicleFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Homes
-     * const homes = await prisma.home.findMany()
+     * // Get all Vehicles
+     * const vehicles = await prisma.vehicle.findMany()
      * 
-     * // Get first 10 Homes
-     * const homes = await prisma.home.findMany({ take: 10 })
+     * // Get first 10 Vehicles
+     * const vehicles = await prisma.vehicle.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const homeWithIdOnly = await prisma.home.findMany({ select: { id: true } })
+     * const vehicleWithIdOnly = await prisma.vehicle.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends HomeFindManyArgs>(args?: SelectSubset<T, HomeFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$HomePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends VehicleFindManyArgs>(args?: SelectSubset<T, VehicleFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$VehiclePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a Home.
-     * @param {HomeCreateArgs} args - Arguments to create a Home.
+     * Create a Vehicle.
+     * @param {VehicleCreateArgs} args - Arguments to create a Vehicle.
      * @example
-     * // Create one Home
-     * const Home = await prisma.home.create({
+     * // Create one Vehicle
+     * const Vehicle = await prisma.vehicle.create({
      *   data: {
-     *     // ... data to create a Home
+     *     // ... data to create a Vehicle
      *   }
      * })
      * 
      */
-    create<T extends HomeCreateArgs>(args: SelectSubset<T, HomeCreateArgs<ExtArgs>>): Prisma__HomeClient<$Result.GetResult<Prisma.$HomePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends VehicleCreateArgs>(args: SelectSubset<T, VehicleCreateArgs<ExtArgs>>): Prisma__VehicleClient<$Result.GetResult<Prisma.$VehiclePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many Homes.
-     * @param {HomeCreateManyArgs} args - Arguments to create many Homes.
+     * Create many Vehicles.
+     * @param {VehicleCreateManyArgs} args - Arguments to create many Vehicles.
      * @example
-     * // Create many Homes
-     * const home = await prisma.home.createMany({
+     * // Create many Vehicles
+     * const vehicle = await prisma.vehicle.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends HomeCreateManyArgs>(args?: SelectSubset<T, HomeCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends VehicleCreateManyArgs>(args?: SelectSubset<T, VehicleCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many Homes and returns the data saved in the database.
-     * @param {HomeCreateManyAndReturnArgs} args - Arguments to create many Homes.
+     * Create many Vehicles and returns the data saved in the database.
+     * @param {VehicleCreateManyAndReturnArgs} args - Arguments to create many Vehicles.
      * @example
-     * // Create many Homes
-     * const home = await prisma.home.createManyAndReturn({
+     * // Create many Vehicles
+     * const vehicle = await prisma.vehicle.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many Homes and only return the `id`
-     * const homeWithIdOnly = await prisma.home.createManyAndReturn({
+     * // Create many Vehicles and only return the `id`
+     * const vehicleWithIdOnly = await prisma.vehicle.createManyAndReturn({
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -2872,28 +2848,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends HomeCreateManyAndReturnArgs>(args?: SelectSubset<T, HomeCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$HomePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends VehicleCreateManyAndReturnArgs>(args?: SelectSubset<T, VehicleCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$VehiclePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Delete a Home.
-     * @param {HomeDeleteArgs} args - Arguments to delete one Home.
+     * Delete a Vehicle.
+     * @param {VehicleDeleteArgs} args - Arguments to delete one Vehicle.
      * @example
-     * // Delete one Home
-     * const Home = await prisma.home.delete({
+     * // Delete one Vehicle
+     * const Vehicle = await prisma.vehicle.delete({
      *   where: {
-     *     // ... filter to delete one Home
+     *     // ... filter to delete one Vehicle
      *   }
      * })
      * 
      */
-    delete<T extends HomeDeleteArgs>(args: SelectSubset<T, HomeDeleteArgs<ExtArgs>>): Prisma__HomeClient<$Result.GetResult<Prisma.$HomePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends VehicleDeleteArgs>(args: SelectSubset<T, VehicleDeleteArgs<ExtArgs>>): Prisma__VehicleClient<$Result.GetResult<Prisma.$VehiclePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one Home.
-     * @param {HomeUpdateArgs} args - Arguments to update one Home.
+     * Update one Vehicle.
+     * @param {VehicleUpdateArgs} args - Arguments to update one Vehicle.
      * @example
-     * // Update one Home
-     * const home = await prisma.home.update({
+     * // Update one Vehicle
+     * const vehicle = await prisma.vehicle.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -2903,30 +2879,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends HomeUpdateArgs>(args: SelectSubset<T, HomeUpdateArgs<ExtArgs>>): Prisma__HomeClient<$Result.GetResult<Prisma.$HomePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends VehicleUpdateArgs>(args: SelectSubset<T, VehicleUpdateArgs<ExtArgs>>): Prisma__VehicleClient<$Result.GetResult<Prisma.$VehiclePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more Homes.
-     * @param {HomeDeleteManyArgs} args - Arguments to filter Homes to delete.
+     * Delete zero or more Vehicles.
+     * @param {VehicleDeleteManyArgs} args - Arguments to filter Vehicles to delete.
      * @example
-     * // Delete a few Homes
-     * const { count } = await prisma.home.deleteMany({
+     * // Delete a few Vehicles
+     * const { count } = await prisma.vehicle.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends HomeDeleteManyArgs>(args?: SelectSubset<T, HomeDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends VehicleDeleteManyArgs>(args?: SelectSubset<T, VehicleDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Homes.
+     * Update zero or more Vehicles.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {HomeUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {VehicleUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Homes
-     * const home = await prisma.home.updateMany({
+     * // Update many Vehicles
+     * const vehicle = await prisma.vehicle.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -2936,14 +2912,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends HomeUpdateManyArgs>(args: SelectSubset<T, HomeUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends VehicleUpdateManyArgs>(args: SelectSubset<T, VehicleUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Homes and returns the data updated in the database.
-     * @param {HomeUpdateManyAndReturnArgs} args - Arguments to update many Homes.
+     * Update zero or more Vehicles and returns the data updated in the database.
+     * @param {VehicleUpdateManyAndReturnArgs} args - Arguments to update many Vehicles.
      * @example
-     * // Update many Homes
-     * const home = await prisma.home.updateManyAndReturn({
+     * // Update many Vehicles
+     * const vehicle = await prisma.vehicle.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -2952,8 +2928,8 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more Homes and only return the `id`
-     * const homeWithIdOnly = await prisma.home.updateManyAndReturn({
+     * // Update zero or more Vehicles and only return the `id`
+     * const vehicleWithIdOnly = await prisma.vehicle.updateManyAndReturn({
      *   select: { id: true },
      *   where: {
      *     // ... provide filter here
@@ -2966,56 +2942,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends HomeUpdateManyAndReturnArgs>(args: SelectSubset<T, HomeUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$HomePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends VehicleUpdateManyAndReturnArgs>(args: SelectSubset<T, VehicleUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$VehiclePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Create or update one Home.
-     * @param {HomeUpsertArgs} args - Arguments to update or create a Home.
+     * Create or update one Vehicle.
+     * @param {VehicleUpsertArgs} args - Arguments to update or create a Vehicle.
      * @example
-     * // Update or create a Home
-     * const home = await prisma.home.upsert({
+     * // Update or create a Vehicle
+     * const vehicle = await prisma.vehicle.upsert({
      *   create: {
-     *     // ... data to create a Home
+     *     // ... data to create a Vehicle
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the Home we want to update
+     *     // ... the filter for the Vehicle we want to update
      *   }
      * })
      */
-    upsert<T extends HomeUpsertArgs>(args: SelectSubset<T, HomeUpsertArgs<ExtArgs>>): Prisma__HomeClient<$Result.GetResult<Prisma.$HomePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends VehicleUpsertArgs>(args: SelectSubset<T, VehicleUpsertArgs<ExtArgs>>): Prisma__VehicleClient<$Result.GetResult<Prisma.$VehiclePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of Homes.
+     * Count the number of Vehicles.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {HomeCountArgs} args - Arguments to filter Homes to count.
+     * @param {VehicleCountArgs} args - Arguments to filter Vehicles to count.
      * @example
-     * // Count the number of Homes
-     * const count = await prisma.home.count({
+     * // Count the number of Vehicles
+     * const count = await prisma.vehicle.count({
      *   where: {
-     *     // ... the filter for the Homes we want to count
+     *     // ... the filter for the Vehicles we want to count
      *   }
      * })
     **/
-    count<T extends HomeCountArgs>(
-      args?: Subset<T, HomeCountArgs>,
+    count<T extends VehicleCountArgs>(
+      args?: Subset<T, VehicleCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], HomeCountAggregateOutputType>
+          : GetScalarType<T['select'], VehicleCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a Home.
+     * Allows you to perform aggregations operations on a Vehicle.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {HomeAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {VehicleAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -3035,13 +3011,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends HomeAggregateArgs>(args: Subset<T, HomeAggregateArgs>): Prisma.PrismaPromise<GetHomeAggregateType<T>>
+    aggregate<T extends VehicleAggregateArgs>(args: Subset<T, VehicleAggregateArgs>): Prisma.PrismaPromise<GetVehicleAggregateType<T>>
 
     /**
-     * Group by Home.
+     * Group by Vehicle.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {HomeGroupByArgs} args - Group by arguments.
+     * @param {VehicleGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -3056,14 +3032,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends HomeGroupByArgs,
+      T extends VehicleGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: HomeGroupByArgs['orderBy'] }
-        : { orderBy?: HomeGroupByArgs['orderBy'] },
+        ? { orderBy: VehicleGroupByArgs['orderBy'] }
+        : { orderBy?: VehicleGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -3112,24 +3088,24 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, HomeGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetHomeGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, VehicleGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetVehicleGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the Home model
+   * Fields of the Vehicle model
    */
-  readonly fields: HomeFieldRefs;
+  readonly fields: VehicleFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for Home.
+   * The delegate class that acts as a "Promise-like" for Vehicle.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__HomeClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__VehicleClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    Favorite<T extends Home$FavoriteArgs<ExtArgs> = {}>(args?: Subset<T, Home$FavoriteArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FavoritePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    Reservation<T extends Home$ReservationArgs<ExtArgs> = {}>(args?: Subset<T, Home$ReservationArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ReservationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    User<T extends Home$UserArgs<ExtArgs> = {}>(args?: Subset<T, Home$UserArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    Favorite<T extends Vehicle$FavoriteArgs<ExtArgs> = {}>(args?: Subset<T, Vehicle$FavoriteArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FavoritePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    Reservation<T extends Vehicle$ReservationArgs<ExtArgs> = {}>(args?: Subset<T, Vehicle$ReservationArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ReservationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    User<T extends Vehicle$UserArgs<ExtArgs> = {}>(args?: Subset<T, Vehicle$UserArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3156,423 +3132,421 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the Home model
+   * Fields of the Vehicle model
    */
-  interface HomeFieldRefs {
-    readonly id: FieldRef<"Home", 'String'>
-    readonly title: FieldRef<"Home", 'String'>
-    readonly description: FieldRef<"Home", 'String'>
-    readonly guests: FieldRef<"Home", 'String'>
-    readonly bedrooms: FieldRef<"Home", 'String'>
-    readonly bathrooms: FieldRef<"Home", 'String'>
-    readonly country: FieldRef<"Home", 'String'>
-    readonly photo: FieldRef<"Home", 'String'>
-    readonly price: FieldRef<"Home", 'Int'>
-    readonly categoryName: FieldRef<"Home", 'String'>
-    readonly addedCategory: FieldRef<"Home", 'Boolean'>
-    readonly addedDescription: FieldRef<"Home", 'Boolean'>
-    readonly addedLocation: FieldRef<"Home", 'Boolean'>
-    readonly createdAt: FieldRef<"Home", 'DateTime'>
-    readonly userId: FieldRef<"Home", 'String'>
+  interface VehicleFieldRefs {
+    readonly id: FieldRef<"Vehicle", 'String'>
+    readonly title: FieldRef<"Vehicle", 'String'>
+    readonly description: FieldRef<"Vehicle", 'String'>
+    readonly guests: FieldRef<"Vehicle", 'String'>
+    readonly country: FieldRef<"Vehicle", 'String'>
+    readonly photo: FieldRef<"Vehicle", 'String'>
+    readonly price: FieldRef<"Vehicle", 'Int'>
+    readonly categoryName: FieldRef<"Vehicle", 'String'>
+    readonly addedCategory: FieldRef<"Vehicle", 'Boolean'>
+    readonly addedDescription: FieldRef<"Vehicle", 'Boolean'>
+    readonly addedLocation: FieldRef<"Vehicle", 'Boolean'>
+    readonly createdAt: FieldRef<"Vehicle", 'DateTime'>
+    readonly userId: FieldRef<"Vehicle", 'String'>
   }
     
 
   // Custom InputTypes
   /**
-   * Home findUnique
+   * Vehicle findUnique
    */
-  export type HomeFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type VehicleFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Home
+     * Select specific fields to fetch from the Vehicle
      */
-    select?: HomeSelect<ExtArgs> | null
+    select?: VehicleSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Home
+     * Omit specific fields from the Vehicle
      */
-    omit?: HomeOmit<ExtArgs> | null
+    omit?: VehicleOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: HomeInclude<ExtArgs> | null
+    include?: VehicleInclude<ExtArgs> | null
     /**
-     * Filter, which Home to fetch.
+     * Filter, which Vehicle to fetch.
      */
-    where: HomeWhereUniqueInput
+    where: VehicleWhereUniqueInput
   }
 
   /**
-   * Home findUniqueOrThrow
+   * Vehicle findUniqueOrThrow
    */
-  export type HomeFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type VehicleFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Home
+     * Select specific fields to fetch from the Vehicle
      */
-    select?: HomeSelect<ExtArgs> | null
+    select?: VehicleSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Home
+     * Omit specific fields from the Vehicle
      */
-    omit?: HomeOmit<ExtArgs> | null
+    omit?: VehicleOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: HomeInclude<ExtArgs> | null
+    include?: VehicleInclude<ExtArgs> | null
     /**
-     * Filter, which Home to fetch.
+     * Filter, which Vehicle to fetch.
      */
-    where: HomeWhereUniqueInput
+    where: VehicleWhereUniqueInput
   }
 
   /**
-   * Home findFirst
+   * Vehicle findFirst
    */
-  export type HomeFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type VehicleFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Home
+     * Select specific fields to fetch from the Vehicle
      */
-    select?: HomeSelect<ExtArgs> | null
+    select?: VehicleSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Home
+     * Omit specific fields from the Vehicle
      */
-    omit?: HomeOmit<ExtArgs> | null
+    omit?: VehicleOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: HomeInclude<ExtArgs> | null
+    include?: VehicleInclude<ExtArgs> | null
     /**
-     * Filter, which Home to fetch.
+     * Filter, which Vehicle to fetch.
      */
-    where?: HomeWhereInput
+    where?: VehicleWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Homes to fetch.
+     * Determine the order of Vehicles to fetch.
      */
-    orderBy?: HomeOrderByWithRelationInput | HomeOrderByWithRelationInput[]
+    orderBy?: VehicleOrderByWithRelationInput | VehicleOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Homes.
+     * Sets the position for searching for Vehicles.
      */
-    cursor?: HomeWhereUniqueInput
+    cursor?: VehicleWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Homes from the position of the cursor.
+     * Take `±n` Vehicles from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Homes.
+     * Skip the first `n` Vehicles.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Homes.
+     * Filter by unique combinations of Vehicles.
      */
-    distinct?: HomeScalarFieldEnum | HomeScalarFieldEnum[]
+    distinct?: VehicleScalarFieldEnum | VehicleScalarFieldEnum[]
   }
 
   /**
-   * Home findFirstOrThrow
+   * Vehicle findFirstOrThrow
    */
-  export type HomeFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type VehicleFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Home
+     * Select specific fields to fetch from the Vehicle
      */
-    select?: HomeSelect<ExtArgs> | null
+    select?: VehicleSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Home
+     * Omit specific fields from the Vehicle
      */
-    omit?: HomeOmit<ExtArgs> | null
+    omit?: VehicleOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: HomeInclude<ExtArgs> | null
+    include?: VehicleInclude<ExtArgs> | null
     /**
-     * Filter, which Home to fetch.
+     * Filter, which Vehicle to fetch.
      */
-    where?: HomeWhereInput
+    where?: VehicleWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Homes to fetch.
+     * Determine the order of Vehicles to fetch.
      */
-    orderBy?: HomeOrderByWithRelationInput | HomeOrderByWithRelationInput[]
+    orderBy?: VehicleOrderByWithRelationInput | VehicleOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Homes.
+     * Sets the position for searching for Vehicles.
      */
-    cursor?: HomeWhereUniqueInput
+    cursor?: VehicleWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Homes from the position of the cursor.
+     * Take `±n` Vehicles from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Homes.
+     * Skip the first `n` Vehicles.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Homes.
+     * Filter by unique combinations of Vehicles.
      */
-    distinct?: HomeScalarFieldEnum | HomeScalarFieldEnum[]
+    distinct?: VehicleScalarFieldEnum | VehicleScalarFieldEnum[]
   }
 
   /**
-   * Home findMany
+   * Vehicle findMany
    */
-  export type HomeFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type VehicleFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Home
+     * Select specific fields to fetch from the Vehicle
      */
-    select?: HomeSelect<ExtArgs> | null
+    select?: VehicleSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Home
+     * Omit specific fields from the Vehicle
      */
-    omit?: HomeOmit<ExtArgs> | null
+    omit?: VehicleOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: HomeInclude<ExtArgs> | null
+    include?: VehicleInclude<ExtArgs> | null
     /**
-     * Filter, which Homes to fetch.
+     * Filter, which Vehicles to fetch.
      */
-    where?: HomeWhereInput
+    where?: VehicleWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Homes to fetch.
+     * Determine the order of Vehicles to fetch.
      */
-    orderBy?: HomeOrderByWithRelationInput | HomeOrderByWithRelationInput[]
+    orderBy?: VehicleOrderByWithRelationInput | VehicleOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing Homes.
+     * Sets the position for listing Vehicles.
      */
-    cursor?: HomeWhereUniqueInput
+    cursor?: VehicleWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Homes from the position of the cursor.
+     * Take `±n` Vehicles from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Homes.
+     * Skip the first `n` Vehicles.
      */
     skip?: number
-    distinct?: HomeScalarFieldEnum | HomeScalarFieldEnum[]
+    distinct?: VehicleScalarFieldEnum | VehicleScalarFieldEnum[]
   }
 
   /**
-   * Home create
+   * Vehicle create
    */
-  export type HomeCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type VehicleCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Home
+     * Select specific fields to fetch from the Vehicle
      */
-    select?: HomeSelect<ExtArgs> | null
+    select?: VehicleSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Home
+     * Omit specific fields from the Vehicle
      */
-    omit?: HomeOmit<ExtArgs> | null
+    omit?: VehicleOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: HomeInclude<ExtArgs> | null
+    include?: VehicleInclude<ExtArgs> | null
     /**
-     * The data needed to create a Home.
+     * The data needed to create a Vehicle.
      */
-    data: XOR<HomeCreateInput, HomeUncheckedCreateInput>
+    data: XOR<VehicleCreateInput, VehicleUncheckedCreateInput>
   }
 
   /**
-   * Home createMany
+   * Vehicle createMany
    */
-  export type HomeCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type VehicleCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many Homes.
+     * The data used to create many Vehicles.
      */
-    data: HomeCreateManyInput | HomeCreateManyInput[]
+    data: VehicleCreateManyInput | VehicleCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * Home createManyAndReturn
+   * Vehicle createManyAndReturn
    */
-  export type HomeCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type VehicleCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Home
+     * Select specific fields to fetch from the Vehicle
      */
-    select?: HomeSelectCreateManyAndReturn<ExtArgs> | null
+    select?: VehicleSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Home
+     * Omit specific fields from the Vehicle
      */
-    omit?: HomeOmit<ExtArgs> | null
+    omit?: VehicleOmit<ExtArgs> | null
     /**
-     * The data used to create many Homes.
+     * The data used to create many Vehicles.
      */
-    data: HomeCreateManyInput | HomeCreateManyInput[]
+    data: VehicleCreateManyInput | VehicleCreateManyInput[]
     skipDuplicates?: boolean
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: HomeIncludeCreateManyAndReturn<ExtArgs> | null
+    include?: VehicleIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * Home update
+   * Vehicle update
    */
-  export type HomeUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type VehicleUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Home
+     * Select specific fields to fetch from the Vehicle
      */
-    select?: HomeSelect<ExtArgs> | null
+    select?: VehicleSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Home
+     * Omit specific fields from the Vehicle
      */
-    omit?: HomeOmit<ExtArgs> | null
+    omit?: VehicleOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: HomeInclude<ExtArgs> | null
+    include?: VehicleInclude<ExtArgs> | null
     /**
-     * The data needed to update a Home.
+     * The data needed to update a Vehicle.
      */
-    data: XOR<HomeUpdateInput, HomeUncheckedUpdateInput>
+    data: XOR<VehicleUpdateInput, VehicleUncheckedUpdateInput>
     /**
-     * Choose, which Home to update.
+     * Choose, which Vehicle to update.
      */
-    where: HomeWhereUniqueInput
+    where: VehicleWhereUniqueInput
   }
 
   /**
-   * Home updateMany
+   * Vehicle updateMany
    */
-  export type HomeUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type VehicleUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update Homes.
+     * The data used to update Vehicles.
      */
-    data: XOR<HomeUpdateManyMutationInput, HomeUncheckedUpdateManyInput>
+    data: XOR<VehicleUpdateManyMutationInput, VehicleUncheckedUpdateManyInput>
     /**
-     * Filter which Homes to update
+     * Filter which Vehicles to update
      */
-    where?: HomeWhereInput
+    where?: VehicleWhereInput
     /**
-     * Limit how many Homes to update.
+     * Limit how many Vehicles to update.
      */
     limit?: number
   }
 
   /**
-   * Home updateManyAndReturn
+   * Vehicle updateManyAndReturn
    */
-  export type HomeUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type VehicleUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Home
+     * Select specific fields to fetch from the Vehicle
      */
-    select?: HomeSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: VehicleSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Home
+     * Omit specific fields from the Vehicle
      */
-    omit?: HomeOmit<ExtArgs> | null
+    omit?: VehicleOmit<ExtArgs> | null
     /**
-     * The data used to update Homes.
+     * The data used to update Vehicles.
      */
-    data: XOR<HomeUpdateManyMutationInput, HomeUncheckedUpdateManyInput>
+    data: XOR<VehicleUpdateManyMutationInput, VehicleUncheckedUpdateManyInput>
     /**
-     * Filter which Homes to update
+     * Filter which Vehicles to update
      */
-    where?: HomeWhereInput
+    where?: VehicleWhereInput
     /**
-     * Limit how many Homes to update.
+     * Limit how many Vehicles to update.
      */
     limit?: number
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: HomeIncludeUpdateManyAndReturn<ExtArgs> | null
+    include?: VehicleIncludeUpdateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * Home upsert
+   * Vehicle upsert
    */
-  export type HomeUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type VehicleUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Home
+     * Select specific fields to fetch from the Vehicle
      */
-    select?: HomeSelect<ExtArgs> | null
+    select?: VehicleSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Home
+     * Omit specific fields from the Vehicle
      */
-    omit?: HomeOmit<ExtArgs> | null
+    omit?: VehicleOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: HomeInclude<ExtArgs> | null
+    include?: VehicleInclude<ExtArgs> | null
     /**
-     * The filter to search for the Home to update in case it exists.
+     * The filter to search for the Vehicle to update in case it exists.
      */
-    where: HomeWhereUniqueInput
+    where: VehicleWhereUniqueInput
     /**
-     * In case the Home found by the `where` argument doesn't exist, create a new Home with this data.
+     * In case the Vehicle found by the `where` argument doesn't exist, create a new Vehicle with this data.
      */
-    create: XOR<HomeCreateInput, HomeUncheckedCreateInput>
+    create: XOR<VehicleCreateInput, VehicleUncheckedCreateInput>
     /**
-     * In case the Home was found with the provided `where` argument, update it with this data.
+     * In case the Vehicle was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<HomeUpdateInput, HomeUncheckedUpdateInput>
+    update: XOR<VehicleUpdateInput, VehicleUncheckedUpdateInput>
   }
 
   /**
-   * Home delete
+   * Vehicle delete
    */
-  export type HomeDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type VehicleDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Home
+     * Select specific fields to fetch from the Vehicle
      */
-    select?: HomeSelect<ExtArgs> | null
+    select?: VehicleSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Home
+     * Omit specific fields from the Vehicle
      */
-    omit?: HomeOmit<ExtArgs> | null
+    omit?: VehicleOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: HomeInclude<ExtArgs> | null
+    include?: VehicleInclude<ExtArgs> | null
     /**
-     * Filter which Home to delete.
+     * Filter which Vehicle to delete.
      */
-    where: HomeWhereUniqueInput
+    where: VehicleWhereUniqueInput
   }
 
   /**
-   * Home deleteMany
+   * Vehicle deleteMany
    */
-  export type HomeDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type VehicleDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Homes to delete
+     * Filter which Vehicles to delete
      */
-    where?: HomeWhereInput
+    where?: VehicleWhereInput
     /**
-     * Limit how many Homes to delete.
+     * Limit how many Vehicles to delete.
      */
     limit?: number
   }
 
   /**
-   * Home.Favorite
+   * Vehicle.Favorite
    */
-  export type Home$FavoriteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Vehicle$FavoriteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Favorite
      */
@@ -3594,9 +3568,9 @@ export namespace Prisma {
   }
 
   /**
-   * Home.Reservation
+   * Vehicle.Reservation
    */
-  export type Home$ReservationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Vehicle$ReservationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Reservation
      */
@@ -3618,9 +3592,9 @@ export namespace Prisma {
   }
 
   /**
-   * Home.User
+   * Vehicle.User
    */
-  export type Home$UserArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Vehicle$UserArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the User
      */
@@ -3637,21 +3611,21 @@ export namespace Prisma {
   }
 
   /**
-   * Home without action
+   * Vehicle without action
    */
-  export type HomeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type VehicleDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Home
+     * Select specific fields to fetch from the Vehicle
      */
-    select?: HomeSelect<ExtArgs> | null
+    select?: VehicleSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Home
+     * Omit specific fields from the Vehicle
      */
-    omit?: HomeOmit<ExtArgs> | null
+    omit?: VehicleOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: HomeInclude<ExtArgs> | null
+    include?: VehicleInclude<ExtArgs> | null
   }
 
 
@@ -3668,21 +3642,21 @@ export namespace Prisma {
   export type FavoriteMinAggregateOutputType = {
     id: string | null
     userId: string | null
-    homeId: string | null
+    vehicleId: string | null
     createdAt: Date | null
   }
 
   export type FavoriteMaxAggregateOutputType = {
     id: string | null
     userId: string | null
-    homeId: string | null
+    vehicleId: string | null
     createdAt: Date | null
   }
 
   export type FavoriteCountAggregateOutputType = {
     id: number
     userId: number
-    homeId: number
+    vehicleId: number
     createdAt: number
     _all: number
   }
@@ -3691,21 +3665,21 @@ export namespace Prisma {
   export type FavoriteMinAggregateInputType = {
     id?: true
     userId?: true
-    homeId?: true
+    vehicleId?: true
     createdAt?: true
   }
 
   export type FavoriteMaxAggregateInputType = {
     id?: true
     userId?: true
-    homeId?: true
+    vehicleId?: true
     createdAt?: true
   }
 
   export type FavoriteCountAggregateInputType = {
     id?: true
     userId?: true
-    homeId?: true
+    vehicleId?: true
     createdAt?: true
     _all?: true
   }
@@ -3785,7 +3759,7 @@ export namespace Prisma {
   export type FavoriteGroupByOutputType = {
     id: string
     userId: string | null
-    homeId: string | null
+    vehicleId: string | null
     createdAt: Date
     _count: FavoriteCountAggregateOutputType | null
     _min: FavoriteMinAggregateOutputType | null
@@ -3809,61 +3783,61 @@ export namespace Prisma {
   export type FavoriteSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     userId?: boolean
-    homeId?: boolean
+    vehicleId?: boolean
     createdAt?: boolean
     User?: boolean | Favorite$UserArgs<ExtArgs>
-    Home?: boolean | Favorite$HomeArgs<ExtArgs>
+    Vehicle?: boolean | Favorite$VehicleArgs<ExtArgs>
   }, ExtArgs["result"]["favorite"]>
 
   export type FavoriteSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     userId?: boolean
-    homeId?: boolean
+    vehicleId?: boolean
     createdAt?: boolean
     User?: boolean | Favorite$UserArgs<ExtArgs>
-    Home?: boolean | Favorite$HomeArgs<ExtArgs>
+    Vehicle?: boolean | Favorite$VehicleArgs<ExtArgs>
   }, ExtArgs["result"]["favorite"]>
 
   export type FavoriteSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     userId?: boolean
-    homeId?: boolean
+    vehicleId?: boolean
     createdAt?: boolean
     User?: boolean | Favorite$UserArgs<ExtArgs>
-    Home?: boolean | Favorite$HomeArgs<ExtArgs>
+    Vehicle?: boolean | Favorite$VehicleArgs<ExtArgs>
   }, ExtArgs["result"]["favorite"]>
 
   export type FavoriteSelectScalar = {
     id?: boolean
     userId?: boolean
-    homeId?: boolean
+    vehicleId?: boolean
     createdAt?: boolean
   }
 
-  export type FavoriteOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "homeId" | "createdAt", ExtArgs["result"]["favorite"]>
+  export type FavoriteOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "vehicleId" | "createdAt", ExtArgs["result"]["favorite"]>
   export type FavoriteInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     User?: boolean | Favorite$UserArgs<ExtArgs>
-    Home?: boolean | Favorite$HomeArgs<ExtArgs>
+    Vehicle?: boolean | Favorite$VehicleArgs<ExtArgs>
   }
   export type FavoriteIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     User?: boolean | Favorite$UserArgs<ExtArgs>
-    Home?: boolean | Favorite$HomeArgs<ExtArgs>
+    Vehicle?: boolean | Favorite$VehicleArgs<ExtArgs>
   }
   export type FavoriteIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     User?: boolean | Favorite$UserArgs<ExtArgs>
-    Home?: boolean | Favorite$HomeArgs<ExtArgs>
+    Vehicle?: boolean | Favorite$VehicleArgs<ExtArgs>
   }
 
   export type $FavoritePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Favorite"
     objects: {
       User: Prisma.$UserPayload<ExtArgs> | null
-      Home: Prisma.$HomePayload<ExtArgs> | null
+      Vehicle: Prisma.$VehiclePayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       userId: string | null
-      homeId: string | null
+      vehicleId: string | null
       createdAt: Date
     }, ExtArgs["result"]["favorite"]>
     composites: {}
@@ -4260,7 +4234,7 @@ export namespace Prisma {
   export interface Prisma__FavoriteClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     User<T extends Favorite$UserArgs<ExtArgs> = {}>(args?: Subset<T, Favorite$UserArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    Home<T extends Favorite$HomeArgs<ExtArgs> = {}>(args?: Subset<T, Favorite$HomeArgs<ExtArgs>>): Prisma__HomeClient<$Result.GetResult<Prisma.$HomePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    Vehicle<T extends Favorite$VehicleArgs<ExtArgs> = {}>(args?: Subset<T, Favorite$VehicleArgs<ExtArgs>>): Prisma__VehicleClient<$Result.GetResult<Prisma.$VehiclePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4292,7 +4266,7 @@ export namespace Prisma {
   interface FavoriteFieldRefs {
     readonly id: FieldRef<"Favorite", 'String'>
     readonly userId: FieldRef<"Favorite", 'String'>
-    readonly homeId: FieldRef<"Favorite", 'String'>
+    readonly vehicleId: FieldRef<"Favorite", 'String'>
     readonly createdAt: FieldRef<"Favorite", 'DateTime'>
   }
     
@@ -4709,22 +4683,22 @@ export namespace Prisma {
   }
 
   /**
-   * Favorite.Home
+   * Favorite.Vehicle
    */
-  export type Favorite$HomeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Favorite$VehicleArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Home
+     * Select specific fields to fetch from the Vehicle
      */
-    select?: HomeSelect<ExtArgs> | null
+    select?: VehicleSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Home
+     * Omit specific fields from the Vehicle
      */
-    omit?: HomeOmit<ExtArgs> | null
+    omit?: VehicleOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: HomeInclude<ExtArgs> | null
-    where?: HomeWhereInput
+    include?: VehicleInclude<ExtArgs> | null
+    where?: VehicleWhereInput
   }
 
   /**
@@ -4762,7 +4736,7 @@ export namespace Prisma {
     endDate: Date | null
     createdAt: Date | null
     userId: string | null
-    homeId: string | null
+    vehicleId: string | null
   }
 
   export type ReservationMaxAggregateOutputType = {
@@ -4771,7 +4745,7 @@ export namespace Prisma {
     endDate: Date | null
     createdAt: Date | null
     userId: string | null
-    homeId: string | null
+    vehicleId: string | null
   }
 
   export type ReservationCountAggregateOutputType = {
@@ -4780,7 +4754,7 @@ export namespace Prisma {
     endDate: number
     createdAt: number
     userId: number
-    homeId: number
+    vehicleId: number
     _all: number
   }
 
@@ -4791,7 +4765,7 @@ export namespace Prisma {
     endDate?: true
     createdAt?: true
     userId?: true
-    homeId?: true
+    vehicleId?: true
   }
 
   export type ReservationMaxAggregateInputType = {
@@ -4800,7 +4774,7 @@ export namespace Prisma {
     endDate?: true
     createdAt?: true
     userId?: true
-    homeId?: true
+    vehicleId?: true
   }
 
   export type ReservationCountAggregateInputType = {
@@ -4809,7 +4783,7 @@ export namespace Prisma {
     endDate?: true
     createdAt?: true
     userId?: true
-    homeId?: true
+    vehicleId?: true
     _all?: true
   }
 
@@ -4891,7 +4865,7 @@ export namespace Prisma {
     endDate: Date
     createdAt: Date
     userId: string | null
-    homeId: string | null
+    vehicleId: string | null
     _count: ReservationCountAggregateOutputType | null
     _min: ReservationMinAggregateOutputType | null
     _max: ReservationMaxAggregateOutputType | null
@@ -4917,9 +4891,9 @@ export namespace Prisma {
     endDate?: boolean
     createdAt?: boolean
     userId?: boolean
-    homeId?: boolean
+    vehicleId?: boolean
     User?: boolean | Reservation$UserArgs<ExtArgs>
-    Home?: boolean | Reservation$HomeArgs<ExtArgs>
+    Vehicle?: boolean | Reservation$VehicleArgs<ExtArgs>
   }, ExtArgs["result"]["reservation"]>
 
   export type ReservationSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -4928,9 +4902,9 @@ export namespace Prisma {
     endDate?: boolean
     createdAt?: boolean
     userId?: boolean
-    homeId?: boolean
+    vehicleId?: boolean
     User?: boolean | Reservation$UserArgs<ExtArgs>
-    Home?: boolean | Reservation$HomeArgs<ExtArgs>
+    Vehicle?: boolean | Reservation$VehicleArgs<ExtArgs>
   }, ExtArgs["result"]["reservation"]>
 
   export type ReservationSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -4939,9 +4913,9 @@ export namespace Prisma {
     endDate?: boolean
     createdAt?: boolean
     userId?: boolean
-    homeId?: boolean
+    vehicleId?: boolean
     User?: boolean | Reservation$UserArgs<ExtArgs>
-    Home?: boolean | Reservation$HomeArgs<ExtArgs>
+    Vehicle?: boolean | Reservation$VehicleArgs<ExtArgs>
   }, ExtArgs["result"]["reservation"]>
 
   export type ReservationSelectScalar = {
@@ -4950,28 +4924,28 @@ export namespace Prisma {
     endDate?: boolean
     createdAt?: boolean
     userId?: boolean
-    homeId?: boolean
+    vehicleId?: boolean
   }
 
-  export type ReservationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "startDate" | "endDate" | "createdAt" | "userId" | "homeId", ExtArgs["result"]["reservation"]>
+  export type ReservationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "startDate" | "endDate" | "createdAt" | "userId" | "vehicleId", ExtArgs["result"]["reservation"]>
   export type ReservationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     User?: boolean | Reservation$UserArgs<ExtArgs>
-    Home?: boolean | Reservation$HomeArgs<ExtArgs>
+    Vehicle?: boolean | Reservation$VehicleArgs<ExtArgs>
   }
   export type ReservationIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     User?: boolean | Reservation$UserArgs<ExtArgs>
-    Home?: boolean | Reservation$HomeArgs<ExtArgs>
+    Vehicle?: boolean | Reservation$VehicleArgs<ExtArgs>
   }
   export type ReservationIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     User?: boolean | Reservation$UserArgs<ExtArgs>
-    Home?: boolean | Reservation$HomeArgs<ExtArgs>
+    Vehicle?: boolean | Reservation$VehicleArgs<ExtArgs>
   }
 
   export type $ReservationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Reservation"
     objects: {
       User: Prisma.$UserPayload<ExtArgs> | null
-      Home: Prisma.$HomePayload<ExtArgs> | null
+      Vehicle: Prisma.$VehiclePayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -4979,7 +4953,7 @@ export namespace Prisma {
       endDate: Date
       createdAt: Date
       userId: string | null
-      homeId: string | null
+      vehicleId: string | null
     }, ExtArgs["result"]["reservation"]>
     composites: {}
   }
@@ -5375,7 +5349,7 @@ export namespace Prisma {
   export interface Prisma__ReservationClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     User<T extends Reservation$UserArgs<ExtArgs> = {}>(args?: Subset<T, Reservation$UserArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    Home<T extends Reservation$HomeArgs<ExtArgs> = {}>(args?: Subset<T, Reservation$HomeArgs<ExtArgs>>): Prisma__HomeClient<$Result.GetResult<Prisma.$HomePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    Vehicle<T extends Reservation$VehicleArgs<ExtArgs> = {}>(args?: Subset<T, Reservation$VehicleArgs<ExtArgs>>): Prisma__VehicleClient<$Result.GetResult<Prisma.$VehiclePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -5410,7 +5384,7 @@ export namespace Prisma {
     readonly endDate: FieldRef<"Reservation", 'DateTime'>
     readonly createdAt: FieldRef<"Reservation", 'DateTime'>
     readonly userId: FieldRef<"Reservation", 'String'>
-    readonly homeId: FieldRef<"Reservation", 'String'>
+    readonly vehicleId: FieldRef<"Reservation", 'String'>
   }
     
 
@@ -5826,22 +5800,22 @@ export namespace Prisma {
   }
 
   /**
-   * Reservation.Home
+   * Reservation.Vehicle
    */
-  export type Reservation$HomeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Reservation$VehicleArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Home
+     * Select specific fields to fetch from the Vehicle
      */
-    select?: HomeSelect<ExtArgs> | null
+    select?: VehicleSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Home
+     * Omit specific fields from the Vehicle
      */
-    omit?: HomeOmit<ExtArgs> | null
+    omit?: VehicleOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: HomeInclude<ExtArgs> | null
-    where?: HomeWhereInput
+    include?: VehicleInclude<ExtArgs> | null
+    where?: VehicleWhereInput
   }
 
   /**
@@ -5888,13 +5862,11 @@ export namespace Prisma {
   export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
 
 
-  export const HomeScalarFieldEnum: {
+  export const VehicleScalarFieldEnum: {
     id: 'id',
     title: 'title',
     description: 'description',
     guests: 'guests',
-    bedrooms: 'bedrooms',
-    bathrooms: 'bathrooms',
     country: 'country',
     photo: 'photo',
     price: 'price',
@@ -5906,13 +5878,13 @@ export namespace Prisma {
     userId: 'userId'
   };
 
-  export type HomeScalarFieldEnum = (typeof HomeScalarFieldEnum)[keyof typeof HomeScalarFieldEnum]
+  export type VehicleScalarFieldEnum = (typeof VehicleScalarFieldEnum)[keyof typeof VehicleScalarFieldEnum]
 
 
   export const FavoriteScalarFieldEnum: {
     id: 'id',
     userId: 'userId',
-    homeId: 'homeId',
+    vehicleId: 'vehicleId',
     createdAt: 'createdAt'
   };
 
@@ -5925,7 +5897,7 @@ export namespace Prisma {
     endDate: 'endDate',
     createdAt: 'createdAt',
     userId: 'userId',
-    homeId: 'homeId'
+    vehicleId: 'vehicleId'
   };
 
   export type ReservationScalarFieldEnum = (typeof ReservationScalarFieldEnum)[keyof typeof ReservationScalarFieldEnum]
@@ -6035,7 +6007,7 @@ export namespace Prisma {
     firstName?: StringFilter<"User"> | string
     lastName?: StringFilter<"User"> | string
     profileImage?: StringNullableFilter<"User"> | string | null
-    Home?: HomeListRelationFilter
+    Vehicle?: VehicleListRelationFilter
     Favorite?: FavoriteListRelationFilter
     Reservation?: ReservationListRelationFilter
   }
@@ -6046,7 +6018,7 @@ export namespace Prisma {
     firstName?: SortOrder
     lastName?: SortOrder
     profileImage?: SortOrderInput | SortOrder
-    Home?: HomeOrderByRelationAggregateInput
+    Vehicle?: VehicleOrderByRelationAggregateInput
     Favorite?: FavoriteOrderByRelationAggregateInput
     Reservation?: ReservationOrderByRelationAggregateInput
   }
@@ -6060,7 +6032,7 @@ export namespace Prisma {
     firstName?: StringFilter<"User"> | string
     lastName?: StringFilter<"User"> | string
     profileImage?: StringNullableFilter<"User"> | string | null
-    Home?: HomeListRelationFilter
+    Vehicle?: VehicleListRelationFilter
     Favorite?: FavoriteListRelationFilter
     Reservation?: ReservationListRelationFilter
   }, "id" | "id">
@@ -6087,37 +6059,33 @@ export namespace Prisma {
     profileImage?: StringNullableWithAggregatesFilter<"User"> | string | null
   }
 
-  export type HomeWhereInput = {
-    AND?: HomeWhereInput | HomeWhereInput[]
-    OR?: HomeWhereInput[]
-    NOT?: HomeWhereInput | HomeWhereInput[]
-    id?: StringFilter<"Home"> | string
-    title?: StringNullableFilter<"Home"> | string | null
-    description?: StringNullableFilter<"Home"> | string | null
-    guests?: StringNullableFilter<"Home"> | string | null
-    bedrooms?: StringNullableFilter<"Home"> | string | null
-    bathrooms?: StringNullableFilter<"Home"> | string | null
-    country?: StringNullableFilter<"Home"> | string | null
-    photo?: StringNullableFilter<"Home"> | string | null
-    price?: IntNullableFilter<"Home"> | number | null
-    categoryName?: StringNullableFilter<"Home"> | string | null
-    addedCategory?: BoolFilter<"Home"> | boolean
-    addedDescription?: BoolFilter<"Home"> | boolean
-    addedLocation?: BoolFilter<"Home"> | boolean
-    createdAt?: DateTimeFilter<"Home"> | Date | string
-    userId?: StringFilter<"Home"> | string
+  export type VehicleWhereInput = {
+    AND?: VehicleWhereInput | VehicleWhereInput[]
+    OR?: VehicleWhereInput[]
+    NOT?: VehicleWhereInput | VehicleWhereInput[]
+    id?: StringFilter<"Vehicle"> | string
+    title?: StringNullableFilter<"Vehicle"> | string | null
+    description?: StringNullableFilter<"Vehicle"> | string | null
+    guests?: StringNullableFilter<"Vehicle"> | string | null
+    country?: StringNullableFilter<"Vehicle"> | string | null
+    photo?: StringNullableFilter<"Vehicle"> | string | null
+    price?: IntNullableFilter<"Vehicle"> | number | null
+    categoryName?: StringNullableFilter<"Vehicle"> | string | null
+    addedCategory?: BoolFilter<"Vehicle"> | boolean
+    addedDescription?: BoolFilter<"Vehicle"> | boolean
+    addedLocation?: BoolFilter<"Vehicle"> | boolean
+    createdAt?: DateTimeFilter<"Vehicle"> | Date | string
+    userId?: StringFilter<"Vehicle"> | string
     Favorite?: FavoriteListRelationFilter
     Reservation?: ReservationListRelationFilter
     User?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
   }
 
-  export type HomeOrderByWithRelationInput = {
+  export type VehicleOrderByWithRelationInput = {
     id?: SortOrder
     title?: SortOrderInput | SortOrder
     description?: SortOrderInput | SortOrder
     guests?: SortOrderInput | SortOrder
-    bedrooms?: SortOrderInput | SortOrder
-    bathrooms?: SortOrderInput | SortOrder
     country?: SortOrderInput | SortOrder
     photo?: SortOrderInput | SortOrder
     price?: SortOrderInput | SortOrder
@@ -6132,37 +6100,33 @@ export namespace Prisma {
     User?: UserOrderByWithRelationInput
   }
 
-  export type HomeWhereUniqueInput = Prisma.AtLeast<{
+  export type VehicleWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    AND?: HomeWhereInput | HomeWhereInput[]
-    OR?: HomeWhereInput[]
-    NOT?: HomeWhereInput | HomeWhereInput[]
-    title?: StringNullableFilter<"Home"> | string | null
-    description?: StringNullableFilter<"Home"> | string | null
-    guests?: StringNullableFilter<"Home"> | string | null
-    bedrooms?: StringNullableFilter<"Home"> | string | null
-    bathrooms?: StringNullableFilter<"Home"> | string | null
-    country?: StringNullableFilter<"Home"> | string | null
-    photo?: StringNullableFilter<"Home"> | string | null
-    price?: IntNullableFilter<"Home"> | number | null
-    categoryName?: StringNullableFilter<"Home"> | string | null
-    addedCategory?: BoolFilter<"Home"> | boolean
-    addedDescription?: BoolFilter<"Home"> | boolean
-    addedLocation?: BoolFilter<"Home"> | boolean
-    createdAt?: DateTimeFilter<"Home"> | Date | string
-    userId?: StringFilter<"Home"> | string
+    AND?: VehicleWhereInput | VehicleWhereInput[]
+    OR?: VehicleWhereInput[]
+    NOT?: VehicleWhereInput | VehicleWhereInput[]
+    title?: StringNullableFilter<"Vehicle"> | string | null
+    description?: StringNullableFilter<"Vehicle"> | string | null
+    guests?: StringNullableFilter<"Vehicle"> | string | null
+    country?: StringNullableFilter<"Vehicle"> | string | null
+    photo?: StringNullableFilter<"Vehicle"> | string | null
+    price?: IntNullableFilter<"Vehicle"> | number | null
+    categoryName?: StringNullableFilter<"Vehicle"> | string | null
+    addedCategory?: BoolFilter<"Vehicle"> | boolean
+    addedDescription?: BoolFilter<"Vehicle"> | boolean
+    addedLocation?: BoolFilter<"Vehicle"> | boolean
+    createdAt?: DateTimeFilter<"Vehicle"> | Date | string
+    userId?: StringFilter<"Vehicle"> | string
     Favorite?: FavoriteListRelationFilter
     Reservation?: ReservationListRelationFilter
     User?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
   }, "id">
 
-  export type HomeOrderByWithAggregationInput = {
+  export type VehicleOrderByWithAggregationInput = {
     id?: SortOrder
     title?: SortOrderInput | SortOrder
     description?: SortOrderInput | SortOrder
     guests?: SortOrderInput | SortOrder
-    bedrooms?: SortOrderInput | SortOrder
-    bathrooms?: SortOrderInput | SortOrder
     country?: SortOrderInput | SortOrder
     photo?: SortOrderInput | SortOrder
     price?: SortOrderInput | SortOrder
@@ -6172,32 +6136,30 @@ export namespace Prisma {
     addedLocation?: SortOrder
     createdAt?: SortOrder
     userId?: SortOrder
-    _count?: HomeCountOrderByAggregateInput
-    _avg?: HomeAvgOrderByAggregateInput
-    _max?: HomeMaxOrderByAggregateInput
-    _min?: HomeMinOrderByAggregateInput
-    _sum?: HomeSumOrderByAggregateInput
+    _count?: VehicleCountOrderByAggregateInput
+    _avg?: VehicleAvgOrderByAggregateInput
+    _max?: VehicleMaxOrderByAggregateInput
+    _min?: VehicleMinOrderByAggregateInput
+    _sum?: VehicleSumOrderByAggregateInput
   }
 
-  export type HomeScalarWhereWithAggregatesInput = {
-    AND?: HomeScalarWhereWithAggregatesInput | HomeScalarWhereWithAggregatesInput[]
-    OR?: HomeScalarWhereWithAggregatesInput[]
-    NOT?: HomeScalarWhereWithAggregatesInput | HomeScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"Home"> | string
-    title?: StringNullableWithAggregatesFilter<"Home"> | string | null
-    description?: StringNullableWithAggregatesFilter<"Home"> | string | null
-    guests?: StringNullableWithAggregatesFilter<"Home"> | string | null
-    bedrooms?: StringNullableWithAggregatesFilter<"Home"> | string | null
-    bathrooms?: StringNullableWithAggregatesFilter<"Home"> | string | null
-    country?: StringNullableWithAggregatesFilter<"Home"> | string | null
-    photo?: StringNullableWithAggregatesFilter<"Home"> | string | null
-    price?: IntNullableWithAggregatesFilter<"Home"> | number | null
-    categoryName?: StringNullableWithAggregatesFilter<"Home"> | string | null
-    addedCategory?: BoolWithAggregatesFilter<"Home"> | boolean
-    addedDescription?: BoolWithAggregatesFilter<"Home"> | boolean
-    addedLocation?: BoolWithAggregatesFilter<"Home"> | boolean
-    createdAt?: DateTimeWithAggregatesFilter<"Home"> | Date | string
-    userId?: StringWithAggregatesFilter<"Home"> | string
+  export type VehicleScalarWhereWithAggregatesInput = {
+    AND?: VehicleScalarWhereWithAggregatesInput | VehicleScalarWhereWithAggregatesInput[]
+    OR?: VehicleScalarWhereWithAggregatesInput[]
+    NOT?: VehicleScalarWhereWithAggregatesInput | VehicleScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Vehicle"> | string
+    title?: StringNullableWithAggregatesFilter<"Vehicle"> | string | null
+    description?: StringNullableWithAggregatesFilter<"Vehicle"> | string | null
+    guests?: StringNullableWithAggregatesFilter<"Vehicle"> | string | null
+    country?: StringNullableWithAggregatesFilter<"Vehicle"> | string | null
+    photo?: StringNullableWithAggregatesFilter<"Vehicle"> | string | null
+    price?: IntNullableWithAggregatesFilter<"Vehicle"> | number | null
+    categoryName?: StringNullableWithAggregatesFilter<"Vehicle"> | string | null
+    addedCategory?: BoolWithAggregatesFilter<"Vehicle"> | boolean
+    addedDescription?: BoolWithAggregatesFilter<"Vehicle"> | boolean
+    addedLocation?: BoolWithAggregatesFilter<"Vehicle"> | boolean
+    createdAt?: DateTimeWithAggregatesFilter<"Vehicle"> | Date | string
+    userId?: StringWithAggregatesFilter<"Vehicle"> | string
   }
 
   export type FavoriteWhereInput = {
@@ -6206,19 +6168,19 @@ export namespace Prisma {
     NOT?: FavoriteWhereInput | FavoriteWhereInput[]
     id?: StringFilter<"Favorite"> | string
     userId?: StringNullableFilter<"Favorite"> | string | null
-    homeId?: StringNullableFilter<"Favorite"> | string | null
+    vehicleId?: StringNullableFilter<"Favorite"> | string | null
     createdAt?: DateTimeFilter<"Favorite"> | Date | string
     User?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
-    Home?: XOR<HomeNullableScalarRelationFilter, HomeWhereInput> | null
+    Vehicle?: XOR<VehicleNullableScalarRelationFilter, VehicleWhereInput> | null
   }
 
   export type FavoriteOrderByWithRelationInput = {
     id?: SortOrder
     userId?: SortOrderInput | SortOrder
-    homeId?: SortOrderInput | SortOrder
+    vehicleId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     User?: UserOrderByWithRelationInput
-    Home?: HomeOrderByWithRelationInput
+    Vehicle?: VehicleOrderByWithRelationInput
   }
 
   export type FavoriteWhereUniqueInput = Prisma.AtLeast<{
@@ -6227,16 +6189,16 @@ export namespace Prisma {
     OR?: FavoriteWhereInput[]
     NOT?: FavoriteWhereInput | FavoriteWhereInput[]
     userId?: StringNullableFilter<"Favorite"> | string | null
-    homeId?: StringNullableFilter<"Favorite"> | string | null
+    vehicleId?: StringNullableFilter<"Favorite"> | string | null
     createdAt?: DateTimeFilter<"Favorite"> | Date | string
     User?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
-    Home?: XOR<HomeNullableScalarRelationFilter, HomeWhereInput> | null
+    Vehicle?: XOR<VehicleNullableScalarRelationFilter, VehicleWhereInput> | null
   }, "id">
 
   export type FavoriteOrderByWithAggregationInput = {
     id?: SortOrder
     userId?: SortOrderInput | SortOrder
-    homeId?: SortOrderInput | SortOrder
+    vehicleId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     _count?: FavoriteCountOrderByAggregateInput
     _max?: FavoriteMaxOrderByAggregateInput
@@ -6249,7 +6211,7 @@ export namespace Prisma {
     NOT?: FavoriteScalarWhereWithAggregatesInput | FavoriteScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Favorite"> | string
     userId?: StringNullableWithAggregatesFilter<"Favorite"> | string | null
-    homeId?: StringNullableWithAggregatesFilter<"Favorite"> | string | null
+    vehicleId?: StringNullableWithAggregatesFilter<"Favorite"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"Favorite"> | Date | string
   }
 
@@ -6262,9 +6224,9 @@ export namespace Prisma {
     endDate?: DateTimeFilter<"Reservation"> | Date | string
     createdAt?: DateTimeFilter<"Reservation"> | Date | string
     userId?: StringNullableFilter<"Reservation"> | string | null
-    homeId?: StringNullableFilter<"Reservation"> | string | null
+    vehicleId?: StringNullableFilter<"Reservation"> | string | null
     User?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
-    Home?: XOR<HomeNullableScalarRelationFilter, HomeWhereInput> | null
+    Vehicle?: XOR<VehicleNullableScalarRelationFilter, VehicleWhereInput> | null
   }
 
   export type ReservationOrderByWithRelationInput = {
@@ -6273,9 +6235,9 @@ export namespace Prisma {
     endDate?: SortOrder
     createdAt?: SortOrder
     userId?: SortOrderInput | SortOrder
-    homeId?: SortOrderInput | SortOrder
+    vehicleId?: SortOrderInput | SortOrder
     User?: UserOrderByWithRelationInput
-    Home?: HomeOrderByWithRelationInput
+    Vehicle?: VehicleOrderByWithRelationInput
   }
 
   export type ReservationWhereUniqueInput = Prisma.AtLeast<{
@@ -6287,9 +6249,9 @@ export namespace Prisma {
     endDate?: DateTimeFilter<"Reservation"> | Date | string
     createdAt?: DateTimeFilter<"Reservation"> | Date | string
     userId?: StringNullableFilter<"Reservation"> | string | null
-    homeId?: StringNullableFilter<"Reservation"> | string | null
+    vehicleId?: StringNullableFilter<"Reservation"> | string | null
     User?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
-    Home?: XOR<HomeNullableScalarRelationFilter, HomeWhereInput> | null
+    Vehicle?: XOR<VehicleNullableScalarRelationFilter, VehicleWhereInput> | null
   }, "id">
 
   export type ReservationOrderByWithAggregationInput = {
@@ -6298,7 +6260,7 @@ export namespace Prisma {
     endDate?: SortOrder
     createdAt?: SortOrder
     userId?: SortOrderInput | SortOrder
-    homeId?: SortOrderInput | SortOrder
+    vehicleId?: SortOrderInput | SortOrder
     _count?: ReservationCountOrderByAggregateInput
     _max?: ReservationMaxOrderByAggregateInput
     _min?: ReservationMinOrderByAggregateInput
@@ -6313,7 +6275,7 @@ export namespace Prisma {
     endDate?: DateTimeWithAggregatesFilter<"Reservation"> | Date | string
     createdAt?: DateTimeWithAggregatesFilter<"Reservation"> | Date | string
     userId?: StringNullableWithAggregatesFilter<"Reservation"> | string | null
-    homeId?: StringNullableWithAggregatesFilter<"Reservation"> | string | null
+    vehicleId?: StringNullableWithAggregatesFilter<"Reservation"> | string | null
   }
 
   export type UserCreateInput = {
@@ -6322,7 +6284,7 @@ export namespace Prisma {
     firstName: string
     lastName: string
     profileImage?: string | null
-    Home?: HomeCreateNestedManyWithoutUserInput
+    Vehicle?: VehicleCreateNestedManyWithoutUserInput
     Favorite?: FavoriteCreateNestedManyWithoutUserInput
     Reservation?: ReservationCreateNestedManyWithoutUserInput
   }
@@ -6333,7 +6295,7 @@ export namespace Prisma {
     firstName: string
     lastName: string
     profileImage?: string | null
-    Home?: HomeUncheckedCreateNestedManyWithoutUserInput
+    Vehicle?: VehicleUncheckedCreateNestedManyWithoutUserInput
     Favorite?: FavoriteUncheckedCreateNestedManyWithoutUserInput
     Reservation?: ReservationUncheckedCreateNestedManyWithoutUserInput
   }
@@ -6344,7 +6306,7 @@ export namespace Prisma {
     firstName?: StringFieldUpdateOperationsInput | string
     lastName?: StringFieldUpdateOperationsInput | string
     profileImage?: NullableStringFieldUpdateOperationsInput | string | null
-    Home?: HomeUpdateManyWithoutUserNestedInput
+    Vehicle?: VehicleUpdateManyWithoutUserNestedInput
     Favorite?: FavoriteUpdateManyWithoutUserNestedInput
     Reservation?: ReservationUpdateManyWithoutUserNestedInput
   }
@@ -6355,7 +6317,7 @@ export namespace Prisma {
     firstName?: StringFieldUpdateOperationsInput | string
     lastName?: StringFieldUpdateOperationsInput | string
     profileImage?: NullableStringFieldUpdateOperationsInput | string | null
-    Home?: HomeUncheckedUpdateManyWithoutUserNestedInput
+    Vehicle?: VehicleUncheckedUpdateManyWithoutUserNestedInput
     Favorite?: FavoriteUncheckedUpdateManyWithoutUserNestedInput
     Reservation?: ReservationUncheckedUpdateManyWithoutUserNestedInput
   }
@@ -6384,13 +6346,11 @@ export namespace Prisma {
     profileImage?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type HomeCreateInput = {
+  export type VehicleCreateInput = {
     id?: string
     title?: string | null
     description?: string | null
     guests?: string | null
-    bedrooms?: string | null
-    bathrooms?: string | null
     country?: string | null
     photo?: string | null
     price?: number | null
@@ -6399,18 +6359,16 @@ export namespace Prisma {
     addedDescription?: boolean
     addedLocation?: boolean
     createdAt?: Date | string
-    Favorite?: FavoriteCreateNestedManyWithoutHomeInput
-    Reservation?: ReservationCreateNestedManyWithoutHomeInput
-    User?: UserCreateNestedOneWithoutHomeInput
+    Favorite?: FavoriteCreateNestedManyWithoutVehicleInput
+    Reservation?: ReservationCreateNestedManyWithoutVehicleInput
+    User?: UserCreateNestedOneWithoutVehicleInput
   }
 
-  export type HomeUncheckedCreateInput = {
+  export type VehicleUncheckedCreateInput = {
     id?: string
     title?: string | null
     description?: string | null
     guests?: string | null
-    bedrooms?: string | null
-    bathrooms?: string | null
     country?: string | null
     photo?: string | null
     price?: number | null
@@ -6420,17 +6378,15 @@ export namespace Prisma {
     addedLocation?: boolean
     createdAt?: Date | string
     userId: string
-    Favorite?: FavoriteUncheckedCreateNestedManyWithoutHomeInput
-    Reservation?: ReservationUncheckedCreateNestedManyWithoutHomeInput
+    Favorite?: FavoriteUncheckedCreateNestedManyWithoutVehicleInput
+    Reservation?: ReservationUncheckedCreateNestedManyWithoutVehicleInput
   }
 
-  export type HomeUpdateInput = {
+  export type VehicleUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     guests?: NullableStringFieldUpdateOperationsInput | string | null
-    bedrooms?: NullableStringFieldUpdateOperationsInput | string | null
-    bathrooms?: NullableStringFieldUpdateOperationsInput | string | null
     country?: NullableStringFieldUpdateOperationsInput | string | null
     photo?: NullableStringFieldUpdateOperationsInput | string | null
     price?: NullableIntFieldUpdateOperationsInput | number | null
@@ -6439,18 +6395,16 @@ export namespace Prisma {
     addedDescription?: BoolFieldUpdateOperationsInput | boolean
     addedLocation?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    Favorite?: FavoriteUpdateManyWithoutHomeNestedInput
-    Reservation?: ReservationUpdateManyWithoutHomeNestedInput
-    User?: UserUpdateOneWithoutHomeNestedInput
+    Favorite?: FavoriteUpdateManyWithoutVehicleNestedInput
+    Reservation?: ReservationUpdateManyWithoutVehicleNestedInput
+    User?: UserUpdateOneWithoutVehicleNestedInput
   }
 
-  export type HomeUncheckedUpdateInput = {
+  export type VehicleUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     guests?: NullableStringFieldUpdateOperationsInput | string | null
-    bedrooms?: NullableStringFieldUpdateOperationsInput | string | null
-    bathrooms?: NullableStringFieldUpdateOperationsInput | string | null
     country?: NullableStringFieldUpdateOperationsInput | string | null
     photo?: NullableStringFieldUpdateOperationsInput | string | null
     price?: NullableIntFieldUpdateOperationsInput | number | null
@@ -6460,17 +6414,15 @@ export namespace Prisma {
     addedLocation?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     userId?: StringFieldUpdateOperationsInput | string
-    Favorite?: FavoriteUncheckedUpdateManyWithoutHomeNestedInput
-    Reservation?: ReservationUncheckedUpdateManyWithoutHomeNestedInput
+    Favorite?: FavoriteUncheckedUpdateManyWithoutVehicleNestedInput
+    Reservation?: ReservationUncheckedUpdateManyWithoutVehicleNestedInput
   }
 
-  export type HomeCreateManyInput = {
+  export type VehicleCreateManyInput = {
     id?: string
     title?: string | null
     description?: string | null
     guests?: string | null
-    bedrooms?: string | null
-    bathrooms?: string | null
     country?: string | null
     photo?: string | null
     price?: number | null
@@ -6482,13 +6434,11 @@ export namespace Prisma {
     userId: string
   }
 
-  export type HomeUpdateManyMutationInput = {
+  export type VehicleUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     guests?: NullableStringFieldUpdateOperationsInput | string | null
-    bedrooms?: NullableStringFieldUpdateOperationsInput | string | null
-    bathrooms?: NullableStringFieldUpdateOperationsInput | string | null
     country?: NullableStringFieldUpdateOperationsInput | string | null
     photo?: NullableStringFieldUpdateOperationsInput | string | null
     price?: NullableIntFieldUpdateOperationsInput | number | null
@@ -6499,13 +6449,11 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type HomeUncheckedUpdateManyInput = {
+  export type VehicleUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     guests?: NullableStringFieldUpdateOperationsInput | string | null
-    bedrooms?: NullableStringFieldUpdateOperationsInput | string | null
-    bathrooms?: NullableStringFieldUpdateOperationsInput | string | null
     country?: NullableStringFieldUpdateOperationsInput | string | null
     photo?: NullableStringFieldUpdateOperationsInput | string | null
     price?: NullableIntFieldUpdateOperationsInput | number | null
@@ -6521,13 +6469,13 @@ export namespace Prisma {
     id?: string
     createdAt?: Date | string
     User?: UserCreateNestedOneWithoutFavoriteInput
-    Home?: HomeCreateNestedOneWithoutFavoriteInput
+    Vehicle?: VehicleCreateNestedOneWithoutFavoriteInput
   }
 
   export type FavoriteUncheckedCreateInput = {
     id?: string
     userId?: string | null
-    homeId?: string | null
+    vehicleId?: string | null
     createdAt?: Date | string
   }
 
@@ -6535,20 +6483,20 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     User?: UserUpdateOneWithoutFavoriteNestedInput
-    Home?: HomeUpdateOneWithoutFavoriteNestedInput
+    Vehicle?: VehicleUpdateOneWithoutFavoriteNestedInput
   }
 
   export type FavoriteUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     userId?: NullableStringFieldUpdateOperationsInput | string | null
-    homeId?: NullableStringFieldUpdateOperationsInput | string | null
+    vehicleId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type FavoriteCreateManyInput = {
     id?: string
     userId?: string | null
-    homeId?: string | null
+    vehicleId?: string | null
     createdAt?: Date | string
   }
 
@@ -6560,7 +6508,7 @@ export namespace Prisma {
   export type FavoriteUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     userId?: NullableStringFieldUpdateOperationsInput | string | null
-    homeId?: NullableStringFieldUpdateOperationsInput | string | null
+    vehicleId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -6570,7 +6518,7 @@ export namespace Prisma {
     endDate: Date | string
     createdAt?: Date | string
     User?: UserCreateNestedOneWithoutReservationInput
-    Home?: HomeCreateNestedOneWithoutReservationInput
+    Vehicle?: VehicleCreateNestedOneWithoutReservationInput
   }
 
   export type ReservationUncheckedCreateInput = {
@@ -6579,7 +6527,7 @@ export namespace Prisma {
     endDate: Date | string
     createdAt?: Date | string
     userId?: string | null
-    homeId?: string | null
+    vehicleId?: string | null
   }
 
   export type ReservationUpdateInput = {
@@ -6588,7 +6536,7 @@ export namespace Prisma {
     endDate?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     User?: UserUpdateOneWithoutReservationNestedInput
-    Home?: HomeUpdateOneWithoutReservationNestedInput
+    Vehicle?: VehicleUpdateOneWithoutReservationNestedInput
   }
 
   export type ReservationUncheckedUpdateInput = {
@@ -6597,7 +6545,7 @@ export namespace Prisma {
     endDate?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     userId?: NullableStringFieldUpdateOperationsInput | string | null
-    homeId?: NullableStringFieldUpdateOperationsInput | string | null
+    vehicleId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type ReservationCreateManyInput = {
@@ -6606,7 +6554,7 @@ export namespace Prisma {
     endDate: Date | string
     createdAt?: Date | string
     userId?: string | null
-    homeId?: string | null
+    vehicleId?: string | null
   }
 
   export type ReservationUpdateManyMutationInput = {
@@ -6622,7 +6570,7 @@ export namespace Prisma {
     endDate?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     userId?: NullableStringFieldUpdateOperationsInput | string | null
-    homeId?: NullableStringFieldUpdateOperationsInput | string | null
+    vehicleId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -6655,10 +6603,10 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
-  export type HomeListRelationFilter = {
-    every?: HomeWhereInput
-    some?: HomeWhereInput
-    none?: HomeWhereInput
+  export type VehicleListRelationFilter = {
+    every?: VehicleWhereInput
+    some?: VehicleWhereInput
+    none?: VehicleWhereInput
   }
 
   export type FavoriteListRelationFilter = {
@@ -6678,7 +6626,7 @@ export namespace Prisma {
     nulls?: NullsOrder
   }
 
-  export type HomeOrderByRelationAggregateInput = {
+  export type VehicleOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -6782,13 +6730,11 @@ export namespace Prisma {
     isNot?: UserWhereInput | null
   }
 
-  export type HomeCountOrderByAggregateInput = {
+  export type VehicleCountOrderByAggregateInput = {
     id?: SortOrder
     title?: SortOrder
     description?: SortOrder
     guests?: SortOrder
-    bedrooms?: SortOrder
-    bathrooms?: SortOrder
     country?: SortOrder
     photo?: SortOrder
     price?: SortOrder
@@ -6800,17 +6746,15 @@ export namespace Prisma {
     userId?: SortOrder
   }
 
-  export type HomeAvgOrderByAggregateInput = {
+  export type VehicleAvgOrderByAggregateInput = {
     price?: SortOrder
   }
 
-  export type HomeMaxOrderByAggregateInput = {
+  export type VehicleMaxOrderByAggregateInput = {
     id?: SortOrder
     title?: SortOrder
     description?: SortOrder
     guests?: SortOrder
-    bedrooms?: SortOrder
-    bathrooms?: SortOrder
     country?: SortOrder
     photo?: SortOrder
     price?: SortOrder
@@ -6822,13 +6766,11 @@ export namespace Prisma {
     userId?: SortOrder
   }
 
-  export type HomeMinOrderByAggregateInput = {
+  export type VehicleMinOrderByAggregateInput = {
     id?: SortOrder
     title?: SortOrder
     description?: SortOrder
     guests?: SortOrder
-    bedrooms?: SortOrder
-    bathrooms?: SortOrder
     country?: SortOrder
     photo?: SortOrder
     price?: SortOrder
@@ -6840,7 +6782,7 @@ export namespace Prisma {
     userId?: SortOrder
   }
 
-  export type HomeSumOrderByAggregateInput = {
+  export type VehicleSumOrderByAggregateInput = {
     price?: SortOrder
   }
 
@@ -6882,29 +6824,29 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
-  export type HomeNullableScalarRelationFilter = {
-    is?: HomeWhereInput | null
-    isNot?: HomeWhereInput | null
+  export type VehicleNullableScalarRelationFilter = {
+    is?: VehicleWhereInput | null
+    isNot?: VehicleWhereInput | null
   }
 
   export type FavoriteCountOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
-    homeId?: SortOrder
+    vehicleId?: SortOrder
     createdAt?: SortOrder
   }
 
   export type FavoriteMaxOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
-    homeId?: SortOrder
+    vehicleId?: SortOrder
     createdAt?: SortOrder
   }
 
   export type FavoriteMinOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
-    homeId?: SortOrder
+    vehicleId?: SortOrder
     createdAt?: SortOrder
   }
 
@@ -6914,7 +6856,7 @@ export namespace Prisma {
     endDate?: SortOrder
     createdAt?: SortOrder
     userId?: SortOrder
-    homeId?: SortOrder
+    vehicleId?: SortOrder
   }
 
   export type ReservationMaxOrderByAggregateInput = {
@@ -6923,7 +6865,7 @@ export namespace Prisma {
     endDate?: SortOrder
     createdAt?: SortOrder
     userId?: SortOrder
-    homeId?: SortOrder
+    vehicleId?: SortOrder
   }
 
   export type ReservationMinOrderByAggregateInput = {
@@ -6932,14 +6874,14 @@ export namespace Prisma {
     endDate?: SortOrder
     createdAt?: SortOrder
     userId?: SortOrder
-    homeId?: SortOrder
+    vehicleId?: SortOrder
   }
 
-  export type HomeCreateNestedManyWithoutUserInput = {
-    create?: XOR<HomeCreateWithoutUserInput, HomeUncheckedCreateWithoutUserInput> | HomeCreateWithoutUserInput[] | HomeUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: HomeCreateOrConnectWithoutUserInput | HomeCreateOrConnectWithoutUserInput[]
-    createMany?: HomeCreateManyUserInputEnvelope
-    connect?: HomeWhereUniqueInput | HomeWhereUniqueInput[]
+  export type VehicleCreateNestedManyWithoutUserInput = {
+    create?: XOR<VehicleCreateWithoutUserInput, VehicleUncheckedCreateWithoutUserInput> | VehicleCreateWithoutUserInput[] | VehicleUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: VehicleCreateOrConnectWithoutUserInput | VehicleCreateOrConnectWithoutUserInput[]
+    createMany?: VehicleCreateManyUserInputEnvelope
+    connect?: VehicleWhereUniqueInput | VehicleWhereUniqueInput[]
   }
 
   export type FavoriteCreateNestedManyWithoutUserInput = {
@@ -6956,11 +6898,11 @@ export namespace Prisma {
     connect?: ReservationWhereUniqueInput | ReservationWhereUniqueInput[]
   }
 
-  export type HomeUncheckedCreateNestedManyWithoutUserInput = {
-    create?: XOR<HomeCreateWithoutUserInput, HomeUncheckedCreateWithoutUserInput> | HomeCreateWithoutUserInput[] | HomeUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: HomeCreateOrConnectWithoutUserInput | HomeCreateOrConnectWithoutUserInput[]
-    createMany?: HomeCreateManyUserInputEnvelope
-    connect?: HomeWhereUniqueInput | HomeWhereUniqueInput[]
+  export type VehicleUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<VehicleCreateWithoutUserInput, VehicleUncheckedCreateWithoutUserInput> | VehicleCreateWithoutUserInput[] | VehicleUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: VehicleCreateOrConnectWithoutUserInput | VehicleCreateOrConnectWithoutUserInput[]
+    createMany?: VehicleCreateManyUserInputEnvelope
+    connect?: VehicleWhereUniqueInput | VehicleWhereUniqueInput[]
   }
 
   export type FavoriteUncheckedCreateNestedManyWithoutUserInput = {
@@ -6985,18 +6927,18 @@ export namespace Prisma {
     set?: string | null
   }
 
-  export type HomeUpdateManyWithoutUserNestedInput = {
-    create?: XOR<HomeCreateWithoutUserInput, HomeUncheckedCreateWithoutUserInput> | HomeCreateWithoutUserInput[] | HomeUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: HomeCreateOrConnectWithoutUserInput | HomeCreateOrConnectWithoutUserInput[]
-    upsert?: HomeUpsertWithWhereUniqueWithoutUserInput | HomeUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: HomeCreateManyUserInputEnvelope
-    set?: HomeWhereUniqueInput | HomeWhereUniqueInput[]
-    disconnect?: HomeWhereUniqueInput | HomeWhereUniqueInput[]
-    delete?: HomeWhereUniqueInput | HomeWhereUniqueInput[]
-    connect?: HomeWhereUniqueInput | HomeWhereUniqueInput[]
-    update?: HomeUpdateWithWhereUniqueWithoutUserInput | HomeUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: HomeUpdateManyWithWhereWithoutUserInput | HomeUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: HomeScalarWhereInput | HomeScalarWhereInput[]
+  export type VehicleUpdateManyWithoutUserNestedInput = {
+    create?: XOR<VehicleCreateWithoutUserInput, VehicleUncheckedCreateWithoutUserInput> | VehicleCreateWithoutUserInput[] | VehicleUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: VehicleCreateOrConnectWithoutUserInput | VehicleCreateOrConnectWithoutUserInput[]
+    upsert?: VehicleUpsertWithWhereUniqueWithoutUserInput | VehicleUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: VehicleCreateManyUserInputEnvelope
+    set?: VehicleWhereUniqueInput | VehicleWhereUniqueInput[]
+    disconnect?: VehicleWhereUniqueInput | VehicleWhereUniqueInput[]
+    delete?: VehicleWhereUniqueInput | VehicleWhereUniqueInput[]
+    connect?: VehicleWhereUniqueInput | VehicleWhereUniqueInput[]
+    update?: VehicleUpdateWithWhereUniqueWithoutUserInput | VehicleUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: VehicleUpdateManyWithWhereWithoutUserInput | VehicleUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: VehicleScalarWhereInput | VehicleScalarWhereInput[]
   }
 
   export type FavoriteUpdateManyWithoutUserNestedInput = {
@@ -7027,18 +6969,18 @@ export namespace Prisma {
     deleteMany?: ReservationScalarWhereInput | ReservationScalarWhereInput[]
   }
 
-  export type HomeUncheckedUpdateManyWithoutUserNestedInput = {
-    create?: XOR<HomeCreateWithoutUserInput, HomeUncheckedCreateWithoutUserInput> | HomeCreateWithoutUserInput[] | HomeUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: HomeCreateOrConnectWithoutUserInput | HomeCreateOrConnectWithoutUserInput[]
-    upsert?: HomeUpsertWithWhereUniqueWithoutUserInput | HomeUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: HomeCreateManyUserInputEnvelope
-    set?: HomeWhereUniqueInput | HomeWhereUniqueInput[]
-    disconnect?: HomeWhereUniqueInput | HomeWhereUniqueInput[]
-    delete?: HomeWhereUniqueInput | HomeWhereUniqueInput[]
-    connect?: HomeWhereUniqueInput | HomeWhereUniqueInput[]
-    update?: HomeUpdateWithWhereUniqueWithoutUserInput | HomeUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: HomeUpdateManyWithWhereWithoutUserInput | HomeUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: HomeScalarWhereInput | HomeScalarWhereInput[]
+  export type VehicleUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<VehicleCreateWithoutUserInput, VehicleUncheckedCreateWithoutUserInput> | VehicleCreateWithoutUserInput[] | VehicleUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: VehicleCreateOrConnectWithoutUserInput | VehicleCreateOrConnectWithoutUserInput[]
+    upsert?: VehicleUpsertWithWhereUniqueWithoutUserInput | VehicleUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: VehicleCreateManyUserInputEnvelope
+    set?: VehicleWhereUniqueInput | VehicleWhereUniqueInput[]
+    disconnect?: VehicleWhereUniqueInput | VehicleWhereUniqueInput[]
+    delete?: VehicleWhereUniqueInput | VehicleWhereUniqueInput[]
+    connect?: VehicleWhereUniqueInput | VehicleWhereUniqueInput[]
+    update?: VehicleUpdateWithWhereUniqueWithoutUserInput | VehicleUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: VehicleUpdateManyWithWhereWithoutUserInput | VehicleUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: VehicleScalarWhereInput | VehicleScalarWhereInput[]
   }
 
   export type FavoriteUncheckedUpdateManyWithoutUserNestedInput = {
@@ -7069,37 +7011,37 @@ export namespace Prisma {
     deleteMany?: ReservationScalarWhereInput | ReservationScalarWhereInput[]
   }
 
-  export type FavoriteCreateNestedManyWithoutHomeInput = {
-    create?: XOR<FavoriteCreateWithoutHomeInput, FavoriteUncheckedCreateWithoutHomeInput> | FavoriteCreateWithoutHomeInput[] | FavoriteUncheckedCreateWithoutHomeInput[]
-    connectOrCreate?: FavoriteCreateOrConnectWithoutHomeInput | FavoriteCreateOrConnectWithoutHomeInput[]
-    createMany?: FavoriteCreateManyHomeInputEnvelope
+  export type FavoriteCreateNestedManyWithoutVehicleInput = {
+    create?: XOR<FavoriteCreateWithoutVehicleInput, FavoriteUncheckedCreateWithoutVehicleInput> | FavoriteCreateWithoutVehicleInput[] | FavoriteUncheckedCreateWithoutVehicleInput[]
+    connectOrCreate?: FavoriteCreateOrConnectWithoutVehicleInput | FavoriteCreateOrConnectWithoutVehicleInput[]
+    createMany?: FavoriteCreateManyVehicleInputEnvelope
     connect?: FavoriteWhereUniqueInput | FavoriteWhereUniqueInput[]
   }
 
-  export type ReservationCreateNestedManyWithoutHomeInput = {
-    create?: XOR<ReservationCreateWithoutHomeInput, ReservationUncheckedCreateWithoutHomeInput> | ReservationCreateWithoutHomeInput[] | ReservationUncheckedCreateWithoutHomeInput[]
-    connectOrCreate?: ReservationCreateOrConnectWithoutHomeInput | ReservationCreateOrConnectWithoutHomeInput[]
-    createMany?: ReservationCreateManyHomeInputEnvelope
+  export type ReservationCreateNestedManyWithoutVehicleInput = {
+    create?: XOR<ReservationCreateWithoutVehicleInput, ReservationUncheckedCreateWithoutVehicleInput> | ReservationCreateWithoutVehicleInput[] | ReservationUncheckedCreateWithoutVehicleInput[]
+    connectOrCreate?: ReservationCreateOrConnectWithoutVehicleInput | ReservationCreateOrConnectWithoutVehicleInput[]
+    createMany?: ReservationCreateManyVehicleInputEnvelope
     connect?: ReservationWhereUniqueInput | ReservationWhereUniqueInput[]
   }
 
-  export type UserCreateNestedOneWithoutHomeInput = {
-    create?: XOR<UserCreateWithoutHomeInput, UserUncheckedCreateWithoutHomeInput>
-    connectOrCreate?: UserCreateOrConnectWithoutHomeInput
+  export type UserCreateNestedOneWithoutVehicleInput = {
+    create?: XOR<UserCreateWithoutVehicleInput, UserUncheckedCreateWithoutVehicleInput>
+    connectOrCreate?: UserCreateOrConnectWithoutVehicleInput
     connect?: UserWhereUniqueInput
   }
 
-  export type FavoriteUncheckedCreateNestedManyWithoutHomeInput = {
-    create?: XOR<FavoriteCreateWithoutHomeInput, FavoriteUncheckedCreateWithoutHomeInput> | FavoriteCreateWithoutHomeInput[] | FavoriteUncheckedCreateWithoutHomeInput[]
-    connectOrCreate?: FavoriteCreateOrConnectWithoutHomeInput | FavoriteCreateOrConnectWithoutHomeInput[]
-    createMany?: FavoriteCreateManyHomeInputEnvelope
+  export type FavoriteUncheckedCreateNestedManyWithoutVehicleInput = {
+    create?: XOR<FavoriteCreateWithoutVehicleInput, FavoriteUncheckedCreateWithoutVehicleInput> | FavoriteCreateWithoutVehicleInput[] | FavoriteUncheckedCreateWithoutVehicleInput[]
+    connectOrCreate?: FavoriteCreateOrConnectWithoutVehicleInput | FavoriteCreateOrConnectWithoutVehicleInput[]
+    createMany?: FavoriteCreateManyVehicleInputEnvelope
     connect?: FavoriteWhereUniqueInput | FavoriteWhereUniqueInput[]
   }
 
-  export type ReservationUncheckedCreateNestedManyWithoutHomeInput = {
-    create?: XOR<ReservationCreateWithoutHomeInput, ReservationUncheckedCreateWithoutHomeInput> | ReservationCreateWithoutHomeInput[] | ReservationUncheckedCreateWithoutHomeInput[]
-    connectOrCreate?: ReservationCreateOrConnectWithoutHomeInput | ReservationCreateOrConnectWithoutHomeInput[]
-    createMany?: ReservationCreateManyHomeInputEnvelope
+  export type ReservationUncheckedCreateNestedManyWithoutVehicleInput = {
+    create?: XOR<ReservationCreateWithoutVehicleInput, ReservationUncheckedCreateWithoutVehicleInput> | ReservationCreateWithoutVehicleInput[] | ReservationUncheckedCreateWithoutVehicleInput[]
+    connectOrCreate?: ReservationCreateOrConnectWithoutVehicleInput | ReservationCreateOrConnectWithoutVehicleInput[]
+    createMany?: ReservationCreateManyVehicleInputEnvelope
     connect?: ReservationWhereUniqueInput | ReservationWhereUniqueInput[]
   }
 
@@ -7119,69 +7061,69 @@ export namespace Prisma {
     set?: Date | string
   }
 
-  export type FavoriteUpdateManyWithoutHomeNestedInput = {
-    create?: XOR<FavoriteCreateWithoutHomeInput, FavoriteUncheckedCreateWithoutHomeInput> | FavoriteCreateWithoutHomeInput[] | FavoriteUncheckedCreateWithoutHomeInput[]
-    connectOrCreate?: FavoriteCreateOrConnectWithoutHomeInput | FavoriteCreateOrConnectWithoutHomeInput[]
-    upsert?: FavoriteUpsertWithWhereUniqueWithoutHomeInput | FavoriteUpsertWithWhereUniqueWithoutHomeInput[]
-    createMany?: FavoriteCreateManyHomeInputEnvelope
+  export type FavoriteUpdateManyWithoutVehicleNestedInput = {
+    create?: XOR<FavoriteCreateWithoutVehicleInput, FavoriteUncheckedCreateWithoutVehicleInput> | FavoriteCreateWithoutVehicleInput[] | FavoriteUncheckedCreateWithoutVehicleInput[]
+    connectOrCreate?: FavoriteCreateOrConnectWithoutVehicleInput | FavoriteCreateOrConnectWithoutVehicleInput[]
+    upsert?: FavoriteUpsertWithWhereUniqueWithoutVehicleInput | FavoriteUpsertWithWhereUniqueWithoutVehicleInput[]
+    createMany?: FavoriteCreateManyVehicleInputEnvelope
     set?: FavoriteWhereUniqueInput | FavoriteWhereUniqueInput[]
     disconnect?: FavoriteWhereUniqueInput | FavoriteWhereUniqueInput[]
     delete?: FavoriteWhereUniqueInput | FavoriteWhereUniqueInput[]
     connect?: FavoriteWhereUniqueInput | FavoriteWhereUniqueInput[]
-    update?: FavoriteUpdateWithWhereUniqueWithoutHomeInput | FavoriteUpdateWithWhereUniqueWithoutHomeInput[]
-    updateMany?: FavoriteUpdateManyWithWhereWithoutHomeInput | FavoriteUpdateManyWithWhereWithoutHomeInput[]
+    update?: FavoriteUpdateWithWhereUniqueWithoutVehicleInput | FavoriteUpdateWithWhereUniqueWithoutVehicleInput[]
+    updateMany?: FavoriteUpdateManyWithWhereWithoutVehicleInput | FavoriteUpdateManyWithWhereWithoutVehicleInput[]
     deleteMany?: FavoriteScalarWhereInput | FavoriteScalarWhereInput[]
   }
 
-  export type ReservationUpdateManyWithoutHomeNestedInput = {
-    create?: XOR<ReservationCreateWithoutHomeInput, ReservationUncheckedCreateWithoutHomeInput> | ReservationCreateWithoutHomeInput[] | ReservationUncheckedCreateWithoutHomeInput[]
-    connectOrCreate?: ReservationCreateOrConnectWithoutHomeInput | ReservationCreateOrConnectWithoutHomeInput[]
-    upsert?: ReservationUpsertWithWhereUniqueWithoutHomeInput | ReservationUpsertWithWhereUniqueWithoutHomeInput[]
-    createMany?: ReservationCreateManyHomeInputEnvelope
+  export type ReservationUpdateManyWithoutVehicleNestedInput = {
+    create?: XOR<ReservationCreateWithoutVehicleInput, ReservationUncheckedCreateWithoutVehicleInput> | ReservationCreateWithoutVehicleInput[] | ReservationUncheckedCreateWithoutVehicleInput[]
+    connectOrCreate?: ReservationCreateOrConnectWithoutVehicleInput | ReservationCreateOrConnectWithoutVehicleInput[]
+    upsert?: ReservationUpsertWithWhereUniqueWithoutVehicleInput | ReservationUpsertWithWhereUniqueWithoutVehicleInput[]
+    createMany?: ReservationCreateManyVehicleInputEnvelope
     set?: ReservationWhereUniqueInput | ReservationWhereUniqueInput[]
     disconnect?: ReservationWhereUniqueInput | ReservationWhereUniqueInput[]
     delete?: ReservationWhereUniqueInput | ReservationWhereUniqueInput[]
     connect?: ReservationWhereUniqueInput | ReservationWhereUniqueInput[]
-    update?: ReservationUpdateWithWhereUniqueWithoutHomeInput | ReservationUpdateWithWhereUniqueWithoutHomeInput[]
-    updateMany?: ReservationUpdateManyWithWhereWithoutHomeInput | ReservationUpdateManyWithWhereWithoutHomeInput[]
+    update?: ReservationUpdateWithWhereUniqueWithoutVehicleInput | ReservationUpdateWithWhereUniqueWithoutVehicleInput[]
+    updateMany?: ReservationUpdateManyWithWhereWithoutVehicleInput | ReservationUpdateManyWithWhereWithoutVehicleInput[]
     deleteMany?: ReservationScalarWhereInput | ReservationScalarWhereInput[]
   }
 
-  export type UserUpdateOneWithoutHomeNestedInput = {
-    create?: XOR<UserCreateWithoutHomeInput, UserUncheckedCreateWithoutHomeInput>
-    connectOrCreate?: UserCreateOrConnectWithoutHomeInput
-    upsert?: UserUpsertWithoutHomeInput
+  export type UserUpdateOneWithoutVehicleNestedInput = {
+    create?: XOR<UserCreateWithoutVehicleInput, UserUncheckedCreateWithoutVehicleInput>
+    connectOrCreate?: UserCreateOrConnectWithoutVehicleInput
+    upsert?: UserUpsertWithoutVehicleInput
     disconnect?: UserWhereInput | boolean
     delete?: UserWhereInput | boolean
     connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutHomeInput, UserUpdateWithoutHomeInput>, UserUncheckedUpdateWithoutHomeInput>
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutVehicleInput, UserUpdateWithoutVehicleInput>, UserUncheckedUpdateWithoutVehicleInput>
   }
 
-  export type FavoriteUncheckedUpdateManyWithoutHomeNestedInput = {
-    create?: XOR<FavoriteCreateWithoutHomeInput, FavoriteUncheckedCreateWithoutHomeInput> | FavoriteCreateWithoutHomeInput[] | FavoriteUncheckedCreateWithoutHomeInput[]
-    connectOrCreate?: FavoriteCreateOrConnectWithoutHomeInput | FavoriteCreateOrConnectWithoutHomeInput[]
-    upsert?: FavoriteUpsertWithWhereUniqueWithoutHomeInput | FavoriteUpsertWithWhereUniqueWithoutHomeInput[]
-    createMany?: FavoriteCreateManyHomeInputEnvelope
+  export type FavoriteUncheckedUpdateManyWithoutVehicleNestedInput = {
+    create?: XOR<FavoriteCreateWithoutVehicleInput, FavoriteUncheckedCreateWithoutVehicleInput> | FavoriteCreateWithoutVehicleInput[] | FavoriteUncheckedCreateWithoutVehicleInput[]
+    connectOrCreate?: FavoriteCreateOrConnectWithoutVehicleInput | FavoriteCreateOrConnectWithoutVehicleInput[]
+    upsert?: FavoriteUpsertWithWhereUniqueWithoutVehicleInput | FavoriteUpsertWithWhereUniqueWithoutVehicleInput[]
+    createMany?: FavoriteCreateManyVehicleInputEnvelope
     set?: FavoriteWhereUniqueInput | FavoriteWhereUniqueInput[]
     disconnect?: FavoriteWhereUniqueInput | FavoriteWhereUniqueInput[]
     delete?: FavoriteWhereUniqueInput | FavoriteWhereUniqueInput[]
     connect?: FavoriteWhereUniqueInput | FavoriteWhereUniqueInput[]
-    update?: FavoriteUpdateWithWhereUniqueWithoutHomeInput | FavoriteUpdateWithWhereUniqueWithoutHomeInput[]
-    updateMany?: FavoriteUpdateManyWithWhereWithoutHomeInput | FavoriteUpdateManyWithWhereWithoutHomeInput[]
+    update?: FavoriteUpdateWithWhereUniqueWithoutVehicleInput | FavoriteUpdateWithWhereUniqueWithoutVehicleInput[]
+    updateMany?: FavoriteUpdateManyWithWhereWithoutVehicleInput | FavoriteUpdateManyWithWhereWithoutVehicleInput[]
     deleteMany?: FavoriteScalarWhereInput | FavoriteScalarWhereInput[]
   }
 
-  export type ReservationUncheckedUpdateManyWithoutHomeNestedInput = {
-    create?: XOR<ReservationCreateWithoutHomeInput, ReservationUncheckedCreateWithoutHomeInput> | ReservationCreateWithoutHomeInput[] | ReservationUncheckedCreateWithoutHomeInput[]
-    connectOrCreate?: ReservationCreateOrConnectWithoutHomeInput | ReservationCreateOrConnectWithoutHomeInput[]
-    upsert?: ReservationUpsertWithWhereUniqueWithoutHomeInput | ReservationUpsertWithWhereUniqueWithoutHomeInput[]
-    createMany?: ReservationCreateManyHomeInputEnvelope
+  export type ReservationUncheckedUpdateManyWithoutVehicleNestedInput = {
+    create?: XOR<ReservationCreateWithoutVehicleInput, ReservationUncheckedCreateWithoutVehicleInput> | ReservationCreateWithoutVehicleInput[] | ReservationUncheckedCreateWithoutVehicleInput[]
+    connectOrCreate?: ReservationCreateOrConnectWithoutVehicleInput | ReservationCreateOrConnectWithoutVehicleInput[]
+    upsert?: ReservationUpsertWithWhereUniqueWithoutVehicleInput | ReservationUpsertWithWhereUniqueWithoutVehicleInput[]
+    createMany?: ReservationCreateManyVehicleInputEnvelope
     set?: ReservationWhereUniqueInput | ReservationWhereUniqueInput[]
     disconnect?: ReservationWhereUniqueInput | ReservationWhereUniqueInput[]
     delete?: ReservationWhereUniqueInput | ReservationWhereUniqueInput[]
     connect?: ReservationWhereUniqueInput | ReservationWhereUniqueInput[]
-    update?: ReservationUpdateWithWhereUniqueWithoutHomeInput | ReservationUpdateWithWhereUniqueWithoutHomeInput[]
-    updateMany?: ReservationUpdateManyWithWhereWithoutHomeInput | ReservationUpdateManyWithWhereWithoutHomeInput[]
+    update?: ReservationUpdateWithWhereUniqueWithoutVehicleInput | ReservationUpdateWithWhereUniqueWithoutVehicleInput[]
+    updateMany?: ReservationUpdateManyWithWhereWithoutVehicleInput | ReservationUpdateManyWithWhereWithoutVehicleInput[]
     deleteMany?: ReservationScalarWhereInput | ReservationScalarWhereInput[]
   }
 
@@ -7191,10 +7133,10 @@ export namespace Prisma {
     connect?: UserWhereUniqueInput
   }
 
-  export type HomeCreateNestedOneWithoutFavoriteInput = {
-    create?: XOR<HomeCreateWithoutFavoriteInput, HomeUncheckedCreateWithoutFavoriteInput>
-    connectOrCreate?: HomeCreateOrConnectWithoutFavoriteInput
-    connect?: HomeWhereUniqueInput
+  export type VehicleCreateNestedOneWithoutFavoriteInput = {
+    create?: XOR<VehicleCreateWithoutFavoriteInput, VehicleUncheckedCreateWithoutFavoriteInput>
+    connectOrCreate?: VehicleCreateOrConnectWithoutFavoriteInput
+    connect?: VehicleWhereUniqueInput
   }
 
   export type UserUpdateOneWithoutFavoriteNestedInput = {
@@ -7207,14 +7149,14 @@ export namespace Prisma {
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutFavoriteInput, UserUpdateWithoutFavoriteInput>, UserUncheckedUpdateWithoutFavoriteInput>
   }
 
-  export type HomeUpdateOneWithoutFavoriteNestedInput = {
-    create?: XOR<HomeCreateWithoutFavoriteInput, HomeUncheckedCreateWithoutFavoriteInput>
-    connectOrCreate?: HomeCreateOrConnectWithoutFavoriteInput
-    upsert?: HomeUpsertWithoutFavoriteInput
-    disconnect?: HomeWhereInput | boolean
-    delete?: HomeWhereInput | boolean
-    connect?: HomeWhereUniqueInput
-    update?: XOR<XOR<HomeUpdateToOneWithWhereWithoutFavoriteInput, HomeUpdateWithoutFavoriteInput>, HomeUncheckedUpdateWithoutFavoriteInput>
+  export type VehicleUpdateOneWithoutFavoriteNestedInput = {
+    create?: XOR<VehicleCreateWithoutFavoriteInput, VehicleUncheckedCreateWithoutFavoriteInput>
+    connectOrCreate?: VehicleCreateOrConnectWithoutFavoriteInput
+    upsert?: VehicleUpsertWithoutFavoriteInput
+    disconnect?: VehicleWhereInput | boolean
+    delete?: VehicleWhereInput | boolean
+    connect?: VehicleWhereUniqueInput
+    update?: XOR<XOR<VehicleUpdateToOneWithWhereWithoutFavoriteInput, VehicleUpdateWithoutFavoriteInput>, VehicleUncheckedUpdateWithoutFavoriteInput>
   }
 
   export type UserCreateNestedOneWithoutReservationInput = {
@@ -7223,10 +7165,10 @@ export namespace Prisma {
     connect?: UserWhereUniqueInput
   }
 
-  export type HomeCreateNestedOneWithoutReservationInput = {
-    create?: XOR<HomeCreateWithoutReservationInput, HomeUncheckedCreateWithoutReservationInput>
-    connectOrCreate?: HomeCreateOrConnectWithoutReservationInput
-    connect?: HomeWhereUniqueInput
+  export type VehicleCreateNestedOneWithoutReservationInput = {
+    create?: XOR<VehicleCreateWithoutReservationInput, VehicleUncheckedCreateWithoutReservationInput>
+    connectOrCreate?: VehicleCreateOrConnectWithoutReservationInput
+    connect?: VehicleWhereUniqueInput
   }
 
   export type UserUpdateOneWithoutReservationNestedInput = {
@@ -7239,14 +7181,14 @@ export namespace Prisma {
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutReservationInput, UserUpdateWithoutReservationInput>, UserUncheckedUpdateWithoutReservationInput>
   }
 
-  export type HomeUpdateOneWithoutReservationNestedInput = {
-    create?: XOR<HomeCreateWithoutReservationInput, HomeUncheckedCreateWithoutReservationInput>
-    connectOrCreate?: HomeCreateOrConnectWithoutReservationInput
-    upsert?: HomeUpsertWithoutReservationInput
-    disconnect?: HomeWhereInput | boolean
-    delete?: HomeWhereInput | boolean
-    connect?: HomeWhereUniqueInput
-    update?: XOR<XOR<HomeUpdateToOneWithWhereWithoutReservationInput, HomeUpdateWithoutReservationInput>, HomeUncheckedUpdateWithoutReservationInput>
+  export type VehicleUpdateOneWithoutReservationNestedInput = {
+    create?: XOR<VehicleCreateWithoutReservationInput, VehicleUncheckedCreateWithoutReservationInput>
+    connectOrCreate?: VehicleCreateOrConnectWithoutReservationInput
+    upsert?: VehicleUpsertWithoutReservationInput
+    disconnect?: VehicleWhereInput | boolean
+    delete?: VehicleWhereInput | boolean
+    connect?: VehicleWhereUniqueInput
+    update?: XOR<XOR<VehicleUpdateToOneWithWhereWithoutReservationInput, VehicleUpdateWithoutReservationInput>, VehicleUncheckedUpdateWithoutReservationInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -7398,13 +7340,11 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
-  export type HomeCreateWithoutUserInput = {
+  export type VehicleCreateWithoutUserInput = {
     id?: string
     title?: string | null
     description?: string | null
     guests?: string | null
-    bedrooms?: string | null
-    bathrooms?: string | null
     country?: string | null
     photo?: string | null
     price?: number | null
@@ -7413,17 +7353,15 @@ export namespace Prisma {
     addedDescription?: boolean
     addedLocation?: boolean
     createdAt?: Date | string
-    Favorite?: FavoriteCreateNestedManyWithoutHomeInput
-    Reservation?: ReservationCreateNestedManyWithoutHomeInput
+    Favorite?: FavoriteCreateNestedManyWithoutVehicleInput
+    Reservation?: ReservationCreateNestedManyWithoutVehicleInput
   }
 
-  export type HomeUncheckedCreateWithoutUserInput = {
+  export type VehicleUncheckedCreateWithoutUserInput = {
     id?: string
     title?: string | null
     description?: string | null
     guests?: string | null
-    bedrooms?: string | null
-    bathrooms?: string | null
     country?: string | null
     photo?: string | null
     price?: number | null
@@ -7432,29 +7370,29 @@ export namespace Prisma {
     addedDescription?: boolean
     addedLocation?: boolean
     createdAt?: Date | string
-    Favorite?: FavoriteUncheckedCreateNestedManyWithoutHomeInput
-    Reservation?: ReservationUncheckedCreateNestedManyWithoutHomeInput
+    Favorite?: FavoriteUncheckedCreateNestedManyWithoutVehicleInput
+    Reservation?: ReservationUncheckedCreateNestedManyWithoutVehicleInput
   }
 
-  export type HomeCreateOrConnectWithoutUserInput = {
-    where: HomeWhereUniqueInput
-    create: XOR<HomeCreateWithoutUserInput, HomeUncheckedCreateWithoutUserInput>
+  export type VehicleCreateOrConnectWithoutUserInput = {
+    where: VehicleWhereUniqueInput
+    create: XOR<VehicleCreateWithoutUserInput, VehicleUncheckedCreateWithoutUserInput>
   }
 
-  export type HomeCreateManyUserInputEnvelope = {
-    data: HomeCreateManyUserInput | HomeCreateManyUserInput[]
+  export type VehicleCreateManyUserInputEnvelope = {
+    data: VehicleCreateManyUserInput | VehicleCreateManyUserInput[]
     skipDuplicates?: boolean
   }
 
   export type FavoriteCreateWithoutUserInput = {
     id?: string
     createdAt?: Date | string
-    Home?: HomeCreateNestedOneWithoutFavoriteInput
+    Vehicle?: VehicleCreateNestedOneWithoutFavoriteInput
   }
 
   export type FavoriteUncheckedCreateWithoutUserInput = {
     id?: string
-    homeId?: string | null
+    vehicleId?: string | null
     createdAt?: Date | string
   }
 
@@ -7473,7 +7411,7 @@ export namespace Prisma {
     startDate: Date | string
     endDate: Date | string
     createdAt?: Date | string
-    Home?: HomeCreateNestedOneWithoutReservationInput
+    Vehicle?: VehicleCreateNestedOneWithoutReservationInput
   }
 
   export type ReservationUncheckedCreateWithoutUserInput = {
@@ -7481,7 +7419,7 @@ export namespace Prisma {
     startDate: Date | string
     endDate: Date | string
     createdAt?: Date | string
-    homeId?: string | null
+    vehicleId?: string | null
   }
 
   export type ReservationCreateOrConnectWithoutUserInput = {
@@ -7494,41 +7432,39 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type HomeUpsertWithWhereUniqueWithoutUserInput = {
-    where: HomeWhereUniqueInput
-    update: XOR<HomeUpdateWithoutUserInput, HomeUncheckedUpdateWithoutUserInput>
-    create: XOR<HomeCreateWithoutUserInput, HomeUncheckedCreateWithoutUserInput>
+  export type VehicleUpsertWithWhereUniqueWithoutUserInput = {
+    where: VehicleWhereUniqueInput
+    update: XOR<VehicleUpdateWithoutUserInput, VehicleUncheckedUpdateWithoutUserInput>
+    create: XOR<VehicleCreateWithoutUserInput, VehicleUncheckedCreateWithoutUserInput>
   }
 
-  export type HomeUpdateWithWhereUniqueWithoutUserInput = {
-    where: HomeWhereUniqueInput
-    data: XOR<HomeUpdateWithoutUserInput, HomeUncheckedUpdateWithoutUserInput>
+  export type VehicleUpdateWithWhereUniqueWithoutUserInput = {
+    where: VehicleWhereUniqueInput
+    data: XOR<VehicleUpdateWithoutUserInput, VehicleUncheckedUpdateWithoutUserInput>
   }
 
-  export type HomeUpdateManyWithWhereWithoutUserInput = {
-    where: HomeScalarWhereInput
-    data: XOR<HomeUpdateManyMutationInput, HomeUncheckedUpdateManyWithoutUserInput>
+  export type VehicleUpdateManyWithWhereWithoutUserInput = {
+    where: VehicleScalarWhereInput
+    data: XOR<VehicleUpdateManyMutationInput, VehicleUncheckedUpdateManyWithoutUserInput>
   }
 
-  export type HomeScalarWhereInput = {
-    AND?: HomeScalarWhereInput | HomeScalarWhereInput[]
-    OR?: HomeScalarWhereInput[]
-    NOT?: HomeScalarWhereInput | HomeScalarWhereInput[]
-    id?: StringFilter<"Home"> | string
-    title?: StringNullableFilter<"Home"> | string | null
-    description?: StringNullableFilter<"Home"> | string | null
-    guests?: StringNullableFilter<"Home"> | string | null
-    bedrooms?: StringNullableFilter<"Home"> | string | null
-    bathrooms?: StringNullableFilter<"Home"> | string | null
-    country?: StringNullableFilter<"Home"> | string | null
-    photo?: StringNullableFilter<"Home"> | string | null
-    price?: IntNullableFilter<"Home"> | number | null
-    categoryName?: StringNullableFilter<"Home"> | string | null
-    addedCategory?: BoolFilter<"Home"> | boolean
-    addedDescription?: BoolFilter<"Home"> | boolean
-    addedLocation?: BoolFilter<"Home"> | boolean
-    createdAt?: DateTimeFilter<"Home"> | Date | string
-    userId?: StringFilter<"Home"> | string
+  export type VehicleScalarWhereInput = {
+    AND?: VehicleScalarWhereInput | VehicleScalarWhereInput[]
+    OR?: VehicleScalarWhereInput[]
+    NOT?: VehicleScalarWhereInput | VehicleScalarWhereInput[]
+    id?: StringFilter<"Vehicle"> | string
+    title?: StringNullableFilter<"Vehicle"> | string | null
+    description?: StringNullableFilter<"Vehicle"> | string | null
+    guests?: StringNullableFilter<"Vehicle"> | string | null
+    country?: StringNullableFilter<"Vehicle"> | string | null
+    photo?: StringNullableFilter<"Vehicle"> | string | null
+    price?: IntNullableFilter<"Vehicle"> | number | null
+    categoryName?: StringNullableFilter<"Vehicle"> | string | null
+    addedCategory?: BoolFilter<"Vehicle"> | boolean
+    addedDescription?: BoolFilter<"Vehicle"> | boolean
+    addedLocation?: BoolFilter<"Vehicle"> | boolean
+    createdAt?: DateTimeFilter<"Vehicle"> | Date | string
+    userId?: StringFilter<"Vehicle"> | string
   }
 
   export type FavoriteUpsertWithWhereUniqueWithoutUserInput = {
@@ -7553,7 +7489,7 @@ export namespace Prisma {
     NOT?: FavoriteScalarWhereInput | FavoriteScalarWhereInput[]
     id?: StringFilter<"Favorite"> | string
     userId?: StringNullableFilter<"Favorite"> | string | null
-    homeId?: StringNullableFilter<"Favorite"> | string | null
+    vehicleId?: StringNullableFilter<"Favorite"> | string | null
     createdAt?: DateTimeFilter<"Favorite"> | Date | string
   }
 
@@ -7582,32 +7518,32 @@ export namespace Prisma {
     endDate?: DateTimeFilter<"Reservation"> | Date | string
     createdAt?: DateTimeFilter<"Reservation"> | Date | string
     userId?: StringNullableFilter<"Reservation"> | string | null
-    homeId?: StringNullableFilter<"Reservation"> | string | null
+    vehicleId?: StringNullableFilter<"Reservation"> | string | null
   }
 
-  export type FavoriteCreateWithoutHomeInput = {
+  export type FavoriteCreateWithoutVehicleInput = {
     id?: string
     createdAt?: Date | string
     User?: UserCreateNestedOneWithoutFavoriteInput
   }
 
-  export type FavoriteUncheckedCreateWithoutHomeInput = {
+  export type FavoriteUncheckedCreateWithoutVehicleInput = {
     id?: string
     userId?: string | null
     createdAt?: Date | string
   }
 
-  export type FavoriteCreateOrConnectWithoutHomeInput = {
+  export type FavoriteCreateOrConnectWithoutVehicleInput = {
     where: FavoriteWhereUniqueInput
-    create: XOR<FavoriteCreateWithoutHomeInput, FavoriteUncheckedCreateWithoutHomeInput>
+    create: XOR<FavoriteCreateWithoutVehicleInput, FavoriteUncheckedCreateWithoutVehicleInput>
   }
 
-  export type FavoriteCreateManyHomeInputEnvelope = {
-    data: FavoriteCreateManyHomeInput | FavoriteCreateManyHomeInput[]
+  export type FavoriteCreateManyVehicleInputEnvelope = {
+    data: FavoriteCreateManyVehicleInput | FavoriteCreateManyVehicleInput[]
     skipDuplicates?: boolean
   }
 
-  export type ReservationCreateWithoutHomeInput = {
+  export type ReservationCreateWithoutVehicleInput = {
     id?: string
     startDate: Date | string
     endDate: Date | string
@@ -7615,7 +7551,7 @@ export namespace Prisma {
     User?: UserCreateNestedOneWithoutReservationInput
   }
 
-  export type ReservationUncheckedCreateWithoutHomeInput = {
+  export type ReservationUncheckedCreateWithoutVehicleInput = {
     id?: string
     startDate: Date | string
     endDate: Date | string
@@ -7623,17 +7559,17 @@ export namespace Prisma {
     userId?: string | null
   }
 
-  export type ReservationCreateOrConnectWithoutHomeInput = {
+  export type ReservationCreateOrConnectWithoutVehicleInput = {
     where: ReservationWhereUniqueInput
-    create: XOR<ReservationCreateWithoutHomeInput, ReservationUncheckedCreateWithoutHomeInput>
+    create: XOR<ReservationCreateWithoutVehicleInput, ReservationUncheckedCreateWithoutVehicleInput>
   }
 
-  export type ReservationCreateManyHomeInputEnvelope = {
-    data: ReservationCreateManyHomeInput | ReservationCreateManyHomeInput[]
+  export type ReservationCreateManyVehicleInputEnvelope = {
+    data: ReservationCreateManyVehicleInput | ReservationCreateManyVehicleInput[]
     skipDuplicates?: boolean
   }
 
-  export type UserCreateWithoutHomeInput = {
+  export type UserCreateWithoutVehicleInput = {
     id: string
     email: string
     firstName: string
@@ -7643,7 +7579,7 @@ export namespace Prisma {
     Reservation?: ReservationCreateNestedManyWithoutUserInput
   }
 
-  export type UserUncheckedCreateWithoutHomeInput = {
+  export type UserUncheckedCreateWithoutVehicleInput = {
     id: string
     email: string
     firstName: string
@@ -7653,55 +7589,55 @@ export namespace Prisma {
     Reservation?: ReservationUncheckedCreateNestedManyWithoutUserInput
   }
 
-  export type UserCreateOrConnectWithoutHomeInput = {
+  export type UserCreateOrConnectWithoutVehicleInput = {
     where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutHomeInput, UserUncheckedCreateWithoutHomeInput>
+    create: XOR<UserCreateWithoutVehicleInput, UserUncheckedCreateWithoutVehicleInput>
   }
 
-  export type FavoriteUpsertWithWhereUniqueWithoutHomeInput = {
+  export type FavoriteUpsertWithWhereUniqueWithoutVehicleInput = {
     where: FavoriteWhereUniqueInput
-    update: XOR<FavoriteUpdateWithoutHomeInput, FavoriteUncheckedUpdateWithoutHomeInput>
-    create: XOR<FavoriteCreateWithoutHomeInput, FavoriteUncheckedCreateWithoutHomeInput>
+    update: XOR<FavoriteUpdateWithoutVehicleInput, FavoriteUncheckedUpdateWithoutVehicleInput>
+    create: XOR<FavoriteCreateWithoutVehicleInput, FavoriteUncheckedCreateWithoutVehicleInput>
   }
 
-  export type FavoriteUpdateWithWhereUniqueWithoutHomeInput = {
+  export type FavoriteUpdateWithWhereUniqueWithoutVehicleInput = {
     where: FavoriteWhereUniqueInput
-    data: XOR<FavoriteUpdateWithoutHomeInput, FavoriteUncheckedUpdateWithoutHomeInput>
+    data: XOR<FavoriteUpdateWithoutVehicleInput, FavoriteUncheckedUpdateWithoutVehicleInput>
   }
 
-  export type FavoriteUpdateManyWithWhereWithoutHomeInput = {
+  export type FavoriteUpdateManyWithWhereWithoutVehicleInput = {
     where: FavoriteScalarWhereInput
-    data: XOR<FavoriteUpdateManyMutationInput, FavoriteUncheckedUpdateManyWithoutHomeInput>
+    data: XOR<FavoriteUpdateManyMutationInput, FavoriteUncheckedUpdateManyWithoutVehicleInput>
   }
 
-  export type ReservationUpsertWithWhereUniqueWithoutHomeInput = {
+  export type ReservationUpsertWithWhereUniqueWithoutVehicleInput = {
     where: ReservationWhereUniqueInput
-    update: XOR<ReservationUpdateWithoutHomeInput, ReservationUncheckedUpdateWithoutHomeInput>
-    create: XOR<ReservationCreateWithoutHomeInput, ReservationUncheckedCreateWithoutHomeInput>
+    update: XOR<ReservationUpdateWithoutVehicleInput, ReservationUncheckedUpdateWithoutVehicleInput>
+    create: XOR<ReservationCreateWithoutVehicleInput, ReservationUncheckedCreateWithoutVehicleInput>
   }
 
-  export type ReservationUpdateWithWhereUniqueWithoutHomeInput = {
+  export type ReservationUpdateWithWhereUniqueWithoutVehicleInput = {
     where: ReservationWhereUniqueInput
-    data: XOR<ReservationUpdateWithoutHomeInput, ReservationUncheckedUpdateWithoutHomeInput>
+    data: XOR<ReservationUpdateWithoutVehicleInput, ReservationUncheckedUpdateWithoutVehicleInput>
   }
 
-  export type ReservationUpdateManyWithWhereWithoutHomeInput = {
+  export type ReservationUpdateManyWithWhereWithoutVehicleInput = {
     where: ReservationScalarWhereInput
-    data: XOR<ReservationUpdateManyMutationInput, ReservationUncheckedUpdateManyWithoutHomeInput>
+    data: XOR<ReservationUpdateManyMutationInput, ReservationUncheckedUpdateManyWithoutVehicleInput>
   }
 
-  export type UserUpsertWithoutHomeInput = {
-    update: XOR<UserUpdateWithoutHomeInput, UserUncheckedUpdateWithoutHomeInput>
-    create: XOR<UserCreateWithoutHomeInput, UserUncheckedCreateWithoutHomeInput>
+  export type UserUpsertWithoutVehicleInput = {
+    update: XOR<UserUpdateWithoutVehicleInput, UserUncheckedUpdateWithoutVehicleInput>
+    create: XOR<UserCreateWithoutVehicleInput, UserUncheckedCreateWithoutVehicleInput>
     where?: UserWhereInput
   }
 
-  export type UserUpdateToOneWithWhereWithoutHomeInput = {
+  export type UserUpdateToOneWithWhereWithoutVehicleInput = {
     where?: UserWhereInput
-    data: XOR<UserUpdateWithoutHomeInput, UserUncheckedUpdateWithoutHomeInput>
+    data: XOR<UserUpdateWithoutVehicleInput, UserUncheckedUpdateWithoutVehicleInput>
   }
 
-  export type UserUpdateWithoutHomeInput = {
+  export type UserUpdateWithoutVehicleInput = {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     firstName?: StringFieldUpdateOperationsInput | string
@@ -7711,7 +7647,7 @@ export namespace Prisma {
     Reservation?: ReservationUpdateManyWithoutUserNestedInput
   }
 
-  export type UserUncheckedUpdateWithoutHomeInput = {
+  export type UserUncheckedUpdateWithoutVehicleInput = {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     firstName?: StringFieldUpdateOperationsInput | string
@@ -7727,7 +7663,7 @@ export namespace Prisma {
     firstName: string
     lastName: string
     profileImage?: string | null
-    Home?: HomeCreateNestedManyWithoutUserInput
+    Vehicle?: VehicleCreateNestedManyWithoutUserInput
     Reservation?: ReservationCreateNestedManyWithoutUserInput
   }
 
@@ -7737,7 +7673,7 @@ export namespace Prisma {
     firstName: string
     lastName: string
     profileImage?: string | null
-    Home?: HomeUncheckedCreateNestedManyWithoutUserInput
+    Vehicle?: VehicleUncheckedCreateNestedManyWithoutUserInput
     Reservation?: ReservationUncheckedCreateNestedManyWithoutUserInput
   }
 
@@ -7746,13 +7682,11 @@ export namespace Prisma {
     create: XOR<UserCreateWithoutFavoriteInput, UserUncheckedCreateWithoutFavoriteInput>
   }
 
-  export type HomeCreateWithoutFavoriteInput = {
+  export type VehicleCreateWithoutFavoriteInput = {
     id?: string
     title?: string | null
     description?: string | null
     guests?: string | null
-    bedrooms?: string | null
-    bathrooms?: string | null
     country?: string | null
     photo?: string | null
     price?: number | null
@@ -7761,17 +7695,15 @@ export namespace Prisma {
     addedDescription?: boolean
     addedLocation?: boolean
     createdAt?: Date | string
-    Reservation?: ReservationCreateNestedManyWithoutHomeInput
-    User?: UserCreateNestedOneWithoutHomeInput
+    Reservation?: ReservationCreateNestedManyWithoutVehicleInput
+    User?: UserCreateNestedOneWithoutVehicleInput
   }
 
-  export type HomeUncheckedCreateWithoutFavoriteInput = {
+  export type VehicleUncheckedCreateWithoutFavoriteInput = {
     id?: string
     title?: string | null
     description?: string | null
     guests?: string | null
-    bedrooms?: string | null
-    bathrooms?: string | null
     country?: string | null
     photo?: string | null
     price?: number | null
@@ -7781,12 +7713,12 @@ export namespace Prisma {
     addedLocation?: boolean
     createdAt?: Date | string
     userId: string
-    Reservation?: ReservationUncheckedCreateNestedManyWithoutHomeInput
+    Reservation?: ReservationUncheckedCreateNestedManyWithoutVehicleInput
   }
 
-  export type HomeCreateOrConnectWithoutFavoriteInput = {
-    where: HomeWhereUniqueInput
-    create: XOR<HomeCreateWithoutFavoriteInput, HomeUncheckedCreateWithoutFavoriteInput>
+  export type VehicleCreateOrConnectWithoutFavoriteInput = {
+    where: VehicleWhereUniqueInput
+    create: XOR<VehicleCreateWithoutFavoriteInput, VehicleUncheckedCreateWithoutFavoriteInput>
   }
 
   export type UserUpsertWithoutFavoriteInput = {
@@ -7806,7 +7738,7 @@ export namespace Prisma {
     firstName?: StringFieldUpdateOperationsInput | string
     lastName?: StringFieldUpdateOperationsInput | string
     profileImage?: NullableStringFieldUpdateOperationsInput | string | null
-    Home?: HomeUpdateManyWithoutUserNestedInput
+    Vehicle?: VehicleUpdateManyWithoutUserNestedInput
     Reservation?: ReservationUpdateManyWithoutUserNestedInput
   }
 
@@ -7816,28 +7748,26 @@ export namespace Prisma {
     firstName?: StringFieldUpdateOperationsInput | string
     lastName?: StringFieldUpdateOperationsInput | string
     profileImage?: NullableStringFieldUpdateOperationsInput | string | null
-    Home?: HomeUncheckedUpdateManyWithoutUserNestedInput
+    Vehicle?: VehicleUncheckedUpdateManyWithoutUserNestedInput
     Reservation?: ReservationUncheckedUpdateManyWithoutUserNestedInput
   }
 
-  export type HomeUpsertWithoutFavoriteInput = {
-    update: XOR<HomeUpdateWithoutFavoriteInput, HomeUncheckedUpdateWithoutFavoriteInput>
-    create: XOR<HomeCreateWithoutFavoriteInput, HomeUncheckedCreateWithoutFavoriteInput>
-    where?: HomeWhereInput
+  export type VehicleUpsertWithoutFavoriteInput = {
+    update: XOR<VehicleUpdateWithoutFavoriteInput, VehicleUncheckedUpdateWithoutFavoriteInput>
+    create: XOR<VehicleCreateWithoutFavoriteInput, VehicleUncheckedCreateWithoutFavoriteInput>
+    where?: VehicleWhereInput
   }
 
-  export type HomeUpdateToOneWithWhereWithoutFavoriteInput = {
-    where?: HomeWhereInput
-    data: XOR<HomeUpdateWithoutFavoriteInput, HomeUncheckedUpdateWithoutFavoriteInput>
+  export type VehicleUpdateToOneWithWhereWithoutFavoriteInput = {
+    where?: VehicleWhereInput
+    data: XOR<VehicleUpdateWithoutFavoriteInput, VehicleUncheckedUpdateWithoutFavoriteInput>
   }
 
-  export type HomeUpdateWithoutFavoriteInput = {
+  export type VehicleUpdateWithoutFavoriteInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     guests?: NullableStringFieldUpdateOperationsInput | string | null
-    bedrooms?: NullableStringFieldUpdateOperationsInput | string | null
-    bathrooms?: NullableStringFieldUpdateOperationsInput | string | null
     country?: NullableStringFieldUpdateOperationsInput | string | null
     photo?: NullableStringFieldUpdateOperationsInput | string | null
     price?: NullableIntFieldUpdateOperationsInput | number | null
@@ -7846,17 +7776,15 @@ export namespace Prisma {
     addedDescription?: BoolFieldUpdateOperationsInput | boolean
     addedLocation?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    Reservation?: ReservationUpdateManyWithoutHomeNestedInput
-    User?: UserUpdateOneWithoutHomeNestedInput
+    Reservation?: ReservationUpdateManyWithoutVehicleNestedInput
+    User?: UserUpdateOneWithoutVehicleNestedInput
   }
 
-  export type HomeUncheckedUpdateWithoutFavoriteInput = {
+  export type VehicleUncheckedUpdateWithoutFavoriteInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     guests?: NullableStringFieldUpdateOperationsInput | string | null
-    bedrooms?: NullableStringFieldUpdateOperationsInput | string | null
-    bathrooms?: NullableStringFieldUpdateOperationsInput | string | null
     country?: NullableStringFieldUpdateOperationsInput | string | null
     photo?: NullableStringFieldUpdateOperationsInput | string | null
     price?: NullableIntFieldUpdateOperationsInput | number | null
@@ -7866,7 +7794,7 @@ export namespace Prisma {
     addedLocation?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     userId?: StringFieldUpdateOperationsInput | string
-    Reservation?: ReservationUncheckedUpdateManyWithoutHomeNestedInput
+    Reservation?: ReservationUncheckedUpdateManyWithoutVehicleNestedInput
   }
 
   export type UserCreateWithoutReservationInput = {
@@ -7875,7 +7803,7 @@ export namespace Prisma {
     firstName: string
     lastName: string
     profileImage?: string | null
-    Home?: HomeCreateNestedManyWithoutUserInput
+    Vehicle?: VehicleCreateNestedManyWithoutUserInput
     Favorite?: FavoriteCreateNestedManyWithoutUserInput
   }
 
@@ -7885,7 +7813,7 @@ export namespace Prisma {
     firstName: string
     lastName: string
     profileImage?: string | null
-    Home?: HomeUncheckedCreateNestedManyWithoutUserInput
+    Vehicle?: VehicleUncheckedCreateNestedManyWithoutUserInput
     Favorite?: FavoriteUncheckedCreateNestedManyWithoutUserInput
   }
 
@@ -7894,13 +7822,11 @@ export namespace Prisma {
     create: XOR<UserCreateWithoutReservationInput, UserUncheckedCreateWithoutReservationInput>
   }
 
-  export type HomeCreateWithoutReservationInput = {
+  export type VehicleCreateWithoutReservationInput = {
     id?: string
     title?: string | null
     description?: string | null
     guests?: string | null
-    bedrooms?: string | null
-    bathrooms?: string | null
     country?: string | null
     photo?: string | null
     price?: number | null
@@ -7909,17 +7835,15 @@ export namespace Prisma {
     addedDescription?: boolean
     addedLocation?: boolean
     createdAt?: Date | string
-    Favorite?: FavoriteCreateNestedManyWithoutHomeInput
-    User?: UserCreateNestedOneWithoutHomeInput
+    Favorite?: FavoriteCreateNestedManyWithoutVehicleInput
+    User?: UserCreateNestedOneWithoutVehicleInput
   }
 
-  export type HomeUncheckedCreateWithoutReservationInput = {
+  export type VehicleUncheckedCreateWithoutReservationInput = {
     id?: string
     title?: string | null
     description?: string | null
     guests?: string | null
-    bedrooms?: string | null
-    bathrooms?: string | null
     country?: string | null
     photo?: string | null
     price?: number | null
@@ -7929,12 +7853,12 @@ export namespace Prisma {
     addedLocation?: boolean
     createdAt?: Date | string
     userId: string
-    Favorite?: FavoriteUncheckedCreateNestedManyWithoutHomeInput
+    Favorite?: FavoriteUncheckedCreateNestedManyWithoutVehicleInput
   }
 
-  export type HomeCreateOrConnectWithoutReservationInput = {
-    where: HomeWhereUniqueInput
-    create: XOR<HomeCreateWithoutReservationInput, HomeUncheckedCreateWithoutReservationInput>
+  export type VehicleCreateOrConnectWithoutReservationInput = {
+    where: VehicleWhereUniqueInput
+    create: XOR<VehicleCreateWithoutReservationInput, VehicleUncheckedCreateWithoutReservationInput>
   }
 
   export type UserUpsertWithoutReservationInput = {
@@ -7954,7 +7878,7 @@ export namespace Prisma {
     firstName?: StringFieldUpdateOperationsInput | string
     lastName?: StringFieldUpdateOperationsInput | string
     profileImage?: NullableStringFieldUpdateOperationsInput | string | null
-    Home?: HomeUpdateManyWithoutUserNestedInput
+    Vehicle?: VehicleUpdateManyWithoutUserNestedInput
     Favorite?: FavoriteUpdateManyWithoutUserNestedInput
   }
 
@@ -7964,28 +7888,26 @@ export namespace Prisma {
     firstName?: StringFieldUpdateOperationsInput | string
     lastName?: StringFieldUpdateOperationsInput | string
     profileImage?: NullableStringFieldUpdateOperationsInput | string | null
-    Home?: HomeUncheckedUpdateManyWithoutUserNestedInput
+    Vehicle?: VehicleUncheckedUpdateManyWithoutUserNestedInput
     Favorite?: FavoriteUncheckedUpdateManyWithoutUserNestedInput
   }
 
-  export type HomeUpsertWithoutReservationInput = {
-    update: XOR<HomeUpdateWithoutReservationInput, HomeUncheckedUpdateWithoutReservationInput>
-    create: XOR<HomeCreateWithoutReservationInput, HomeUncheckedCreateWithoutReservationInput>
-    where?: HomeWhereInput
+  export type VehicleUpsertWithoutReservationInput = {
+    update: XOR<VehicleUpdateWithoutReservationInput, VehicleUncheckedUpdateWithoutReservationInput>
+    create: XOR<VehicleCreateWithoutReservationInput, VehicleUncheckedCreateWithoutReservationInput>
+    where?: VehicleWhereInput
   }
 
-  export type HomeUpdateToOneWithWhereWithoutReservationInput = {
-    where?: HomeWhereInput
-    data: XOR<HomeUpdateWithoutReservationInput, HomeUncheckedUpdateWithoutReservationInput>
+  export type VehicleUpdateToOneWithWhereWithoutReservationInput = {
+    where?: VehicleWhereInput
+    data: XOR<VehicleUpdateWithoutReservationInput, VehicleUncheckedUpdateWithoutReservationInput>
   }
 
-  export type HomeUpdateWithoutReservationInput = {
+  export type VehicleUpdateWithoutReservationInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     guests?: NullableStringFieldUpdateOperationsInput | string | null
-    bedrooms?: NullableStringFieldUpdateOperationsInput | string | null
-    bathrooms?: NullableStringFieldUpdateOperationsInput | string | null
     country?: NullableStringFieldUpdateOperationsInput | string | null
     photo?: NullableStringFieldUpdateOperationsInput | string | null
     price?: NullableIntFieldUpdateOperationsInput | number | null
@@ -7994,17 +7916,15 @@ export namespace Prisma {
     addedDescription?: BoolFieldUpdateOperationsInput | boolean
     addedLocation?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    Favorite?: FavoriteUpdateManyWithoutHomeNestedInput
-    User?: UserUpdateOneWithoutHomeNestedInput
+    Favorite?: FavoriteUpdateManyWithoutVehicleNestedInput
+    User?: UserUpdateOneWithoutVehicleNestedInput
   }
 
-  export type HomeUncheckedUpdateWithoutReservationInput = {
+  export type VehicleUncheckedUpdateWithoutReservationInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     guests?: NullableStringFieldUpdateOperationsInput | string | null
-    bedrooms?: NullableStringFieldUpdateOperationsInput | string | null
-    bathrooms?: NullableStringFieldUpdateOperationsInput | string | null
     country?: NullableStringFieldUpdateOperationsInput | string | null
     photo?: NullableStringFieldUpdateOperationsInput | string | null
     price?: NullableIntFieldUpdateOperationsInput | number | null
@@ -8014,16 +7934,14 @@ export namespace Prisma {
     addedLocation?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     userId?: StringFieldUpdateOperationsInput | string
-    Favorite?: FavoriteUncheckedUpdateManyWithoutHomeNestedInput
+    Favorite?: FavoriteUncheckedUpdateManyWithoutVehicleNestedInput
   }
 
-  export type HomeCreateManyUserInput = {
+  export type VehicleCreateManyUserInput = {
     id?: string
     title?: string | null
     description?: string | null
     guests?: string | null
-    bedrooms?: string | null
-    bathrooms?: string | null
     country?: string | null
     photo?: string | null
     price?: number | null
@@ -8036,7 +7954,7 @@ export namespace Prisma {
 
   export type FavoriteCreateManyUserInput = {
     id?: string
-    homeId?: string | null
+    vehicleId?: string | null
     createdAt?: Date | string
   }
 
@@ -8045,16 +7963,14 @@ export namespace Prisma {
     startDate: Date | string
     endDate: Date | string
     createdAt?: Date | string
-    homeId?: string | null
+    vehicleId?: string | null
   }
 
-  export type HomeUpdateWithoutUserInput = {
+  export type VehicleUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     guests?: NullableStringFieldUpdateOperationsInput | string | null
-    bedrooms?: NullableStringFieldUpdateOperationsInput | string | null
-    bathrooms?: NullableStringFieldUpdateOperationsInput | string | null
     country?: NullableStringFieldUpdateOperationsInput | string | null
     photo?: NullableStringFieldUpdateOperationsInput | string | null
     price?: NullableIntFieldUpdateOperationsInput | number | null
@@ -8063,17 +7979,15 @@ export namespace Prisma {
     addedDescription?: BoolFieldUpdateOperationsInput | boolean
     addedLocation?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    Favorite?: FavoriteUpdateManyWithoutHomeNestedInput
-    Reservation?: ReservationUpdateManyWithoutHomeNestedInput
+    Favorite?: FavoriteUpdateManyWithoutVehicleNestedInput
+    Reservation?: ReservationUpdateManyWithoutVehicleNestedInput
   }
 
-  export type HomeUncheckedUpdateWithoutUserInput = {
+  export type VehicleUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     guests?: NullableStringFieldUpdateOperationsInput | string | null
-    bedrooms?: NullableStringFieldUpdateOperationsInput | string | null
-    bathrooms?: NullableStringFieldUpdateOperationsInput | string | null
     country?: NullableStringFieldUpdateOperationsInput | string | null
     photo?: NullableStringFieldUpdateOperationsInput | string | null
     price?: NullableIntFieldUpdateOperationsInput | number | null
@@ -8082,17 +7996,15 @@ export namespace Prisma {
     addedDescription?: BoolFieldUpdateOperationsInput | boolean
     addedLocation?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    Favorite?: FavoriteUncheckedUpdateManyWithoutHomeNestedInput
-    Reservation?: ReservationUncheckedUpdateManyWithoutHomeNestedInput
+    Favorite?: FavoriteUncheckedUpdateManyWithoutVehicleNestedInput
+    Reservation?: ReservationUncheckedUpdateManyWithoutVehicleNestedInput
   }
 
-  export type HomeUncheckedUpdateManyWithoutUserInput = {
+  export type VehicleUncheckedUpdateManyWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     guests?: NullableStringFieldUpdateOperationsInput | string | null
-    bedrooms?: NullableStringFieldUpdateOperationsInput | string | null
-    bathrooms?: NullableStringFieldUpdateOperationsInput | string | null
     country?: NullableStringFieldUpdateOperationsInput | string | null
     photo?: NullableStringFieldUpdateOperationsInput | string | null
     price?: NullableIntFieldUpdateOperationsInput | number | null
@@ -8106,18 +8018,18 @@ export namespace Prisma {
   export type FavoriteUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    Home?: HomeUpdateOneWithoutFavoriteNestedInput
+    Vehicle?: VehicleUpdateOneWithoutFavoriteNestedInput
   }
 
   export type FavoriteUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    homeId?: NullableStringFieldUpdateOperationsInput | string | null
+    vehicleId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type FavoriteUncheckedUpdateManyWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    homeId?: NullableStringFieldUpdateOperationsInput | string | null
+    vehicleId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -8126,7 +8038,7 @@ export namespace Prisma {
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
     endDate?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    Home?: HomeUpdateOneWithoutReservationNestedInput
+    Vehicle?: VehicleUpdateOneWithoutReservationNestedInput
   }
 
   export type ReservationUncheckedUpdateWithoutUserInput = {
@@ -8134,7 +8046,7 @@ export namespace Prisma {
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
     endDate?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    homeId?: NullableStringFieldUpdateOperationsInput | string | null
+    vehicleId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type ReservationUncheckedUpdateManyWithoutUserInput = {
@@ -8142,16 +8054,16 @@ export namespace Prisma {
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
     endDate?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    homeId?: NullableStringFieldUpdateOperationsInput | string | null
+    vehicleId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type FavoriteCreateManyHomeInput = {
+  export type FavoriteCreateManyVehicleInput = {
     id?: string
     userId?: string | null
     createdAt?: Date | string
   }
 
-  export type ReservationCreateManyHomeInput = {
+  export type ReservationCreateManyVehicleInput = {
     id?: string
     startDate: Date | string
     endDate: Date | string
@@ -8159,25 +8071,25 @@ export namespace Prisma {
     userId?: string | null
   }
 
-  export type FavoriteUpdateWithoutHomeInput = {
+  export type FavoriteUpdateWithoutVehicleInput = {
     id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     User?: UserUpdateOneWithoutFavoriteNestedInput
   }
 
-  export type FavoriteUncheckedUpdateWithoutHomeInput = {
+  export type FavoriteUncheckedUpdateWithoutVehicleInput = {
     id?: StringFieldUpdateOperationsInput | string
     userId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type FavoriteUncheckedUpdateManyWithoutHomeInput = {
+  export type FavoriteUncheckedUpdateManyWithoutVehicleInput = {
     id?: StringFieldUpdateOperationsInput | string
     userId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type ReservationUpdateWithoutHomeInput = {
+  export type ReservationUpdateWithoutVehicleInput = {
     id?: StringFieldUpdateOperationsInput | string
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
     endDate?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -8185,7 +8097,7 @@ export namespace Prisma {
     User?: UserUpdateOneWithoutReservationNestedInput
   }
 
-  export type ReservationUncheckedUpdateWithoutHomeInput = {
+  export type ReservationUncheckedUpdateWithoutVehicleInput = {
     id?: StringFieldUpdateOperationsInput | string
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
     endDate?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -8193,7 +8105,7 @@ export namespace Prisma {
     userId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type ReservationUncheckedUpdateManyWithoutHomeInput = {
+  export type ReservationUncheckedUpdateManyWithoutVehicleInput = {
     id?: StringFieldUpdateOperationsInput | string
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
     endDate?: DateTimeFieldUpdateOperationsInput | Date | string

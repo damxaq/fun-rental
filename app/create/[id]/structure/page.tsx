@@ -18,7 +18,7 @@ export default function StructureRoute({
       </div>
 
       <form action={createCategoryPage}>
-        <input type="hidden" name="homeId" value={id} />
+        <input type="hidden" name="vehicleId" value={id} />
         <SelectCategory />
         <CreationBottomBar />
       </form>

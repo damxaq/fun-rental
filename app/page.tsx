@@ -16,12 +16,10 @@ async function getData({
     filter?: string;
     country?: string;
     guest?: string;
-    room?: string;
-    bathroom?: string;
   };
 }) {
   noStore();
-  const data = await prisma.home.findMany({
+  const data = await prisma.vehicle.findMany({
     where: {
       addedCategory: true,
       addedDescription: true,
@@ -29,8 +27,6 @@ async function getData({
       categoryName: searchParams?.filter ?? undefined,
       country: searchParams?.country ?? undefined,
       guests: searchParams?.guest ?? undefined,
-      bedrooms: searchParams?.room ?? undefined,
-      bathrooms: searchParams?.bathroom ?? undefined,
     },
     select: {
       photo: true,
@@ -49,15 +45,13 @@ async function getData({
   return data;
 }
 
-export default async function Home({
+export default async function Vehicle({
   searchParams,
 }: {
   searchParams?: Promise<{
     filter?: string;
     country?: string;
     guest?: string;
-    room?: string;
-    bathroom?: string;
   }>;
 }) {
   const params = await searchParams;
@@ -79,8 +73,6 @@ async function ShowItems({
     filter?: string;
     country?: string;
     guest?: string;
-    room?: string;
-    bathroom?: string;
   };
 }) {
   const { getUser } = getKindeServerSession();
@@ -106,7 +98,7 @@ async function ShowItems({
               userId={user?.id}
               favoriteId={item.Favorite[0]?.id}
               isInFavorites={item.Favorite.length > 0}
-              homeId={item.id}
+              vehicleId={item.id}
               pathName={"/"}
             />
           ))}

@@ -12,7 +12,7 @@ async function getData(userId: string) {
       userId: userId,
     },
     select: {
-      Home: {
+      Vehicle: {
         select: {
           id: true,
           country: true,
@@ -53,15 +53,15 @@ export default async function ReservationsRoute() {
           {data.map((item: any, index: number) => (
             <ListingCard
               key={index}
-              description={item.Home?.description as string}
-              location={item.Home?.country as string}
+              description={item.Vehicle?.description as string}
+              location={item.Vehicle?.country as string}
               pathName="/favorites"
-              homeId={item.Home?.id as string}
-              imagePath={item.Home?.photo as string}
-              price={item.Home?.price as number}
+              vehicleId={item.Vehicle?.id as string}
+              imagePath={item.Vehicle?.photo as string}
+              price={item.Vehicle?.price as number}
               userId={user.id}
-              favoriteId={item.Home?.Favorite[0]?.id as string}
-              isInFavorites={item.Home?.Favorite.length > 0}
+              favoriteId={item.Vehicle?.Favorite[0]?.id as string}
+              isInFavorites={item.Vehicle?.Favorite.length > 0}
             />
           ))}
         </div>

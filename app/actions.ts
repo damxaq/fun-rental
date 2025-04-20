@@ -8,7 +8,7 @@ import { redirect } from "next/navigation";
 const ONE_YEAR = "2592000";
 
 export async function createFunRent({ userId }: { userId: string }) {
-  const data = await prisma.home.findFirst({
+  const data = await prisma.vehicle.findFirst({
     where: {
       userId: userId,
     },
@@ -19,7 +19,7 @@ export async function createFunRent({ userId }: { userId: string }) {
 
   // TODO: Switch to swich statement
   if (data === null) {
-    const data = await prisma.home.create({
+    const data = await prisma.vehicle.create({
       data: {
         userId: userId,
       },
@@ -44,7 +44,7 @@ export async function createFunRent({ userId }: { userId: string }) {
     data.addedDescription &&
     data.addedLocation
   ) {
-    const data = await prisma.home.create({
+    const data = await prisma.vehicle.create({
       data: {
         userId: userId,
       },
@@ -55,11 +55,11 @@ export async function createFunRent({ userId }: { userId: string }) {
 
 export async function createCategoryPage(formData: FormData) {
   const categoryName = formData.get("categoryName") as string;
-  const homeId = formData.get("homeId") as string;
+  const vehicleId = formData.get("vehicleId") as string;
 
-  const data = await prisma.home.update({
+  const data = await prisma.vehicle.update({
     where: {
-      id: homeId,
+      id: vehicleId,
     },
     data: {
       categoryName: categoryName,
@@ -67,7 +67,7 @@ export async function createCategoryPage(formData: FormData) {
     },
   });
 
-  return redirect(`/create/${homeId}/description`);
+  return redirect(`/create/${vehicleId}/description`);
 }
 
 export async function createDescription(formData: FormData) {
@@ -75,10 +75,8 @@ export async function createDescription(formData: FormData) {
   const description = formData.get("description") as string;
   const price = formData.get("price");
   const imageFile = formData.get("image") as File;
-  const homeId = formData.get("homeId") as string;
+  const vehicleId = formData.get("vehicleId") as string;
   const guestNumber = formData.get("guest") as string;
-  const roomNumber = formData.get("room") as string;
-  const bathroomNumber = formData.get("bathroom") as string;
 
   const { data: imageData, error: uploadError } = await supabase.storage
     .from("images")
@@ -88,32 +86,30 @@ export async function createDescription(formData: FormData) {
     });
   if (uploadError) console.log(uploadError);
 
-  const data = await prisma.home.update({
+  const data = await prisma.vehicle.update({
     where: {
-      id: homeId,
+      id: vehicleId,
     },
     data: {
       title: title,
       description: description,
       price: Number(price),
-      bedrooms: roomNumber,
-      bathrooms: bathroomNumber,
       guests: guestNumber,
       photo: imageData?.path,
       addedDescription: true,
     },
   });
 
-  return redirect(`/create/${homeId}/address`);
+  return redirect(`/create/${vehicleId}/address`);
 }
 
 export async function createLocation(formData: FormData) {
-  const homeId = formData.get("homeId") as string;
+  const vehicleId = formData.get("vehicleId") as string;
   const countryValue = formData.get("countryValue") as string;
 
-  const data = await prisma.home.update({
+  const data = await prisma.vehicle.update({
     where: {
-      id: homeId,
+      id: vehicleId,
     },
     data: {
       addedLocation: true,
@@ -125,13 +121,13 @@ export async function createLocation(formData: FormData) {
 }
 
 export async function addToFavorite(formData: FormData) {
-  const homeId = formData.get("homeId") as string;
+  const vehicleId = formData.get("vehicleId") as string;
   const userId = formData.get("userId") as string;
   const pathName = formData.get("pathName") as string;
 
   const data = await prisma.favorite.create({
     data: {
-      homeId: homeId,
+      vehicleId: vehicleId,
       userId: userId,
     },
   });
@@ -156,14 +152,14 @@ export async function removeFromFavorite(formData: FormData) {
 
 export async function createReservation(formData: FormData) {
   const userId = formData.get("userId") as string;
-  const homeId = formData.get("homeId") as string;
+  const vehicleId = formData.get("vehicleId") as string;
   const startDate = formData.get("startDate") as string;
   const endDate = formData.get("endDate") as string;
 
   const data = await prisma.reservation.create({
     data: {
       userId: userId,
-      homeId: homeId,
+      vehicleId: vehicleId,
       startDate: startDate,
       endDate: endDate,
     },

@@ -18,7 +18,7 @@ export default function DescriptionPage({
     <>
       <div className="w-3/5 mx-auto">
         <h2 className="text-3xl font-semibold tracking-tight transition-colors">
-          Please describe your boat as good as you can!
+          Please describe your vehicle as good as you can!
         </h2>
       </div>
 
@@ -39,7 +39,7 @@ export default function DescriptionPage({
             <Textarea
               name="description"
               required
-              placeholder="Please describe your boat..."
+              placeholder="What kind of vehicle you want to offer?"
             />
           </div>
           <div className="flex flex-col gap-y-2">

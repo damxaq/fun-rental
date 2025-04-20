@@ -48,9 +48,10 @@ async function getData(homeId: string) {
 export default async function OfferRoute({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
-  const data = await getData(params.id);
+  const { id } = await params;
+  const data = await getData(id);
 
   const { getCountryByValue } = useCountries();
   const country = getCountryByValue(data.country);
@@ -103,7 +104,7 @@ export default async function OfferRoute({
         </div>
         <form action={createReservation}>
           <input type="hidden" name="userId" value={user?.id} />
-          <input type="hidden" name="homeId" value={params.id} />
+          <input type="hidden" name="homeId" value={id} />
           {/* TODO: position calendar at the bottom on mobile */}
           <SelectCalendar reservation={data.Reservation} />
           {user?.id ? (

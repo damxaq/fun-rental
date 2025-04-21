@@ -20,7 +20,7 @@ export function MapFilterItems() {
     },
     [searchParams]
   );
-  console.log(search);
+
   return (
     <div className="flex gap-x-10 mt-5 w-full overflow-x-scroll no-scrollbar justify-center">
       <Link

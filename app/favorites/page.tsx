@@ -44,9 +44,9 @@ export default async function FavoriteRoute() {
         />
       ) : (
         <div className="grid lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-3 grid-cols-1 gap-8 mt-8">
-          {data.map((item: any) => (
+          {data.map((item: any, index: any) => (
             <ListingCard
-              key={item.Vehicle?.id}
+              key={index}
               description={item.Vehicle?.description as string}
               location={item.Vehicle?.country as string}
               pathName="/favorites"

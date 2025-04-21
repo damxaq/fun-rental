@@ -13,7 +13,7 @@ export function Navbar() {
           <Image
             src={DesktopLogo}
             alt="Desktop Logo"
-            className="w-32 hidden md:block"
+            className="w-40 hidden md:block"
             priority={true}
           />
           <Image

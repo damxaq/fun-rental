@@ -54,7 +54,7 @@ export function ListingCard({
               </form>
             ) : (
               <form action={addToFavorite}>
-                <input type="hidden" name="vehicle" value={vehicleId} />
+                <input type="hidden" name="vehicleId" value={vehicleId} />
                 <input type="hidden" name="userId" value={userId} />
                 <input type="hidden" name="pathName" value={pathName} />
                 <AddToFavoriteButton />

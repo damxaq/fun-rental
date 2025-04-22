@@ -14,7 +14,7 @@ export function CreationSubmit() {
           Please Wait
         </Button>
       ) : (
-        <Button type="submit" size="lg">
+        <Button type="submit" size="lg" className="cursor-pointer">
           Next
         </Button>
       )}
@@ -31,7 +31,7 @@ export function ReservationSubmitButton() {
           <Loader2 className="w-4 h-4 animate-spin mr-2" /> Please wait...
         </Button>
       ) : (
-        <Button type="submit" className="w-full">
+        <Button type="submit" className="w-full cursor-pointer">
           Make a reservation
         </Button>
       )}

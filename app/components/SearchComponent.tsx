@@ -50,14 +50,14 @@ export function SearchComponent() {
         <div className="rounded-full py-2 px-5 border flex items-center cursor-pointer">
           <div className="flex h-full divide-x font-medium">
             <p className="px-4">Anywhere</p>
-            <p className="px-4">Any Week</p>
+            <p className="px-4">Any Day</p>
             <p className="px-4">Any Guests</p>
           </div>
 
           <SearchIcon className="bg-primary text-white p-1 h-8 w-8 rounded-full" />
         </div>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className="sm:max-w-[800px]">
         <form className="gap-4 flex flex-col">
           <input type="hidden" name="country" value={locationValue} />
           {step === 1 ? (
@@ -104,9 +104,9 @@ export function SearchComponent() {
                 <CardHeader className="flex flex-col gap-y-5 items-stretch">
                   <div className="flex items-center justify-between ">
                     <div className="flex flex-col">
-                      <h3 className="underline font-medium">Guests</h3>
+                      <h3 className="underline font-medium">Passengers</h3>
                       <p className="text-muted-foreground text-sm">
-                        How many guests you want invite?
+                        How many passengers you want invite?
                       </p>
                     </div>
                     <Counter name="guest" />

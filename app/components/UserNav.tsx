@@ -45,7 +45,7 @@ export async function UserNav() {
             <DropdownMenuItem>
               <form action={createFunRentWithId} className="w-full">
                 <button type="submit" className="w-full text-start">
-                  Fun Rent your Boat
+                  Rent your Vehicle
                 </button>
               </form>
             </DropdownMenuItem>

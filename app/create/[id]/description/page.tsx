@@ -1,6 +1,9 @@
+"use client";
+
 import { createDescription } from "@/app/actions";
 import { Counter } from "@/app/components/Counter";
 import { CreationBottomBar } from "@/app/components/CreationBottomBar";
+import { validateGallery } from "@/app/lib/validation";
 import { Card, CardHeader } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -54,17 +57,34 @@ export default function DescriptionPage({
             />
           </div>
           <div className="flex flex-col gap-y-2">
-            <Label>Image</Label>
-            <Input name="image" type="file" required />
+            <Label>Main Image</Label>
+            <Input
+              name="image"
+              type="file"
+              required
+              accept=".jpg,.png"
+              className="cursor-pointer"
+            />
+          </div>
+          <div className="flex flex-col gap-y-2">
+            <Label>Photo Gallery (optional)</Label>
+            <Input
+              name="images"
+              type="file"
+              multiple
+              accept=".jpg,.png"
+              onChange={validateGallery}
+              className="cursor-pointer"
+            />
           </div>
 
           <Card>
             <CardHeader className="flex flex-col gap-y-5 items-stretch">
               <div className="flex items-center justify-between ">
                 <div className="flex flex-col">
-                  <h3 className="underline font-medium">Guests</h3>
+                  <h3 className="underline font-medium">Passengers</h3>
                   <p className="text-muted-foreground text-sm">
-                    How many guests you want invite?
+                    How many passengers you can carry?
                   </p>
                 </div>
                 <Counter name="guest" />

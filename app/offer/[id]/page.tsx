@@ -12,6 +12,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { unstable_noStore as noStore } from "next/cache";
+import ImageGallery from "@/app/components/ImageGallery";
 
 async function getData(vehicleId: string) {
   noStore();
@@ -21,6 +22,7 @@ async function getData(vehicleId: string) {
     },
     select: {
       photo: true,
+      gallery: true,
       description: true,
       guests: true,
       title: true,
@@ -50,7 +52,7 @@ export default async function OfferRoute({
 }) {
   const { id } = await params;
   const data = await getData(id);
-
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const { getCountryByValue } = useCountries();
   const country = getCountryByValue(data.country);
   const { getUser } = getKindeServerSession();
@@ -58,16 +60,7 @@ export default async function OfferRoute({
   return (
     <div className="w-[75%] mx-auto mt-10 mb-20">
       <h1 className="font-medium text-2xl mb-5">{data.title}</h1>
-      <div className="relative h-[550px]">
-        <Image
-          alt="Offer Image"
-          src={`https://ulsjeycbmhzuambfgfob.supabase.co/storage/v1/object/public/images/${data.photo}`}
-          fill
-          className="rounded-lg h-full object-cover w-full"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          priority={false}
-        />
-      </div>
+      <ImageGallery gallery={[data.photo, ...data.gallery]} />
       <div className="flex justify-between gap-x-24 mt-8">
         <div className="w-2/3">
           <h3 className="text-xl font-medium">
@@ -77,13 +70,15 @@ export default async function OfferRoute({
             <p>{data.guests} Guests</p>
           </div>
           <div className="flex items-center mt-6">
-            <img
+            <Image
               src={
                 data.User.profileImage ??
                 "https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg"
               }
               alt="User Profile"
               className="w-11 h-11 rounded-full"
+              width={100}
+              height={100}
             />
             <div className="flex flex-col ml-4">
               <h3 className="font-medium">Hosted by {data.User.firstName}</h3>

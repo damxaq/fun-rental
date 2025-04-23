@@ -51,7 +51,7 @@ export function DeleteFromFavoriteButton() {
           className="bg-primary-foreground cursor-pointer"
           type="submit"
         >
-          <Heart className="w-4 h-4 text-primary" fill="#E21C49" />
+          <Heart className="w-4 h-4 text-rose-600" fill="#E21C49" />
         </Button>
       )}
     </>

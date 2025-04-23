@@ -58,11 +58,11 @@ export default async function OfferRoute({
   const { getUser } = getKindeServerSession();
   const user = await getUser();
   return (
-    <div className="w-[75%] mx-auto mt-10 mb-20">
+    <div className="w-[90%] lg:w-[75%] mx-auto mt-10 mb-20">
       <h1 className="font-medium text-2xl mb-5">{data.title}</h1>
       <ImageGallery gallery={[data.photo, ...data.gallery]} />
-      <div className="flex justify-between gap-x-24 mt-8">
-        <div className="w-2/3">
+      <div className="flex justify-between gap-x-24 mt-8 flex-col lg:flex-row">
+        <div className="lg:w-2/3 w-full">
           <h3 className="text-xl font-medium">
             {country?.flag} {country?.label} / {country?.region}
           </h3>

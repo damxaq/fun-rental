@@ -17,8 +17,8 @@ export default function ImageGallery({ gallery }: { gallery: string[] }) {
   return (
     <div className="flex flex-row">
       <div
-        className={`relative h-[550px] ${
-          gallery.length > 0 ? "sm:w-[80%] w-[100%]" : "w-[100%]"
+        className={`relative h-[300px] md:h-[550px] ${
+          gallery.length > 1 ? "sm:w-[80%] w-[100%]" : "w-[100%]"
         }`}
       >
         <Image
@@ -47,8 +47,8 @@ export default function ImageGallery({ gallery }: { gallery: string[] }) {
           </div>
         )}
       </div>
-      {gallery && gallery.length > 0 && (
-        <div className="w-0 h-[550px] sm:flex flex-col overflow-x-hidden overflow-y-scroll items-center hidden sm:w-[20%]">
+      {gallery && gallery.length > 1 && (
+        <div className="w-0 h-[300px] md:h-[550px] sm:flex flex-col overflow-x-hidden overflow-y-scroll items-center hidden sm:w-[20%]">
           {gallery.map((image: string, index: number) => (
             <Image
               key={index}

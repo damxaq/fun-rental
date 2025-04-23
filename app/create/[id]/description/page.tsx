@@ -69,7 +69,7 @@ export default function DescriptionPage({
           <div className="flex flex-col gap-y-2">
             <Label>Photo Gallery (optional)</Label>
             <Input
-              name="images"
+              name="images[]"
               type="file"
               multiple
               accept=".jpg,.png"

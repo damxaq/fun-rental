@@ -74,17 +74,29 @@ export async function createDescription(formData: FormData) {
   const title = formData.get("title") as string;
   const description = formData.get("description") as string;
   const price = formData.get("price");
+  const galleryFiles = formData.getAll("images[]") as File[];
   const imageFile = formData.get("image") as File;
   const vehicleId = formData.get("vehicleId") as string;
   const guestNumber = formData.get("guest") as string;
 
-  const { data: imageData, error: uploadError } = await supabase.storage
+  const { data: imageData } = await supabase.storage
     .from("images")
     .upload(`${imageFile.name}-${new Date().toUTCString()}`, imageFile, {
       cacheControl: ONE_YEAR,
       contentType: "image/png",
     });
-  if (uploadError) console.log(uploadError);
+
+  const galleryData = [];
+  if (galleryFiles && galleryFiles.length)
+    for (const file of galleryFiles) {
+      const { data: galleryItem } = await supabase.storage
+        .from("images")
+        .upload(`${file.name}-${new Date().toUTCString()}`, file, {
+          cacheControl: ONE_YEAR,
+          contentType: "image/png",
+        });
+      galleryData.push(galleryItem?.path);
+    }
 
   const data = await prisma.vehicle.update({
     where: {
@@ -94,6 +106,7 @@ export async function createDescription(formData: FormData) {
       title: title,
       description: description,
       price: Number(price),
+      gallery: galleryData,
       guests: guestNumber,
       photo: imageData?.path,
       addedDescription: true,

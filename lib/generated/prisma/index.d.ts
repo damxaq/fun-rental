@@ -2415,6 +2415,7 @@ export namespace Prisma {
     guests: number
     country: number
     photo: number
+    gallery: number
     price: number
     categoryName: number
     addedCategory: number
@@ -2473,6 +2474,7 @@ export namespace Prisma {
     guests?: true
     country?: true
     photo?: true
+    gallery?: true
     price?: true
     categoryName?: true
     addedCategory?: true
@@ -2576,6 +2578,7 @@ export namespace Prisma {
     guests: string | null
     country: string | null
     photo: string | null
+    gallery: string[]
     price: number | null
     categoryName: string | null
     addedCategory: boolean
@@ -2611,6 +2614,7 @@ export namespace Prisma {
     guests?: boolean
     country?: boolean
     photo?: boolean
+    gallery?: boolean
     price?: boolean
     categoryName?: boolean
     addedCategory?: boolean
@@ -2631,6 +2635,7 @@ export namespace Prisma {
     guests?: boolean
     country?: boolean
     photo?: boolean
+    gallery?: boolean
     price?: boolean
     categoryName?: boolean
     addedCategory?: boolean
@@ -2648,6 +2653,7 @@ export namespace Prisma {
     guests?: boolean
     country?: boolean
     photo?: boolean
+    gallery?: boolean
     price?: boolean
     categoryName?: boolean
     addedCategory?: boolean
@@ -2665,6 +2671,7 @@ export namespace Prisma {
     guests?: boolean
     country?: boolean
     photo?: boolean
+    gallery?: boolean
     price?: boolean
     categoryName?: boolean
     addedCategory?: boolean
@@ -2674,7 +2681,7 @@ export namespace Prisma {
     userId?: boolean
   }
 
-  export type VehicleOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "description" | "guests" | "country" | "photo" | "price" | "categoryName" | "addedCategory" | "addedDescription" | "addedLocation" | "createdAt" | "userId", ExtArgs["result"]["vehicle"]>
+  export type VehicleOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "description" | "guests" | "country" | "photo" | "gallery" | "price" | "categoryName" | "addedCategory" | "addedDescription" | "addedLocation" | "createdAt" | "userId", ExtArgs["result"]["vehicle"]>
   export type VehicleInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     Favorite?: boolean | Vehicle$FavoriteArgs<ExtArgs>
     Reservation?: boolean | Vehicle$ReservationArgs<ExtArgs>
@@ -2702,6 +2709,7 @@ export namespace Prisma {
       guests: string | null
       country: string | null
       photo: string | null
+      gallery: string[]
       price: number | null
       categoryName: string | null
       addedCategory: boolean
@@ -3141,6 +3149,7 @@ export namespace Prisma {
     readonly guests: FieldRef<"Vehicle", 'String'>
     readonly country: FieldRef<"Vehicle", 'String'>
     readonly photo: FieldRef<"Vehicle", 'String'>
+    readonly gallery: FieldRef<"Vehicle", 'String[]'>
     readonly price: FieldRef<"Vehicle", 'Int'>
     readonly categoryName: FieldRef<"Vehicle", 'String'>
     readonly addedCategory: FieldRef<"Vehicle", 'Boolean'>
@@ -5869,6 +5878,7 @@ export namespace Prisma {
     guests: 'guests',
     country: 'country',
     photo: 'photo',
+    gallery: 'gallery',
     price: 'price',
     categoryName: 'categoryName',
     addedCategory: 'addedCategory',
@@ -6069,6 +6079,7 @@ export namespace Prisma {
     guests?: StringNullableFilter<"Vehicle"> | string | null
     country?: StringNullableFilter<"Vehicle"> | string | null
     photo?: StringNullableFilter<"Vehicle"> | string | null
+    gallery?: StringNullableListFilter<"Vehicle">
     price?: IntNullableFilter<"Vehicle"> | number | null
     categoryName?: StringNullableFilter<"Vehicle"> | string | null
     addedCategory?: BoolFilter<"Vehicle"> | boolean
@@ -6088,6 +6099,7 @@ export namespace Prisma {
     guests?: SortOrderInput | SortOrder
     country?: SortOrderInput | SortOrder
     photo?: SortOrderInput | SortOrder
+    gallery?: SortOrder
     price?: SortOrderInput | SortOrder
     categoryName?: SortOrderInput | SortOrder
     addedCategory?: SortOrder
@@ -6110,6 +6122,7 @@ export namespace Prisma {
     guests?: StringNullableFilter<"Vehicle"> | string | null
     country?: StringNullableFilter<"Vehicle"> | string | null
     photo?: StringNullableFilter<"Vehicle"> | string | null
+    gallery?: StringNullableListFilter<"Vehicle">
     price?: IntNullableFilter<"Vehicle"> | number | null
     categoryName?: StringNullableFilter<"Vehicle"> | string | null
     addedCategory?: BoolFilter<"Vehicle"> | boolean
@@ -6129,6 +6142,7 @@ export namespace Prisma {
     guests?: SortOrderInput | SortOrder
     country?: SortOrderInput | SortOrder
     photo?: SortOrderInput | SortOrder
+    gallery?: SortOrder
     price?: SortOrderInput | SortOrder
     categoryName?: SortOrderInput | SortOrder
     addedCategory?: SortOrder
@@ -6153,6 +6167,7 @@ export namespace Prisma {
     guests?: StringNullableWithAggregatesFilter<"Vehicle"> | string | null
     country?: StringNullableWithAggregatesFilter<"Vehicle"> | string | null
     photo?: StringNullableWithAggregatesFilter<"Vehicle"> | string | null
+    gallery?: StringNullableListFilter<"Vehicle">
     price?: IntNullableWithAggregatesFilter<"Vehicle"> | number | null
     categoryName?: StringNullableWithAggregatesFilter<"Vehicle"> | string | null
     addedCategory?: BoolWithAggregatesFilter<"Vehicle"> | boolean
@@ -6353,6 +6368,7 @@ export namespace Prisma {
     guests?: string | null
     country?: string | null
     photo?: string | null
+    gallery?: VehicleCreategalleryInput | string[]
     price?: number | null
     categoryName?: string | null
     addedCategory?: boolean
@@ -6371,6 +6387,7 @@ export namespace Prisma {
     guests?: string | null
     country?: string | null
     photo?: string | null
+    gallery?: VehicleCreategalleryInput | string[]
     price?: number | null
     categoryName?: string | null
     addedCategory?: boolean
@@ -6389,6 +6406,7 @@ export namespace Prisma {
     guests?: NullableStringFieldUpdateOperationsInput | string | null
     country?: NullableStringFieldUpdateOperationsInput | string | null
     photo?: NullableStringFieldUpdateOperationsInput | string | null
+    gallery?: VehicleUpdategalleryInput | string[]
     price?: NullableIntFieldUpdateOperationsInput | number | null
     categoryName?: NullableStringFieldUpdateOperationsInput | string | null
     addedCategory?: BoolFieldUpdateOperationsInput | boolean
@@ -6407,6 +6425,7 @@ export namespace Prisma {
     guests?: NullableStringFieldUpdateOperationsInput | string | null
     country?: NullableStringFieldUpdateOperationsInput | string | null
     photo?: NullableStringFieldUpdateOperationsInput | string | null
+    gallery?: VehicleUpdategalleryInput | string[]
     price?: NullableIntFieldUpdateOperationsInput | number | null
     categoryName?: NullableStringFieldUpdateOperationsInput | string | null
     addedCategory?: BoolFieldUpdateOperationsInput | boolean
@@ -6425,6 +6444,7 @@ export namespace Prisma {
     guests?: string | null
     country?: string | null
     photo?: string | null
+    gallery?: VehicleCreategalleryInput | string[]
     price?: number | null
     categoryName?: string | null
     addedCategory?: boolean
@@ -6441,6 +6461,7 @@ export namespace Prisma {
     guests?: NullableStringFieldUpdateOperationsInput | string | null
     country?: NullableStringFieldUpdateOperationsInput | string | null
     photo?: NullableStringFieldUpdateOperationsInput | string | null
+    gallery?: VehicleUpdategalleryInput | string[]
     price?: NullableIntFieldUpdateOperationsInput | number | null
     categoryName?: NullableStringFieldUpdateOperationsInput | string | null
     addedCategory?: BoolFieldUpdateOperationsInput | boolean
@@ -6456,6 +6477,7 @@ export namespace Prisma {
     guests?: NullableStringFieldUpdateOperationsInput | string | null
     country?: NullableStringFieldUpdateOperationsInput | string | null
     photo?: NullableStringFieldUpdateOperationsInput | string | null
+    gallery?: VehicleUpdategalleryInput | string[]
     price?: NullableIntFieldUpdateOperationsInput | number | null
     categoryName?: NullableStringFieldUpdateOperationsInput | string | null
     addedCategory?: BoolFieldUpdateOperationsInput | boolean
@@ -6698,6 +6720,14 @@ export namespace Prisma {
     _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
+  export type StringNullableListFilter<$PrismaModel = never> = {
+    equals?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    has?: string | StringFieldRefInput<$PrismaModel> | null
+    hasEvery?: string[] | ListStringFieldRefInput<$PrismaModel>
+    hasSome?: string[] | ListStringFieldRefInput<$PrismaModel>
+    isEmpty?: boolean
+  }
+
   export type IntNullableFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel> | null
     in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
@@ -6737,6 +6767,7 @@ export namespace Prisma {
     guests?: SortOrder
     country?: SortOrder
     photo?: SortOrder
+    gallery?: SortOrder
     price?: SortOrder
     categoryName?: SortOrder
     addedCategory?: SortOrder
@@ -7011,6 +7042,10 @@ export namespace Prisma {
     deleteMany?: ReservationScalarWhereInput | ReservationScalarWhereInput[]
   }
 
+  export type VehicleCreategalleryInput = {
+    set: string[]
+  }
+
   export type FavoriteCreateNestedManyWithoutVehicleInput = {
     create?: XOR<FavoriteCreateWithoutVehicleInput, FavoriteUncheckedCreateWithoutVehicleInput> | FavoriteCreateWithoutVehicleInput[] | FavoriteUncheckedCreateWithoutVehicleInput[]
     connectOrCreate?: FavoriteCreateOrConnectWithoutVehicleInput | FavoriteCreateOrConnectWithoutVehicleInput[]
@@ -7043,6 +7078,11 @@ export namespace Prisma {
     connectOrCreate?: ReservationCreateOrConnectWithoutVehicleInput | ReservationCreateOrConnectWithoutVehicleInput[]
     createMany?: ReservationCreateManyVehicleInputEnvelope
     connect?: ReservationWhereUniqueInput | ReservationWhereUniqueInput[]
+  }
+
+  export type VehicleUpdategalleryInput = {
+    set?: string[]
+    push?: string | string[]
   }
 
   export type NullableIntFieldUpdateOperationsInput = {
@@ -7347,6 +7387,7 @@ export namespace Prisma {
     guests?: string | null
     country?: string | null
     photo?: string | null
+    gallery?: VehicleCreategalleryInput | string[]
     price?: number | null
     categoryName?: string | null
     addedCategory?: boolean
@@ -7364,6 +7405,7 @@ export namespace Prisma {
     guests?: string | null
     country?: string | null
     photo?: string | null
+    gallery?: VehicleCreategalleryInput | string[]
     price?: number | null
     categoryName?: string | null
     addedCategory?: boolean
@@ -7458,6 +7500,7 @@ export namespace Prisma {
     guests?: StringNullableFilter<"Vehicle"> | string | null
     country?: StringNullableFilter<"Vehicle"> | string | null
     photo?: StringNullableFilter<"Vehicle"> | string | null
+    gallery?: StringNullableListFilter<"Vehicle">
     price?: IntNullableFilter<"Vehicle"> | number | null
     categoryName?: StringNullableFilter<"Vehicle"> | string | null
     addedCategory?: BoolFilter<"Vehicle"> | boolean
@@ -7689,6 +7732,7 @@ export namespace Prisma {
     guests?: string | null
     country?: string | null
     photo?: string | null
+    gallery?: VehicleCreategalleryInput | string[]
     price?: number | null
     categoryName?: string | null
     addedCategory?: boolean
@@ -7706,6 +7750,7 @@ export namespace Prisma {
     guests?: string | null
     country?: string | null
     photo?: string | null
+    gallery?: VehicleCreategalleryInput | string[]
     price?: number | null
     categoryName?: string | null
     addedCategory?: boolean
@@ -7770,6 +7815,7 @@ export namespace Prisma {
     guests?: NullableStringFieldUpdateOperationsInput | string | null
     country?: NullableStringFieldUpdateOperationsInput | string | null
     photo?: NullableStringFieldUpdateOperationsInput | string | null
+    gallery?: VehicleUpdategalleryInput | string[]
     price?: NullableIntFieldUpdateOperationsInput | number | null
     categoryName?: NullableStringFieldUpdateOperationsInput | string | null
     addedCategory?: BoolFieldUpdateOperationsInput | boolean
@@ -7787,6 +7833,7 @@ export namespace Prisma {
     guests?: NullableStringFieldUpdateOperationsInput | string | null
     country?: NullableStringFieldUpdateOperationsInput | string | null
     photo?: NullableStringFieldUpdateOperationsInput | string | null
+    gallery?: VehicleUpdategalleryInput | string[]
     price?: NullableIntFieldUpdateOperationsInput | number | null
     categoryName?: NullableStringFieldUpdateOperationsInput | string | null
     addedCategory?: BoolFieldUpdateOperationsInput | boolean
@@ -7829,6 +7876,7 @@ export namespace Prisma {
     guests?: string | null
     country?: string | null
     photo?: string | null
+    gallery?: VehicleCreategalleryInput | string[]
     price?: number | null
     categoryName?: string | null
     addedCategory?: boolean
@@ -7846,6 +7894,7 @@ export namespace Prisma {
     guests?: string | null
     country?: string | null
     photo?: string | null
+    gallery?: VehicleCreategalleryInput | string[]
     price?: number | null
     categoryName?: string | null
     addedCategory?: boolean
@@ -7910,6 +7959,7 @@ export namespace Prisma {
     guests?: NullableStringFieldUpdateOperationsInput | string | null
     country?: NullableStringFieldUpdateOperationsInput | string | null
     photo?: NullableStringFieldUpdateOperationsInput | string | null
+    gallery?: VehicleUpdategalleryInput | string[]
     price?: NullableIntFieldUpdateOperationsInput | number | null
     categoryName?: NullableStringFieldUpdateOperationsInput | string | null
     addedCategory?: BoolFieldUpdateOperationsInput | boolean
@@ -7927,6 +7977,7 @@ export namespace Prisma {
     guests?: NullableStringFieldUpdateOperationsInput | string | null
     country?: NullableStringFieldUpdateOperationsInput | string | null
     photo?: NullableStringFieldUpdateOperationsInput | string | null
+    gallery?: VehicleUpdategalleryInput | string[]
     price?: NullableIntFieldUpdateOperationsInput | number | null
     categoryName?: NullableStringFieldUpdateOperationsInput | string | null
     addedCategory?: BoolFieldUpdateOperationsInput | boolean
@@ -7944,6 +7995,7 @@ export namespace Prisma {
     guests?: string | null
     country?: string | null
     photo?: string | null
+    gallery?: VehicleCreategalleryInput | string[]
     price?: number | null
     categoryName?: string | null
     addedCategory?: boolean
@@ -7973,6 +8025,7 @@ export namespace Prisma {
     guests?: NullableStringFieldUpdateOperationsInput | string | null
     country?: NullableStringFieldUpdateOperationsInput | string | null
     photo?: NullableStringFieldUpdateOperationsInput | string | null
+    gallery?: VehicleUpdategalleryInput | string[]
     price?: NullableIntFieldUpdateOperationsInput | number | null
     categoryName?: NullableStringFieldUpdateOperationsInput | string | null
     addedCategory?: BoolFieldUpdateOperationsInput | boolean
@@ -7990,6 +8043,7 @@ export namespace Prisma {
     guests?: NullableStringFieldUpdateOperationsInput | string | null
     country?: NullableStringFieldUpdateOperationsInput | string | null
     photo?: NullableStringFieldUpdateOperationsInput | string | null
+    gallery?: VehicleUpdategalleryInput | string[]
     price?: NullableIntFieldUpdateOperationsInput | number | null
     categoryName?: NullableStringFieldUpdateOperationsInput | string | null
     addedCategory?: BoolFieldUpdateOperationsInput | boolean
@@ -8007,6 +8061,7 @@ export namespace Prisma {
     guests?: NullableStringFieldUpdateOperationsInput | string | null
     country?: NullableStringFieldUpdateOperationsInput | string | null
     photo?: NullableStringFieldUpdateOperationsInput | string | null
+    gallery?: VehicleUpdategalleryInput | string[]
     price?: NullableIntFieldUpdateOperationsInput | number | null
     categoryName?: NullableStringFieldUpdateOperationsInput | string | null
     addedCategory?: BoolFieldUpdateOperationsInput | boolean

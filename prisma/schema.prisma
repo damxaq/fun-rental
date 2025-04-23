@@ -35,6 +35,7 @@ model Vehicle {
   guests String?
   country String?
   photo String?
+  gallery String[]
   price Int?
   categoryName String?
   Favorite Favorite[]

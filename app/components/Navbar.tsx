@@ -19,7 +19,7 @@ export function Navbar() {
           <Image
             src={MobileLogo}
             alt="Mobile Logo"
-            className="block md:hidden w-12"
+            className="block md:hidden min-w-12 w-12 mr-2"
             priority={true}
           />
         </Link>

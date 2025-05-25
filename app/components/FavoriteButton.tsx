@@ -31,7 +31,11 @@ export function AddToFavoriteButton() {
   );
 }
 
-export function DeleteFromFavoriteButton() {
+export function DeleteFromFavoriteButton({
+  disabled = false,
+}: {
+  disabled?: boolean;
+}) {
   const { pending } = useFormStatus();
   return (
     <>
@@ -50,6 +54,7 @@ export function DeleteFromFavoriteButton() {
           size="icon"
           className="bg-primary-foreground cursor-pointer"
           type="submit"
+          disabled={disabled}
         >
           <Heart className="w-4 h-4 text-rose-600" fill="#E21C49" />
         </Button>

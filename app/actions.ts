@@ -168,6 +168,7 @@ export async function createReservation(formData: FormData) {
   const vehicleId = formData.get("vehicleId") as string;
   const startDate = formData.get("startDate") as string;
   const endDate = formData.get("endDate") as string;
+  const ownerId = formData.get("ownerId") as string;
 
   const data = await prisma.reservation.create({
     data: {
@@ -175,6 +176,7 @@ export async function createReservation(formData: FormData) {
       vehicleId: vehicleId,
       startDate: startDate,
       endDate: endDate,
+      ownerId: ownerId,
     },
   });
   //   return redirect("/")

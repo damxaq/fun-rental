@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -62,6 +63,11 @@ export async function UserNav() {
             <DropdownMenuItem>
               <Link href="/reservations" className="w-full">
                 My Reservations
+              </Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              <Link href="/bookings" className="w-full">
+                Bookings Awaiting
               </Link>
             </DropdownMenuItem>
             <DropdownMenuSeparator />

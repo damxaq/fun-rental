@@ -4744,6 +4744,8 @@ export namespace Prisma {
     startDate: Date | null
     endDate: Date | null
     createdAt: Date | null
+    ownerId: string | null
+    status: string | null
     userId: string | null
     vehicleId: string | null
   }
@@ -4753,6 +4755,8 @@ export namespace Prisma {
     startDate: Date | null
     endDate: Date | null
     createdAt: Date | null
+    ownerId: string | null
+    status: string | null
     userId: string | null
     vehicleId: string | null
   }
@@ -4762,6 +4766,8 @@ export namespace Prisma {
     startDate: number
     endDate: number
     createdAt: number
+    ownerId: number
+    status: number
     userId: number
     vehicleId: number
     _all: number
@@ -4773,6 +4779,8 @@ export namespace Prisma {
     startDate?: true
     endDate?: true
     createdAt?: true
+    ownerId?: true
+    status?: true
     userId?: true
     vehicleId?: true
   }
@@ -4782,6 +4790,8 @@ export namespace Prisma {
     startDate?: true
     endDate?: true
     createdAt?: true
+    ownerId?: true
+    status?: true
     userId?: true
     vehicleId?: true
   }
@@ -4791,6 +4801,8 @@ export namespace Prisma {
     startDate?: true
     endDate?: true
     createdAt?: true
+    ownerId?: true
+    status?: true
     userId?: true
     vehicleId?: true
     _all?: true
@@ -4873,6 +4885,8 @@ export namespace Prisma {
     startDate: Date
     endDate: Date
     createdAt: Date
+    ownerId: string
+    status: string
     userId: string | null
     vehicleId: string | null
     _count: ReservationCountAggregateOutputType | null
@@ -4899,6 +4913,8 @@ export namespace Prisma {
     startDate?: boolean
     endDate?: boolean
     createdAt?: boolean
+    ownerId?: boolean
+    status?: boolean
     userId?: boolean
     vehicleId?: boolean
     User?: boolean | Reservation$UserArgs<ExtArgs>
@@ -4910,6 +4926,8 @@ export namespace Prisma {
     startDate?: boolean
     endDate?: boolean
     createdAt?: boolean
+    ownerId?: boolean
+    status?: boolean
     userId?: boolean
     vehicleId?: boolean
     User?: boolean | Reservation$UserArgs<ExtArgs>
@@ -4921,6 +4939,8 @@ export namespace Prisma {
     startDate?: boolean
     endDate?: boolean
     createdAt?: boolean
+    ownerId?: boolean
+    status?: boolean
     userId?: boolean
     vehicleId?: boolean
     User?: boolean | Reservation$UserArgs<ExtArgs>
@@ -4932,11 +4952,13 @@ export namespace Prisma {
     startDate?: boolean
     endDate?: boolean
     createdAt?: boolean
+    ownerId?: boolean
+    status?: boolean
     userId?: boolean
     vehicleId?: boolean
   }
 
-  export type ReservationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "startDate" | "endDate" | "createdAt" | "userId" | "vehicleId", ExtArgs["result"]["reservation"]>
+  export type ReservationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "startDate" | "endDate" | "createdAt" | "ownerId" | "status" | "userId" | "vehicleId", ExtArgs["result"]["reservation"]>
   export type ReservationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     User?: boolean | Reservation$UserArgs<ExtArgs>
     Vehicle?: boolean | Reservation$VehicleArgs<ExtArgs>
@@ -4961,6 +4983,8 @@ export namespace Prisma {
       startDate: Date
       endDate: Date
       createdAt: Date
+      ownerId: string
+      status: string
       userId: string | null
       vehicleId: string | null
     }, ExtArgs["result"]["reservation"]>
@@ -5392,6 +5416,8 @@ export namespace Prisma {
     readonly startDate: FieldRef<"Reservation", 'DateTime'>
     readonly endDate: FieldRef<"Reservation", 'DateTime'>
     readonly createdAt: FieldRef<"Reservation", 'DateTime'>
+    readonly ownerId: FieldRef<"Reservation", 'String'>
+    readonly status: FieldRef<"Reservation", 'String'>
     readonly userId: FieldRef<"Reservation", 'String'>
     readonly vehicleId: FieldRef<"Reservation", 'String'>
   }
@@ -5906,6 +5932,8 @@ export namespace Prisma {
     startDate: 'startDate',
     endDate: 'endDate',
     createdAt: 'createdAt',
+    ownerId: 'ownerId',
+    status: 'status',
     userId: 'userId',
     vehicleId: 'vehicleId'
   };
@@ -6238,6 +6266,8 @@ export namespace Prisma {
     startDate?: DateTimeFilter<"Reservation"> | Date | string
     endDate?: DateTimeFilter<"Reservation"> | Date | string
     createdAt?: DateTimeFilter<"Reservation"> | Date | string
+    ownerId?: StringFilter<"Reservation"> | string
+    status?: StringFilter<"Reservation"> | string
     userId?: StringNullableFilter<"Reservation"> | string | null
     vehicleId?: StringNullableFilter<"Reservation"> | string | null
     User?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
@@ -6249,6 +6279,8 @@ export namespace Prisma {
     startDate?: SortOrder
     endDate?: SortOrder
     createdAt?: SortOrder
+    ownerId?: SortOrder
+    status?: SortOrder
     userId?: SortOrderInput | SortOrder
     vehicleId?: SortOrderInput | SortOrder
     User?: UserOrderByWithRelationInput
@@ -6263,6 +6295,8 @@ export namespace Prisma {
     startDate?: DateTimeFilter<"Reservation"> | Date | string
     endDate?: DateTimeFilter<"Reservation"> | Date | string
     createdAt?: DateTimeFilter<"Reservation"> | Date | string
+    ownerId?: StringFilter<"Reservation"> | string
+    status?: StringFilter<"Reservation"> | string
     userId?: StringNullableFilter<"Reservation"> | string | null
     vehicleId?: StringNullableFilter<"Reservation"> | string | null
     User?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
@@ -6274,6 +6308,8 @@ export namespace Prisma {
     startDate?: SortOrder
     endDate?: SortOrder
     createdAt?: SortOrder
+    ownerId?: SortOrder
+    status?: SortOrder
     userId?: SortOrderInput | SortOrder
     vehicleId?: SortOrderInput | SortOrder
     _count?: ReservationCountOrderByAggregateInput
@@ -6289,6 +6325,8 @@ export namespace Prisma {
     startDate?: DateTimeWithAggregatesFilter<"Reservation"> | Date | string
     endDate?: DateTimeWithAggregatesFilter<"Reservation"> | Date | string
     createdAt?: DateTimeWithAggregatesFilter<"Reservation"> | Date | string
+    ownerId?: StringWithAggregatesFilter<"Reservation"> | string
+    status?: StringWithAggregatesFilter<"Reservation"> | string
     userId?: StringNullableWithAggregatesFilter<"Reservation"> | string | null
     vehicleId?: StringNullableWithAggregatesFilter<"Reservation"> | string | null
   }
@@ -6539,6 +6577,8 @@ export namespace Prisma {
     startDate: Date | string
     endDate: Date | string
     createdAt?: Date | string
+    ownerId: string
+    status?: string
     User?: UserCreateNestedOneWithoutReservationInput
     Vehicle?: VehicleCreateNestedOneWithoutReservationInput
   }
@@ -6548,6 +6588,8 @@ export namespace Prisma {
     startDate: Date | string
     endDate: Date | string
     createdAt?: Date | string
+    ownerId: string
+    status?: string
     userId?: string | null
     vehicleId?: string | null
   }
@@ -6557,6 +6599,8 @@ export namespace Prisma {
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
     endDate?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    ownerId?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
     User?: UserUpdateOneWithoutReservationNestedInput
     Vehicle?: VehicleUpdateOneWithoutReservationNestedInput
   }
@@ -6566,6 +6610,8 @@ export namespace Prisma {
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
     endDate?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    ownerId?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
     userId?: NullableStringFieldUpdateOperationsInput | string | null
     vehicleId?: NullableStringFieldUpdateOperationsInput | string | null
   }
@@ -6575,6 +6621,8 @@ export namespace Prisma {
     startDate: Date | string
     endDate: Date | string
     createdAt?: Date | string
+    ownerId: string
+    status?: string
     userId?: string | null
     vehicleId?: string | null
   }
@@ -6584,6 +6632,8 @@ export namespace Prisma {
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
     endDate?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    ownerId?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
   }
 
   export type ReservationUncheckedUpdateManyInput = {
@@ -6591,6 +6641,8 @@ export namespace Prisma {
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
     endDate?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    ownerId?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
     userId?: NullableStringFieldUpdateOperationsInput | string | null
     vehicleId?: NullableStringFieldUpdateOperationsInput | string | null
   }
@@ -6886,6 +6938,8 @@ export namespace Prisma {
     startDate?: SortOrder
     endDate?: SortOrder
     createdAt?: SortOrder
+    ownerId?: SortOrder
+    status?: SortOrder
     userId?: SortOrder
     vehicleId?: SortOrder
   }
@@ -6895,6 +6949,8 @@ export namespace Prisma {
     startDate?: SortOrder
     endDate?: SortOrder
     createdAt?: SortOrder
+    ownerId?: SortOrder
+    status?: SortOrder
     userId?: SortOrder
     vehicleId?: SortOrder
   }
@@ -6904,6 +6960,8 @@ export namespace Prisma {
     startDate?: SortOrder
     endDate?: SortOrder
     createdAt?: SortOrder
+    ownerId?: SortOrder
+    status?: SortOrder
     userId?: SortOrder
     vehicleId?: SortOrder
   }
@@ -7453,6 +7511,8 @@ export namespace Prisma {
     startDate: Date | string
     endDate: Date | string
     createdAt?: Date | string
+    ownerId: string
+    status?: string
     Vehicle?: VehicleCreateNestedOneWithoutReservationInput
   }
 
@@ -7461,6 +7521,8 @@ export namespace Prisma {
     startDate: Date | string
     endDate: Date | string
     createdAt?: Date | string
+    ownerId: string
+    status?: string
     vehicleId?: string | null
   }
 
@@ -7560,6 +7622,8 @@ export namespace Prisma {
     startDate?: DateTimeFilter<"Reservation"> | Date | string
     endDate?: DateTimeFilter<"Reservation"> | Date | string
     createdAt?: DateTimeFilter<"Reservation"> | Date | string
+    ownerId?: StringFilter<"Reservation"> | string
+    status?: StringFilter<"Reservation"> | string
     userId?: StringNullableFilter<"Reservation"> | string | null
     vehicleId?: StringNullableFilter<"Reservation"> | string | null
   }
@@ -7591,6 +7655,8 @@ export namespace Prisma {
     startDate: Date | string
     endDate: Date | string
     createdAt?: Date | string
+    ownerId: string
+    status?: string
     User?: UserCreateNestedOneWithoutReservationInput
   }
 
@@ -7599,6 +7665,8 @@ export namespace Prisma {
     startDate: Date | string
     endDate: Date | string
     createdAt?: Date | string
+    ownerId: string
+    status?: string
     userId?: string | null
   }
 
@@ -8015,6 +8083,8 @@ export namespace Prisma {
     startDate: Date | string
     endDate: Date | string
     createdAt?: Date | string
+    ownerId: string
+    status?: string
     vehicleId?: string | null
   }
 
@@ -8093,6 +8163,8 @@ export namespace Prisma {
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
     endDate?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    ownerId?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
     Vehicle?: VehicleUpdateOneWithoutReservationNestedInput
   }
 
@@ -8101,6 +8173,8 @@ export namespace Prisma {
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
     endDate?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    ownerId?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
     vehicleId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
@@ -8109,6 +8183,8 @@ export namespace Prisma {
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
     endDate?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    ownerId?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
     vehicleId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
@@ -8123,6 +8199,8 @@ export namespace Prisma {
     startDate: Date | string
     endDate: Date | string
     createdAt?: Date | string
+    ownerId: string
+    status?: string
     userId?: string | null
   }
 
@@ -8149,6 +8227,8 @@ export namespace Prisma {
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
     endDate?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    ownerId?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
     User?: UserUpdateOneWithoutReservationNestedInput
   }
 
@@ -8157,6 +8237,8 @@ export namespace Prisma {
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
     endDate?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    ownerId?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
     userId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
@@ -8165,6 +8247,8 @@ export namespace Prisma {
     startDate?: DateTimeFieldUpdateOperationsInput | Date | string
     endDate?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    ownerId?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
     userId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 

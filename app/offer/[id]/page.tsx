@@ -36,6 +36,7 @@ async function getData(vehicleId: string) {
       },
       User: {
         select: {
+          id: true,
           profileImage: true,
           firstName: true,
         },
@@ -57,6 +58,9 @@ export default async function OfferRoute({
   const country = getCountryByValue(data.country);
   const { getUser } = getKindeServerSession();
   const user = await getUser();
+
+  console.log(data.Reservation);
+
   return (
     <div className="w-[90%] lg:w-[75%] mx-auto mt-10 mb-20">
       <h1 className="font-medium text-2xl mb-5">{data.title}</h1>
@@ -97,6 +101,7 @@ export default async function OfferRoute({
         <form action={createReservation}>
           <input type="hidden" name="userId" value={user?.id} />
           <input type="hidden" name="vehicleId" value={id} />
+          <input type="hidden" name="ownerId" value={data.User.id} />
           {/* TODO: position calendar at the bottom on mobile */}
           <SelectCalendar reservation={data.Reservation} />
           {user?.id ? (

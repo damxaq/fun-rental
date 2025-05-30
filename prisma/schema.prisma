@@ -4,52 +4,52 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
   directUrl = env("DIRECT_URL")
 }
 
 model User {
   id String @id @unique
 
-  email String
-  firstName String
-  lastName String
+  email        String
+  firstName    String
+  lastName     String
   profileImage String?
-  Vehicle Vehicle[]
-  Favorite Favorite[]
-  Reservation Reservation[]
+  Vehicle      Vehicle[]
+  Favorite     Favorite[]
+  Reservation  Reservation[]
 }
 
 model Vehicle {
   id String @id @default(uuid())
 
-  title String?
-  description String?
-  guests String?
-  country String?
-  photo String?
-  gallery String[]
-  price Int?
+  title        String?
+  description  String?
+  guests       String?
+  country      String?
+  photo        String?
+  gallery      String[]
+  price        Int?
   categoryName String?
-  Favorite Favorite[]
-  Reservation Reservation[]
+  Favorite     Favorite[]
+  Reservation  Reservation[]
 
-  addedCategory Boolean @default(false)
+  addedCategory    Boolean @default(false)
   addedDescription Boolean @default(false)
-  addedLocation Boolean @default(false)
+  addedLocation    Boolean @default(false)
 
   createdAt DateTime @default(now())
-  User User? @relation(fields: [userId], references: [id])
-  userId String
+  User      User?    @relation(fields: [userId], references: [id])
+  userId    String
 }
 
 model Favorite {
   id String @id @default(uuid())
 
-  User User? @relation(fields: [userId], references: [id])
-  userId String?
-  Vehicle Vehicle? @relation(fields: [vehicleId], references: [id])
+  User      User?    @relation(fields: [userId], references: [id])
+  userId    String?
+  Vehicle   Vehicle? @relation(fields: [vehicleId], references: [id])
   vehicleId String?
 
   createdAt DateTime @default(now())
@@ -59,13 +59,26 @@ model Reservation {
   id String @id @default(uuid())
 
   startDate DateTime
-  endDate DateTime
-  createdAt DateTime @default(now())
-  ownerId String
-  status String @default("Pending")
+  endDate   DateTime
+  createdAt DateTime  @default(now())
+  ownerId   String
+  guests    Int
+  status    String    @default("Pending")
+  messages  Message[]
 
-  User User? @relation(fields: [userId], references: [id])
-  userId String?
-  Vehicle Vehicle? @relation(fields: [vehicleId], references: [id])
+  User      User?    @relation(fields: [userId], references: [id])
+  userId    String?
+  Vehicle   Vehicle? @relation(fields: [vehicleId], references: [id])
   vehicleId String?
+}
+
+model Message {
+  id Int @id @default(autoincrement())
+
+  content   String
+  createdAt String
+  userName  String
+
+  Reservation   Reservation? @relation(fields: [reservationId], references: [id])
+  reservationId String?
 }

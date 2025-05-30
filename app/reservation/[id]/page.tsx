@@ -1,11 +1,12 @@
 import { CategoryShowcase } from "@/app/components/CategoryShowcase";
 import { useCountries } from "@/app/lib/getCountries";
 import { Separator } from "@/components/ui/separator";
-import prisma from "@/lib/prisma";
+import { prisma } from "@/lib/prisma";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import Image from "next/image";
 import { unstable_noStore as noStore } from "next/cache";
 import { redirect } from "next/navigation";
+import { Chat } from "@/app/components/Chat";
 
 const StatusType: { [key: string]: string } = {
   Pending: "text-blue-500",
@@ -23,7 +24,7 @@ async function getData(reservationId: string) {
       startDate: true,
       endDate: true,
       status: true,
-      // how many guests
+      //TODO: how many guests
       // who is renting
       User: {
         select: {
@@ -31,6 +32,14 @@ async function getData(reservationId: string) {
           profileImage: true,
           firstName: true,
           lastName: true,
+        },
+      },
+      messages: {
+        select: {
+          id: true,
+          content: true,
+          userName: true,
+          createdAt: true,
         },
       },
       Vehicle: {
@@ -46,10 +55,11 @@ async function getData(reservationId: string) {
       },
     },
   });
-  console.log(data);
 
   return data;
 }
+
+//TODO: create shared component
 
 export default async function ReservationDetailsRoute({
   params,
@@ -63,14 +73,21 @@ export default async function ReservationDetailsRoute({
   const data = await getData(id);
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { getCountryByValue } = useCountries();
-  const country = getCountryByValue(data.Vehicle.country);
+  const country = getCountryByValue(data?.Vehicle?.country as string);
 
   return (
     <div className="w-[90%] lg:w-[75%] mx-auto mt-10 mb-20 flex">
+      <div className="w-full max-h-[600px] mx-6 px-4 border-2 rounded-md shadow-gray-300 shadow-md">
+        <Chat
+          id={id}
+          userName={`${user.given_name} ${user.family_name}`}
+          messages={data?.messages}
+        />
+      </div>
       <div className="w-1/2">
         <div className="relative h-52">
           <Image
-            src={`https://ulsjeycbmhzuambfgfob.supabase.co/storage/v1/object/public/images/${data.Vehicle.photo}`}
+            src={`https://ulsjeycbmhzuambfgfob.supabase.co/storage/v1/object/public/images/${data?.Vehicle?.photo}`}
             alt="Offer Image"
             fill
             className="rounded-lg h-full object-cover"
@@ -80,7 +97,7 @@ export default async function ReservationDetailsRoute({
         </div>
         <div className="flex justify-between gap-x-24 mt-8 flex-col lg:flex-row">
           <div className="w-full">
-            <h3 className="text-xl font-medium">{data.Vehicle.title}</h3>
+            <h3 className="text-xl font-medium">{data?.Vehicle?.title}</h3>
             <Separator className="my-2" />
             <h3 className="text-lg font-medium">
               {country?.label} / {country?.region}
@@ -88,7 +105,7 @@ export default async function ReservationDetailsRoute({
             <div className="flex items-center mt-6">
               <Image
                 src={
-                  data.User.profileImage ??
+                  data?.User?.profileImage ??
                   "https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg"
                 }
                 alt="User Profile"
@@ -97,25 +114,43 @@ export default async function ReservationDetailsRoute({
                 height={100}
               />
               <div className="flex flex-col ml-4">
-                <h3 className="font-medium">Hosted by {data.User.firstName}</h3>
+                <h3 className="font-medium">
+                  Hosted by {data?.User?.firstName}
+                </h3>
                 <p className="text-sm text-muted-foreground">Host since 2020</p>
               </div>
             </div>
             <Separator className="my-2" />
 
-            <CategoryShowcase categoryName={data.Vehicle.categoryName} />
+            <CategoryShowcase
+              categoryName={data?.Vehicle?.categoryName as string}
+            />
             <Separator className="my-2" />
-            <span className={`font-medium ${StatusType[data.status]}`}>
-              {data.status}
+            <span className="text-muted-foreground">
+              {data?.startDate.toLocaleDateString() ===
+              data?.endDate.toLocaleDateString() ? (
+                data?.startDate.toLocaleDateString()
+              ) : (
+                <>
+                  {data?.startDate.toLocaleDateString()} -{" "}
+                  {data?.endDate.toLocaleDateString()}
+                </>
+              )}
             </span>
             <Separator className="my-2" />
             <div className="flex gap-x-2 text-muted-foreground">
-              <p>{data.guests} Guests</p>
+              {/* <p>{data?.guests} Guests</p> */}
+              <p> Guests</p>
             </div>
+            <Separator className="my-2" />
+            <span
+              className={`font-medium ${StatusType[data?.status as string]}`}
+            >
+              {data?.status}
+            </span>
           </div>
         </div>
       </div>
-      <div className="w-full h-full mx-6 px-4 border-2 rounded-md">Chat</div>
     </div>
   );
 }

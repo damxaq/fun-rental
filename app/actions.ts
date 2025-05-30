@@ -1,6 +1,7 @@
 "use server";
 
-import prisma from "@/lib/prisma";
+import { ChatMessage } from "@/hooks/use-realtime-chat";
+import { prisma } from "@/lib/prisma";
 import { supabase } from "@/lib/supabase";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
@@ -86,7 +87,7 @@ export async function createDescription(formData: FormData) {
       contentType: "image/png",
     });
 
-  const galleryData = [];
+  const galleryData: any[] = [];
   if (galleryFiles && galleryFiles.length)
     for (const file of galleryFiles) {
       const { data: galleryItem } = await supabase.storage
@@ -148,6 +149,17 @@ export async function addToFavorite(formData: FormData) {
   revalidatePath(pathName);
 }
 
+export async function addMessage(message: ChatMessage, roomName: string) {
+  const data = await prisma.message.create({
+    data: {
+      content: message.content,
+      createdAt: message.createdAt,
+      userName: message.user.name,
+      reservationId: roomName,
+    },
+  });
+}
+
 export async function removeFromFavorite(formData: FormData) {
   const favoriteId = formData.get("favoriteId") as string;
   const userId = formData.get("userId") as string;
@@ -169,6 +181,7 @@ export async function createReservation(formData: FormData) {
   const startDate = formData.get("startDate") as string;
   const endDate = formData.get("endDate") as string;
   const ownerId = formData.get("ownerId") as string;
+  // TODO: add guests field
 
   const data = await prisma.reservation.create({
     data: {
@@ -177,6 +190,7 @@ export async function createReservation(formData: FormData) {
       startDate: startDate,
       endDate: endDate,
       ownerId: ownerId,
+      guests: 1,
     },
   });
   //   return redirect("/")

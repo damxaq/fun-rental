@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import { ListingCard } from "./components/ListingCard";
 import { MapFilterItems } from "./components/MapFilterItems";
-import prisma from "@/lib/prisma";
+import { prisma } from "@/lib/prisma";
 import { SkeletonCard } from "./components/SkeletonCard";
 import { NoItems } from "./components/NoItems";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";

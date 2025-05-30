@@ -193,5 +193,6 @@ export async function createReservation(formData: FormData) {
       guests: 1,
     },
   });
-  //   return redirect("/")
+
+  return redirect(`/reservation/${data.id}`);
 }

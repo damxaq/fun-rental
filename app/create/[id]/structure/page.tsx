@@ -13,7 +13,7 @@ export default function StructureRoute({
     <>
       <div className="w-3/5 mx-auto">
         <h2 className="text-3xl font-semibold tracking-tight transition-colors">
-          Which of these best describe your Vehicle?
+          Which of these best describes your Vehicle?
         </h2>
       </div>
 

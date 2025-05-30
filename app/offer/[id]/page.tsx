@@ -100,7 +100,10 @@ export default async function OfferRoute({
           <Separator className="my-7" />
           <OfferMap locationValue={country?.value as string} />
         </div>
-        <form action={createReservation}>
+        <form
+          action={createReservation}
+          className="flex flex-col items-center mx-auto max-w-60 border-0"
+        >
           <input type="hidden" name="userId" value={user?.id} />
           <input type="hidden" name="vehicleId" value={id} />
           <input type="hidden" name="ownerId" value={data?.User?.id} />

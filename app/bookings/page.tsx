@@ -3,7 +3,8 @@ import { NoItems } from "../components/NoItems";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { redirect } from "next/navigation";
 import { unstable_noStore as noStore } from "next/cache";
-import { BookingCard } from "../components/BookingCard";
+import { daysBetween, formatDaysRange } from "../lib/dateFormat";
+import { ReservationCard } from "../components/ReservationCard";
 
 async function getData(userId: string) {
   noStore();
@@ -64,21 +65,20 @@ export default async function BookingsRoute() {
         />
       ) : (
         <div className="mt-8">
-          {data.map((item: any, index: number) => (
-            <BookingCard
+          {data.reverse().map((item: any, index: number) => (
+            <ReservationCard
               key={index}
-              vehicleId={item.Vehicle?.id as string}
               imagePath={item.Vehicle?.photo as string}
-              price={item.Vehicle?.price as number}
               userId={user.id}
               isInFavorites={item.Vehicle?.Favorite.length > 0}
-              startDate={item.startDate}
-              endDate={item.endDate}
+              dates={formatDaysRange(item.startDate, item.endDate)}
+              totalPrice={
+                daysBetween(item.startDate, item.endDate) * item.Vehicle?.price
+              }
               reservationId={item.id}
-              firstName={item.User.firstName}
-              lastName={item.User.lastName}
               title={item.Vehicle?.title as string}
               status={item.status}
+              person={item.User.firstName + " " + item.User.lastName}
             />
           ))}
         </div>

@@ -7,6 +7,7 @@ import Image from "next/image";
 import { unstable_noStore as noStore } from "next/cache";
 import { redirect } from "next/navigation";
 import { Chat } from "@/app/components/Chat";
+import { formatDaysRange } from "@/app/lib/dateFormat";
 
 const StatusType: { [key: string]: string } = {
   Pending: "text-blue-500",
@@ -51,6 +52,13 @@ async function getData(reservationId: string) {
           price: true,
           title: true,
           categoryName: true,
+          User: {
+            select: {
+              profileImage: true,
+              firstName: true,
+              lastName: true,
+            },
+          },
         },
       },
     },
@@ -105,7 +113,7 @@ export default async function ReservationDetailsRoute({
             <div className="flex items-center mt-6">
               <Image
                 src={
-                  data?.User?.profileImage ??
+                  data?.Vehicle?.User?.profileImage ??
                   "https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg"
                 }
                 alt="User Profile"
@@ -115,7 +123,8 @@ export default async function ReservationDetailsRoute({
               />
               <div className="flex flex-col ml-4">
                 <h3 className="font-medium">
-                  Hosted by {data?.User?.firstName}
+                  Hosted by {data?.Vehicle?.User?.firstName}{" "}
+                  {data?.Vehicle?.User?.lastName}
                 </h3>
                 <p className="text-sm text-muted-foreground">Host since 2020</p>
               </div>
@@ -127,15 +136,7 @@ export default async function ReservationDetailsRoute({
             />
             <Separator className="my-2" />
             <span className="text-muted-foreground">
-              {data?.startDate.toLocaleDateString() ===
-              data?.endDate.toLocaleDateString() ? (
-                data?.startDate.toLocaleDateString()
-              ) : (
-                <>
-                  {data?.startDate.toLocaleDateString()} -{" "}
-                  {data?.endDate.toLocaleDateString()}
-                </>
-              )}
+              {formatDaysRange(data?.startDate, data?.endDate)}
             </span>
             <Separator className="my-2" />
             <div className="flex gap-x-2 text-muted-foreground">

@@ -26,7 +26,7 @@ export async function UserNav() {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger>
+      <DropdownMenuTrigger className="outline-none">
         <div className="rounded-full border px-2 py-2 lg:px-4 lg:py-2 flex items-center gap-x-3 cursor-pointer">
           <MenuIcon className="w-6 h-6 lg:w-5 lg:h-5" />
 
@@ -43,45 +43,50 @@ export async function UserNav() {
       <DropdownMenuContent align="end" className="w-[200px]">
         {user ? (
           <>
-            <DropdownMenuItem>
+            <DropdownMenuItem asChild>
               <form action={createFunRentWithId} className="w-full">
-                <button type="submit" className="w-full text-start">
+                <button
+                  type="submit"
+                  className="w-full text-start cursor-pointer"
+                >
                   Rent your Vehicle
                 </button>
               </form>
             </DropdownMenuItem>
-            <DropdownMenuItem>
-              <Link href="/my-offers" className="w-full">
+            <DropdownMenuItem asChild>
+              <Link href="/my-offers" className="w-full cursor-pointer">
                 My Listings
               </Link>
             </DropdownMenuItem>
-            <DropdownMenuItem>
-              <Link href="/favorites" className="w-full">
+            <DropdownMenuItem asChild>
+              <Link href="/favorites" className="w-full cursor-pointer">
                 My Favorites
               </Link>
             </DropdownMenuItem>
-            <DropdownMenuItem>
-              <Link href="/reservations" className="w-full">
+            <DropdownMenuItem asChild>
+              <Link href="/reservations" className="w-full cursor-pointer">
                 My Reservations
               </Link>
             </DropdownMenuItem>
-            <DropdownMenuItem>
-              <Link href="/bookings" className="w-full">
+            <DropdownMenuItem asChild>
+              <Link href="/bookings" className="w-full cursor-pointer">
                 Bookings Awaiting
               </Link>
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>
-              <LogoutLink className="w-full">Logout</LogoutLink>
+            <DropdownMenuItem asChild>
+              <LogoutLink className="w-full cursor-pointer">Logout</LogoutLink>
             </DropdownMenuItem>
           </>
         ) : (
           <>
-            <DropdownMenuItem>
-              <RegisterLink className="w-full">Register</RegisterLink>
+            <DropdownMenuItem asChild>
+              <RegisterLink className="w-full cursor-pointer">
+                Register
+              </RegisterLink>
             </DropdownMenuItem>
-            <DropdownMenuItem>
-              <LoginLink className="w-full">Login</LoginLink>
+            <DropdownMenuItem asChild>
+              <LoginLink className="w-full cursor-pointer">Login</LoginLink>
             </DropdownMenuItem>
           </>
         )}

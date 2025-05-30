@@ -7,6 +7,7 @@ import Image from "next/image";
 import { unstable_noStore as noStore } from "next/cache";
 import { redirect } from "next/navigation";
 import { Chat } from "@/app/components/Chat";
+import { formatDaysRange } from "@/app/lib/dateFormat";
 
 const StatusType: { [key: string]: string } = {
   Pending: "text-blue-500",
@@ -119,15 +120,7 @@ export default async function ReservationDetailsRoute({
             />
             <Separator className="my-2" />
             <span className="text-muted-foreground">
-              {data?.startDate.toLocaleDateString() ===
-              data?.endDate.toLocaleDateString() ? (
-                data?.startDate.toLocaleDateString()
-              ) : (
-                <>
-                  {data?.startDate.toLocaleDateString()} -{" "}
-                  {data?.endDate.toLocaleDateString()}
-                </>
-              )}
+              {formatDaysRange(data?.startDate, data?.endDate)}
             </span>
             <Separator className="my-2" />
             <div className="flex gap-x-2 text-muted-foreground">

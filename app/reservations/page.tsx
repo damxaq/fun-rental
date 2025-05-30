@@ -4,6 +4,7 @@ import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { redirect } from "next/navigation";
 import { unstable_noStore as noStore } from "next/cache";
 import { ReservationCard } from "../components/ReservationCard";
+import { daysBetween, formatDaysRange } from "../lib/dateFormat";
 
 async function getData(userId: string) {
   noStore();
@@ -21,11 +22,17 @@ async function getData(userId: string) {
           id: true,
           country: true,
           photo: true,
-          description: true,
+          title: true,
           price: true,
           Favorite: {
             where: {
               userId: userId,
+            },
+          },
+          User: {
+            select: {
+              firstName: true,
+              lastName: true,
             },
           },
         },
@@ -45,7 +52,7 @@ export default async function ReservationsRoute() {
   const data = await getData(user.id);
 
   return (
-    <section className="container mx-auto px-5 lg:px-10 mt-10">
+    <section className="container mx-auto px-5 lg:px-10 mt-10 mb-10">
       <h2 className="text-3xl font-semibold tracking-tight">
         Your Reservations
       </h2>
@@ -57,19 +64,22 @@ export default async function ReservationsRoute() {
         />
       ) : (
         <div className="mt-8">
-          {data.map((item: any, index: number) => (
+          {data.reverse().map((item: any, index: number) => (
             <ReservationCard
               key={index}
-              location={item.Vehicle?.country as string}
-              vehicleId={item.Vehicle?.id as string}
+              title={item.Vehicle.title}
               imagePath={item.Vehicle?.photo as string}
-              price={item.Vehicle?.price as number}
               userId={user.id}
               isInFavorites={item.Vehicle?.Favorite.length > 0}
-              startDate={item.startDate}
-              endDate={item.endDate}
+              dates={formatDaysRange(item.startDate, item.endDate)}
+              totalPrice={
+                daysBetween(item.startDate, item.endDate) * item.Vehicle?.price
+              }
               reservationId={item.id}
               status={item.status}
+              person={
+                item.Vehicle.User.firstName + " " + item.Vehicle.User.lastName
+              }
             />
           ))}
         </div>

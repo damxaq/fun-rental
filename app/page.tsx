@@ -87,7 +87,7 @@ async function ShowItems({
           description="Please check other category or create your own listing!"
         />
       ) : (
-        <div className="grid lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-8">
+        <div className="grid lg:grid-cols-3 sm:grid-cols-1 md:grid-cols-2 gap-8 mt-8">
           {data.map((item: any) => (
             <ListingCard
               key={item.id}

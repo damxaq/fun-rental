@@ -72,6 +72,7 @@ export default async function ReservationDetailsRoute({
   return (
     <div className="w-[90%] lg:w-[75%] mx-auto mt-10 mb-20 flex flex-col md:flex-row">
       <ReservationDetails
+        id={id}
         title={data?.Vehicle?.title as string}
         photo={data?.Vehicle?.photo as string}
         location={`${country?.label} / ${country?.region}`}
@@ -80,6 +81,7 @@ export default async function ReservationDetailsRoute({
         categoryName={data?.Vehicle?.categoryName as string}
         dates={formatDaysRange(data?.startDate, data?.endDate)}
         status={data?.status as string}
+        isOwner={true}
       />
       <Chat
         id={id}

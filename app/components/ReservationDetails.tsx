@@ -1,6 +1,7 @@
 import { CategoryShowcase } from "@/app/components/CategoryShowcase";
 import { Separator } from "@/components/ui/separator";
 import Image from "next/image";
+import { cancelReservation, changeStatus } from "../actions";
 
 const StatusType: { [key: string]: string } = {
   Pending: "text-blue-500",
@@ -9,6 +10,7 @@ const StatusType: { [key: string]: string } = {
 };
 
 type ReservationDetailsProps = {
+  id: string;
   title: string;
   photo: string;
   location: string;
@@ -17,9 +19,11 @@ type ReservationDetailsProps = {
   categoryName: string;
   dates: string;
   status: string;
+  isOwner?: boolean;
 };
 
 export default function ReservationDetails({
+  id,
   title,
   photo,
   location,
@@ -28,6 +32,7 @@ export default function ReservationDetails({
   categoryName,
   dates,
   status,
+  isOwner = false,
 }: ReservationDetailsProps) {
   return (
     <div className="w-full md:w-1/2">
@@ -73,7 +78,50 @@ export default function ReservationDetails({
             <p> Guests</p>
           </div>
           <Separator className="my-2" />
-          <span className={`font-medium ${StatusType[status]}`}>{status}</span>
+          {isOwner ? (
+            status === "Pending" ? (
+              <div className="flex flex-row justify-between w-full px-4">
+                <form action={changeStatus}>
+                  <div>
+                    <input type="hidden" name="reservationId" value={id} />
+                    <input type="hidden" name="status" value="Confirmed" />
+                    <button
+                      className={`font-medium cursor-pointer ${StatusType.Confirmed}`}
+                    >
+                      Approve
+                    </button>
+                  </div>
+                </form>
+                <form action={changeStatus}>
+                  <div>
+                    <input type="hidden" name="reservationId" value={id} />
+                    <input type="hidden" name="status" value="Declined" />
+                    <button
+                      className={`font-medium cursor-pointer ${StatusType.Declined}`}
+                    >
+                      Decline
+                    </button>
+                  </div>
+                </form>
+              </div>
+            ) : (
+              <span className={`font-medium ${StatusType[status]}`}>
+                {status}
+              </span>
+            )
+          ) : (
+            <div className="flex flex-row justify-between">
+              <span className={`font-medium ${StatusType[status]}`}>
+                {status}
+              </span>
+              <form action={cancelReservation}>
+                <input type="hidden" name="reservationId" value={id} />
+                <button className="text-red-600 font-medium cursor-pointer">
+                  Cancel
+                </button>
+              </form>
+            </div>
+          )}
         </div>
       </div>
     </div>

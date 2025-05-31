@@ -81,6 +81,7 @@ export default async function ReservationDetailsRoute({
         messages={data?.messages}
       />
       <ReservationDetails
+        id={id}
         title={data?.Vehicle?.title as string}
         photo={data?.Vehicle?.photo as string}
         location={`${country?.label} / ${country?.region}`}

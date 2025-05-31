@@ -196,3 +196,31 @@ export async function createReservation(formData: FormData) {
 
   return redirect(`/reservation/${data.id}`);
 }
+
+export async function cancelReservation(formData: FormData) {
+  const reservationId = formData.get("reservationId") as string;
+
+  const data = await prisma.reservation.delete({
+    where: {
+      id: reservationId,
+    },
+  });
+
+  return redirect("/");
+}
+
+export async function changeStatus(formData: FormData) {
+  const reservationId = formData.get("reservationId") as string;
+  const status = formData.get("status") as string;
+
+  const data = await prisma.reservation.update({
+    where: {
+      id: reservationId,
+    },
+    data: {
+      status: status,
+    },
+  });
+
+  return redirect(`/bookings/${reservationId}`);
+}

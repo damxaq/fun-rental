@@ -75,10 +75,10 @@ export default async function BookingsRoute() {
               totalPrice={
                 daysBetween(item.startDate, item.endDate) * item.Vehicle?.price
               }
-              reservationId={item.id}
               title={item.Vehicle?.title as string}
               status={item.status}
               person={item.User.firstName + " " + item.User.lastName}
+              url={`/bookings/${item.id}`}
             />
           ))}
         </div>

@@ -12,12 +12,12 @@ type ReservationCardProps = {
   imagePath: string;
   userId: string | undefined;
   isInFavorites: boolean;
-  reservationId: string;
   title: string;
   status: string;
   person: string;
   dates: string;
   totalPrice: number;
+  url: string;
 };
 
 export function ReservationCard({
@@ -25,15 +25,15 @@ export function ReservationCard({
   userId,
   isInFavorites,
   title,
-  reservationId,
   status,
   person,
   dates,
   totalPrice,
+  url,
 }: ReservationCardProps) {
   return (
     <div className="mb-4 bg-gray-50 rounded-xl border-[1px] hover:border-gray-500 shadow-xl max-w-[800px]">
-      <Link href={`/reservation/${reservationId}`} className="flex flex-row">
+      <Link href={url} className="flex flex-row">
         <div className="relative h-36 w-1/3 mr-4">
           <Image
             src={`https://ulsjeycbmhzuambfgfob.supabase.co/storage/v1/object/public/images/${imagePath}`}

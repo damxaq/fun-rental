@@ -20,13 +20,18 @@ export function Chat({ id, userName, messages }: ChatProps) {
     addMessage(messages, id);
   };
   return (
-    <div className="h-full">
-      <RealtimeChat
-        roomName={id}
-        username={userName}
-        onMessage={handleMessage}
-        messages={messages}
-      />
+    <div
+      className="w-full h-[300px] md:h-[600px] px-4 border-2 rounded-md shadow-gray-300 shadow-md mx-auto md:mx-6 mt-5
+md:mt-0 flex"
+    >
+      <div className="flex h-full w-full">
+        <RealtimeChat
+          roomName={id}
+          username={userName}
+          onMessage={handleMessage}
+          messages={messages}
+        />
+      </div>
     </div>
   );
 }

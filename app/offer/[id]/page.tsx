@@ -6,45 +6,11 @@ import { ReservationSubmitButton } from "@/app/components/SubmitButtons";
 import { useCountries } from "@/app/lib/getCountries";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { prisma } from "@/lib/prisma";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import Image from "next/image";
 import Link from "next/link";
-import { redirect } from "next/navigation";
-import { unstable_noStore as noStore } from "next/cache";
 import ImageGallery from "@/app/components/ImageGallery";
-
-async function getData(vehicleId: string) {
-  noStore();
-  const data = await prisma.vehicle.findUnique({
-    where: {
-      id: vehicleId,
-    },
-    select: {
-      photo: true,
-      gallery: true,
-      description: true,
-      guests: true,
-      title: true,
-      categoryName: true,
-      price: true,
-      country: true,
-      Reservation: {
-        where: {
-          vehicleId: vehicleId,
-        },
-      },
-      User: {
-        select: {
-          id: true,
-          profileImage: true,
-          firstName: true,
-        },
-      },
-    },
-  });
-  return data;
-}
+import { getSingleVehicle } from "@/app/queries";
 
 export default async function OfferRoute({
   params,
@@ -52,7 +18,7 @@ export default async function OfferRoute({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const data = await getData(id);
+  const data = await getSingleVehicle(id);
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { getCountryByValue } = useCountries();
   const country = getCountryByValue(data?.country as string);

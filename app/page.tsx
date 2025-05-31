@@ -1,49 +1,10 @@
 import { Suspense } from "react";
 import { ListingCard } from "./components/ListingCard";
 import { MapFilterItems } from "./components/MapFilterItems";
-import { prisma } from "@/lib/prisma";
 import { SkeletonCard } from "./components/SkeletonCard";
 import { NoItems } from "./components/NoItems";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
-import { unstable_noStore as noStore } from "next/cache";
-
-async function getData({
-  searchParams,
-  userId,
-}: {
-  userId: string | undefined;
-  searchParams?: {
-    filter?: string;
-    country?: string;
-    guest?: string;
-  };
-}) {
-  noStore();
-  const data = await prisma.vehicle.findMany({
-    where: {
-      addedCategory: true,
-      addedDescription: true,
-      addedLocation: true,
-      categoryName: searchParams?.filter ?? undefined,
-      country: searchParams?.country ?? undefined,
-      guests: searchParams?.guest ?? undefined,
-    },
-    select: {
-      photo: true,
-      id: true,
-      price: true,
-      description: true,
-      country: true,
-      Favorite: {
-        where: {
-          userId: userId ?? undefined,
-        },
-      },
-    },
-  });
-
-  return data;
-}
+import { getVehicles } from "./queries";
 
 export default async function Vehicle({
   searchParams,
@@ -77,7 +38,7 @@ async function ShowItems({
 }) {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
-  const data = await getData({ searchParams: searchParams, userId: user?.id });
+  const data = await getVehicles(user?.id, searchParams);
 
   return (
     <>

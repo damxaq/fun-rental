@@ -1,43 +1,14 @@
-import { prisma } from "@/lib/prisma";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { redirect } from "next/navigation";
 import { NoItems } from "../components/NoItems";
 import { ListingCard } from "../components/ListingCard";
-import { unstable_noStore as noStore } from "next/cache";
-
-async function getData(userId: string) {
-  noStore();
-  const data = await prisma.vehicle.findMany({
-    where: {
-      userId: userId,
-      addedCategory: true,
-      addedDescription: true,
-      addedLocation: true,
-    },
-    select: {
-      photo: true,
-      id: true,
-      price: true,
-      country: true,
-      description: true,
-      Favorite: {
-        where: {
-          userId: userId,
-        },
-      },
-    },
-    orderBy: {
-      createdAt: "desc",
-    },
-  });
-  return data;
-}
+import { getOwnedVehicles } from "../queries";
 
 export default async function MyOffers() {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
   if (!user) return redirect("/");
-  const data = await getData(user.id);
+  const data = await getOwnedVehicles(user.id);
 
   return (
     <section className="container mx-auto px-5 lg:px-10 mt-10">
@@ -49,7 +20,7 @@ export default async function MyOffers() {
           description="Please list your offer on Fun Rental so that you can see it right here"
         />
       ) : (
-        <div className="grid lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-3 grid-cols-1 gap-8 mt-8">
+        <div className="grid lg:grid-cols-3 sm:grid-cols-1 md:grid-cols-2 grid-cols-1 gap-8 mt-8">
           {data.map((item: any) => (
             <ListingCard
               key={item.id}

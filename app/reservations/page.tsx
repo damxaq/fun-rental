@@ -1,55 +1,15 @@
-import { prisma } from "@/lib/prisma";
 import { NoItems } from "../components/NoItems";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { redirect } from "next/navigation";
-import { unstable_noStore as noStore } from "next/cache";
 import { ReservationCard } from "../components/ReservationCard";
 import { daysBetween, formatDaysRange } from "../lib/dateFormat";
-
-async function getData(userId: string) {
-  noStore();
-  const data = await prisma.reservation.findMany({
-    where: {
-      userId: userId,
-    },
-    select: {
-      id: true,
-      startDate: true,
-      endDate: true,
-      status: true,
-      Vehicle: {
-        select: {
-          id: true,
-          country: true,
-          photo: true,
-          title: true,
-          price: true,
-          Favorite: {
-            where: {
-              userId: userId,
-            },
-          },
-          User: {
-            select: {
-              firstName: true,
-              lastName: true,
-            },
-          },
-        },
-      },
-    },
-  });
-
-  console.log("data", data);
-
-  return data;
-}
+import { getReservations } from "../queries";
 
 export default async function ReservationsRoute() {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
   if (!user) return redirect("/");
-  const data = await getData(user.id);
+  const data = await getReservations(user.id);
 
   return (
     <section className="container mx-auto px-5 lg:px-10 mt-10 mb-10">

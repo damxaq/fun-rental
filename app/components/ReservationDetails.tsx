@@ -86,7 +86,7 @@ export default function ReservationDetails({
                     <input type="hidden" name="reservationId" value={id} />
                     <input type="hidden" name="status" value="Confirmed" />
                     <button
-                      className={`font-medium cursor-pointer ${StatusType.Confirmed}`}
+                      className={`font-medium cursor-pointer hover:border-b-2 ${StatusType.Confirmed}`}
                     >
                       Approve
                     </button>
@@ -97,7 +97,7 @@ export default function ReservationDetails({
                     <input type="hidden" name="reservationId" value={id} />
                     <input type="hidden" name="status" value="Declined" />
                     <button
-                      className={`font-medium cursor-pointer ${StatusType.Declined}`}
+                      className={`font-medium cursor-pointer hover:border-b-2 ${StatusType.Declined}`}
                     >
                       Decline
                     </button>
@@ -114,12 +114,14 @@ export default function ReservationDetails({
               <span className={`font-medium ${StatusType[status]}`}>
                 {status}
               </span>
-              <form action={cancelReservation}>
-                <input type="hidden" name="reservationId" value={id} />
-                <button className="text-red-600 font-medium cursor-pointer">
-                  Cancel
-                </button>
-              </form>
+              {status === "Pending" && (
+                <form action={cancelReservation}>
+                  <input type="hidden" name="reservationId" value={id} />
+                  <button className="text-red-600 font-medium cursor-pointer hover:border-b-2 hover:text-red-500">
+                    Cancel
+                  </button>
+                </form>
+              )}
             </div>
           )}
         </div>

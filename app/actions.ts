@@ -222,5 +222,5 @@ export async function changeStatus(formData: FormData) {
     },
   });
 
-  return redirect(`/bookings/${reservationId}`);
+  return redirect(`/booking/${reservationId}`);
 }

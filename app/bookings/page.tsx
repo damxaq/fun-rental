@@ -78,7 +78,7 @@ export default async function BookingsRoute() {
               title={item.Vehicle?.title as string}
               status={item.status}
               person={item.User.firstName + " " + item.User.lastName}
-              url={`/bookings/${item.id}`}
+              url={`/booking/${item.id}`}
             />
           ))}
         </div>

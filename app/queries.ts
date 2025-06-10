@@ -24,6 +24,7 @@ export async function getVehicles(
       id: true,
       price: true,
       description: true,
+      city: true,
       country: true,
       Favorite: {
         where: {
@@ -106,6 +107,7 @@ export async function getBooking(reservationId: string) {
         select: {
           id: true,
           country: true,
+          city: true,
           photo: true,
           description: true,
           price: true,
@@ -187,6 +189,7 @@ export async function getReservation(reservationId: string) {
       Vehicle: {
         select: {
           id: true,
+          city: true,
           country: true,
           photo: true,
           description: true,
@@ -273,6 +276,11 @@ export async function getSingleVehicle(vehicleId: string) {
       categoryName: true,
       price: true,
       country: true,
+      city: true,
+      street: true,
+      fullAddress: true,
+      latitude: true,
+      longitude: true,
       Reservation: {
         where: {
           vehicleId: vehicleId,

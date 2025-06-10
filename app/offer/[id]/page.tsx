@@ -3,13 +3,12 @@ import { CategoryShowcase } from "@/app/components/CategoryShowcase";
 import { OfferMap } from "@/app/components/OfferMap";
 import { SelectCalendar } from "@/app/components/SelectCalendar";
 import { ReservationSubmitButton } from "@/app/components/SubmitButtons";
-import { useCountries } from "@/app/lib/getCountries";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import Image from "next/image";
 import Link from "next/link";
-import ImageGallery from "@/app/components/ImageGallery";
+import { ImageGallery } from "@/app/components/ImageGallery";
 import { getSingleVehicle } from "@/app/queries";
 
 export default async function OfferRoute({
@@ -19,13 +18,8 @@ export default async function OfferRoute({
 }) {
   const { id } = await params;
   const data = await getSingleVehicle(id);
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const { getCountryByValue } = useCountries();
-  const country = getCountryByValue(data?.country as string);
   const { getUser } = getKindeServerSession();
   const user = await getUser();
-
-  console.log(data?.Reservation);
 
   return (
     <div className="w-[90%] lg:w-[75%] mx-auto mt-10 mb-20">
@@ -36,7 +30,7 @@ export default async function OfferRoute({
       <div className="flex justify-between gap-x-24 mt-8 flex-col lg:flex-row">
         <div className="lg:w-2/3 w-full">
           <h3 className="text-xl font-medium">
-            {country?.flag} {country?.label} / {country?.region}
+            {data?.city} / {data?.country}
           </h3>
           <div className="flex gap-x-2 text-muted-foreground">
             <p>{data?.guests} Guests</p>
@@ -64,7 +58,14 @@ export default async function OfferRoute({
           <Separator className="my-7" />
           <p className="text-muted-foreground">{data?.description}</p>
           <Separator className="my-7" />
-          <OfferMap locationValue={country?.value as string} />
+          {data?.latitude && data.longitude && (
+            <OfferMap
+              locationValue={{
+                latitude: data.latitude,
+                longitude: data.longitude,
+              }}
+            />
+          )}
         </div>
         <form
           action={createReservation}

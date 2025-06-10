@@ -48,13 +48,13 @@ async function ShowItems({
           description="Please check other category or create your own listing!"
         />
       ) : (
-        <div className="grid lg:grid-cols-3 sm:grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+        <div className="grid lg:grid-cols-3 sm:grid-cols-1 md:grid-cols-2 gap-8 mt-8 mb-20">
           {data.map((item: any) => (
             <ListingCard
               key={item.id}
               description={item.description as string}
               imagePath={item.photo as string}
-              location={item.country as string}
+              location={`${item.city} / ${item.country}`}
               price={item.price as number}
               userId={user?.id}
               favoriteId={item.Favorite[0]?.id}
@@ -71,7 +71,7 @@ async function ShowItems({
 
 function SkeletonLoading() {
   return (
-    <div className="grid lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-8">
+    <div className="grid lg:grid-cols-3 sm:grid-cols-1 md:grid-cols-2 gap-8 mt-8">
       <SkeletonCard />
       <SkeletonCard />
       <SkeletonCard />

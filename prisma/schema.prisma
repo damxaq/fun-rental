@@ -27,7 +27,12 @@ model Vehicle {
   title        String?
   description  String?
   guests       String?
+  latitude     Float?
+  longitude    Float?
   country      String?
+  city         String?
+  street       String?
+  fullAddress  String?
   photo        String?
   gallery      String[]
   price        Int?

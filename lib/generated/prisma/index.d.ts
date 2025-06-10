@@ -2491,10 +2491,14 @@ export namespace Prisma {
   }
 
   export type VehicleAvgAggregateOutputType = {
+    latitude: number | null
+    longitude: number | null
     price: number | null
   }
 
   export type VehicleSumAggregateOutputType = {
+    latitude: number | null
+    longitude: number | null
     price: number | null
   }
 
@@ -2503,7 +2507,12 @@ export namespace Prisma {
     title: string | null
     description: string | null
     guests: string | null
+    latitude: number | null
+    longitude: number | null
     country: string | null
+    city: string | null
+    street: string | null
+    fullAddress: string | null
     photo: string | null
     price: number | null
     categoryName: string | null
@@ -2519,7 +2528,12 @@ export namespace Prisma {
     title: string | null
     description: string | null
     guests: string | null
+    latitude: number | null
+    longitude: number | null
     country: string | null
+    city: string | null
+    street: string | null
+    fullAddress: string | null
     photo: string | null
     price: number | null
     categoryName: string | null
@@ -2535,7 +2549,12 @@ export namespace Prisma {
     title: number
     description: number
     guests: number
+    latitude: number
+    longitude: number
     country: number
+    city: number
+    street: number
+    fullAddress: number
     photo: number
     gallery: number
     price: number
@@ -2550,10 +2569,14 @@ export namespace Prisma {
 
 
   export type VehicleAvgAggregateInputType = {
+    latitude?: true
+    longitude?: true
     price?: true
   }
 
   export type VehicleSumAggregateInputType = {
+    latitude?: true
+    longitude?: true
     price?: true
   }
 
@@ -2562,7 +2585,12 @@ export namespace Prisma {
     title?: true
     description?: true
     guests?: true
+    latitude?: true
+    longitude?: true
     country?: true
+    city?: true
+    street?: true
+    fullAddress?: true
     photo?: true
     price?: true
     categoryName?: true
@@ -2578,7 +2606,12 @@ export namespace Prisma {
     title?: true
     description?: true
     guests?: true
+    latitude?: true
+    longitude?: true
     country?: true
+    city?: true
+    street?: true
+    fullAddress?: true
     photo?: true
     price?: true
     categoryName?: true
@@ -2594,7 +2627,12 @@ export namespace Prisma {
     title?: true
     description?: true
     guests?: true
+    latitude?: true
+    longitude?: true
     country?: true
+    city?: true
+    street?: true
+    fullAddress?: true
     photo?: true
     gallery?: true
     price?: true
@@ -2698,7 +2736,12 @@ export namespace Prisma {
     title: string | null
     description: string | null
     guests: string | null
+    latitude: number | null
+    longitude: number | null
     country: string | null
+    city: string | null
+    street: string | null
+    fullAddress: string | null
     photo: string | null
     gallery: string[]
     price: number | null
@@ -2734,7 +2777,12 @@ export namespace Prisma {
     title?: boolean
     description?: boolean
     guests?: boolean
+    latitude?: boolean
+    longitude?: boolean
     country?: boolean
+    city?: boolean
+    street?: boolean
+    fullAddress?: boolean
     photo?: boolean
     gallery?: boolean
     price?: boolean
@@ -2755,7 +2803,12 @@ export namespace Prisma {
     title?: boolean
     description?: boolean
     guests?: boolean
+    latitude?: boolean
+    longitude?: boolean
     country?: boolean
+    city?: boolean
+    street?: boolean
+    fullAddress?: boolean
     photo?: boolean
     gallery?: boolean
     price?: boolean
@@ -2773,7 +2826,12 @@ export namespace Prisma {
     title?: boolean
     description?: boolean
     guests?: boolean
+    latitude?: boolean
+    longitude?: boolean
     country?: boolean
+    city?: boolean
+    street?: boolean
+    fullAddress?: boolean
     photo?: boolean
     gallery?: boolean
     price?: boolean
@@ -2791,7 +2849,12 @@ export namespace Prisma {
     title?: boolean
     description?: boolean
     guests?: boolean
+    latitude?: boolean
+    longitude?: boolean
     country?: boolean
+    city?: boolean
+    street?: boolean
+    fullAddress?: boolean
     photo?: boolean
     gallery?: boolean
     price?: boolean
@@ -2803,7 +2866,7 @@ export namespace Prisma {
     userId?: boolean
   }
 
-  export type VehicleOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "description" | "guests" | "country" | "photo" | "gallery" | "price" | "categoryName" | "addedCategory" | "addedDescription" | "addedLocation" | "createdAt" | "userId", ExtArgs["result"]["vehicle"]>
+  export type VehicleOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "description" | "guests" | "latitude" | "longitude" | "country" | "city" | "street" | "fullAddress" | "photo" | "gallery" | "price" | "categoryName" | "addedCategory" | "addedDescription" | "addedLocation" | "createdAt" | "userId", ExtArgs["result"]["vehicle"]>
   export type VehicleInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     Favorite?: boolean | Vehicle$FavoriteArgs<ExtArgs>
     Reservation?: boolean | Vehicle$ReservationArgs<ExtArgs>
@@ -2829,7 +2892,12 @@ export namespace Prisma {
       title: string | null
       description: string | null
       guests: string | null
+      latitude: number | null
+      longitude: number | null
       country: string | null
+      city: string | null
+      street: string | null
+      fullAddress: string | null
       photo: string | null
       gallery: string[]
       price: number | null
@@ -3269,7 +3337,12 @@ export namespace Prisma {
     readonly title: FieldRef<"Vehicle", 'String'>
     readonly description: FieldRef<"Vehicle", 'String'>
     readonly guests: FieldRef<"Vehicle", 'String'>
+    readonly latitude: FieldRef<"Vehicle", 'Float'>
+    readonly longitude: FieldRef<"Vehicle", 'Float'>
     readonly country: FieldRef<"Vehicle", 'String'>
+    readonly city: FieldRef<"Vehicle", 'String'>
+    readonly street: FieldRef<"Vehicle", 'String'>
+    readonly fullAddress: FieldRef<"Vehicle", 'String'>
     readonly photo: FieldRef<"Vehicle", 'String'>
     readonly gallery: FieldRef<"Vehicle", 'String[]'>
     readonly price: FieldRef<"Vehicle", 'Int'>
@@ -7212,7 +7285,12 @@ export namespace Prisma {
     title: 'title',
     description: 'description',
     guests: 'guests',
+    latitude: 'latitude',
+    longitude: 'longitude',
     country: 'country',
+    city: 'city',
+    street: 'street',
+    fullAddress: 'fullAddress',
     photo: 'photo',
     gallery: 'gallery',
     price: 'price',
@@ -7307,6 +7385,20 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'Float'
+   */
+  export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
+    
+
+
+  /**
+   * Reference to a field of type 'Float[]'
+   */
+  export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
+    
+
+
+  /**
    * Reference to a field of type 'Int'
    */
   export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
@@ -7338,20 +7430,6 @@ export namespace Prisma {
    * Reference to a field of type 'DateTime[]'
    */
   export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
-    
-
-
-  /**
-   * Reference to a field of type 'Float'
-   */
-  export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
-    
-
-
-  /**
-   * Reference to a field of type 'Float[]'
-   */
-  export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
     
   /**
    * Deep Input Types
@@ -7427,7 +7505,12 @@ export namespace Prisma {
     title?: StringNullableFilter<"Vehicle"> | string | null
     description?: StringNullableFilter<"Vehicle"> | string | null
     guests?: StringNullableFilter<"Vehicle"> | string | null
+    latitude?: FloatNullableFilter<"Vehicle"> | number | null
+    longitude?: FloatNullableFilter<"Vehicle"> | number | null
     country?: StringNullableFilter<"Vehicle"> | string | null
+    city?: StringNullableFilter<"Vehicle"> | string | null
+    street?: StringNullableFilter<"Vehicle"> | string | null
+    fullAddress?: StringNullableFilter<"Vehicle"> | string | null
     photo?: StringNullableFilter<"Vehicle"> | string | null
     gallery?: StringNullableListFilter<"Vehicle">
     price?: IntNullableFilter<"Vehicle"> | number | null
@@ -7447,7 +7530,12 @@ export namespace Prisma {
     title?: SortOrderInput | SortOrder
     description?: SortOrderInput | SortOrder
     guests?: SortOrderInput | SortOrder
+    latitude?: SortOrderInput | SortOrder
+    longitude?: SortOrderInput | SortOrder
     country?: SortOrderInput | SortOrder
+    city?: SortOrderInput | SortOrder
+    street?: SortOrderInput | SortOrder
+    fullAddress?: SortOrderInput | SortOrder
     photo?: SortOrderInput | SortOrder
     gallery?: SortOrder
     price?: SortOrderInput | SortOrder
@@ -7470,7 +7558,12 @@ export namespace Prisma {
     title?: StringNullableFilter<"Vehicle"> | string | null
     description?: StringNullableFilter<"Vehicle"> | string | null
     guests?: StringNullableFilter<"Vehicle"> | string | null
+    latitude?: FloatNullableFilter<"Vehicle"> | number | null
+    longitude?: FloatNullableFilter<"Vehicle"> | number | null
     country?: StringNullableFilter<"Vehicle"> | string | null
+    city?: StringNullableFilter<"Vehicle"> | string | null
+    street?: StringNullableFilter<"Vehicle"> | string | null
+    fullAddress?: StringNullableFilter<"Vehicle"> | string | null
     photo?: StringNullableFilter<"Vehicle"> | string | null
     gallery?: StringNullableListFilter<"Vehicle">
     price?: IntNullableFilter<"Vehicle"> | number | null
@@ -7490,7 +7583,12 @@ export namespace Prisma {
     title?: SortOrderInput | SortOrder
     description?: SortOrderInput | SortOrder
     guests?: SortOrderInput | SortOrder
+    latitude?: SortOrderInput | SortOrder
+    longitude?: SortOrderInput | SortOrder
     country?: SortOrderInput | SortOrder
+    city?: SortOrderInput | SortOrder
+    street?: SortOrderInput | SortOrder
+    fullAddress?: SortOrderInput | SortOrder
     photo?: SortOrderInput | SortOrder
     gallery?: SortOrder
     price?: SortOrderInput | SortOrder
@@ -7515,7 +7613,12 @@ export namespace Prisma {
     title?: StringNullableWithAggregatesFilter<"Vehicle"> | string | null
     description?: StringNullableWithAggregatesFilter<"Vehicle"> | string | null
     guests?: StringNullableWithAggregatesFilter<"Vehicle"> | string | null
+    latitude?: FloatNullableWithAggregatesFilter<"Vehicle"> | number | null
+    longitude?: FloatNullableWithAggregatesFilter<"Vehicle"> | number | null
     country?: StringNullableWithAggregatesFilter<"Vehicle"> | string | null
+    city?: StringNullableWithAggregatesFilter<"Vehicle"> | string | null
+    street?: StringNullableWithAggregatesFilter<"Vehicle"> | string | null
+    fullAddress?: StringNullableWithAggregatesFilter<"Vehicle"> | string | null
     photo?: StringNullableWithAggregatesFilter<"Vehicle"> | string | null
     gallery?: StringNullableListFilter<"Vehicle">
     price?: IntNullableWithAggregatesFilter<"Vehicle"> | number | null
@@ -7793,7 +7896,12 @@ export namespace Prisma {
     title?: string | null
     description?: string | null
     guests?: string | null
+    latitude?: number | null
+    longitude?: number | null
     country?: string | null
+    city?: string | null
+    street?: string | null
+    fullAddress?: string | null
     photo?: string | null
     gallery?: VehicleCreategalleryInput | string[]
     price?: number | null
@@ -7812,7 +7920,12 @@ export namespace Prisma {
     title?: string | null
     description?: string | null
     guests?: string | null
+    latitude?: number | null
+    longitude?: number | null
     country?: string | null
+    city?: string | null
+    street?: string | null
+    fullAddress?: string | null
     photo?: string | null
     gallery?: VehicleCreategalleryInput | string[]
     price?: number | null
@@ -7831,7 +7944,12 @@ export namespace Prisma {
     title?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     guests?: NullableStringFieldUpdateOperationsInput | string | null
+    latitude?: NullableFloatFieldUpdateOperationsInput | number | null
+    longitude?: NullableFloatFieldUpdateOperationsInput | number | null
     country?: NullableStringFieldUpdateOperationsInput | string | null
+    city?: NullableStringFieldUpdateOperationsInput | string | null
+    street?: NullableStringFieldUpdateOperationsInput | string | null
+    fullAddress?: NullableStringFieldUpdateOperationsInput | string | null
     photo?: NullableStringFieldUpdateOperationsInput | string | null
     gallery?: VehicleUpdategalleryInput | string[]
     price?: NullableIntFieldUpdateOperationsInput | number | null
@@ -7850,7 +7968,12 @@ export namespace Prisma {
     title?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     guests?: NullableStringFieldUpdateOperationsInput | string | null
+    latitude?: NullableFloatFieldUpdateOperationsInput | number | null
+    longitude?: NullableFloatFieldUpdateOperationsInput | number | null
     country?: NullableStringFieldUpdateOperationsInput | string | null
+    city?: NullableStringFieldUpdateOperationsInput | string | null
+    street?: NullableStringFieldUpdateOperationsInput | string | null
+    fullAddress?: NullableStringFieldUpdateOperationsInput | string | null
     photo?: NullableStringFieldUpdateOperationsInput | string | null
     gallery?: VehicleUpdategalleryInput | string[]
     price?: NullableIntFieldUpdateOperationsInput | number | null
@@ -7869,7 +7992,12 @@ export namespace Prisma {
     title?: string | null
     description?: string | null
     guests?: string | null
+    latitude?: number | null
+    longitude?: number | null
     country?: string | null
+    city?: string | null
+    street?: string | null
+    fullAddress?: string | null
     photo?: string | null
     gallery?: VehicleCreategalleryInput | string[]
     price?: number | null
@@ -7886,7 +8014,12 @@ export namespace Prisma {
     title?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     guests?: NullableStringFieldUpdateOperationsInput | string | null
+    latitude?: NullableFloatFieldUpdateOperationsInput | number | null
+    longitude?: NullableFloatFieldUpdateOperationsInput | number | null
     country?: NullableStringFieldUpdateOperationsInput | string | null
+    city?: NullableStringFieldUpdateOperationsInput | string | null
+    street?: NullableStringFieldUpdateOperationsInput | string | null
+    fullAddress?: NullableStringFieldUpdateOperationsInput | string | null
     photo?: NullableStringFieldUpdateOperationsInput | string | null
     gallery?: VehicleUpdategalleryInput | string[]
     price?: NullableIntFieldUpdateOperationsInput | number | null
@@ -7902,7 +8035,12 @@ export namespace Prisma {
     title?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     guests?: NullableStringFieldUpdateOperationsInput | string | null
+    latitude?: NullableFloatFieldUpdateOperationsInput | number | null
+    longitude?: NullableFloatFieldUpdateOperationsInput | number | null
     country?: NullableStringFieldUpdateOperationsInput | string | null
+    city?: NullableStringFieldUpdateOperationsInput | string | null
+    street?: NullableStringFieldUpdateOperationsInput | string | null
+    fullAddress?: NullableStringFieldUpdateOperationsInput | string | null
     photo?: NullableStringFieldUpdateOperationsInput | string | null
     gallery?: VehicleUpdategalleryInput | string[]
     price?: NullableIntFieldUpdateOperationsInput | number | null
@@ -8224,6 +8362,17 @@ export namespace Prisma {
     _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
+  export type FloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
   export type StringNullableListFilter<$PrismaModel = never> = {
     equals?: string[] | ListStringFieldRefInput<$PrismaModel> | null
     has?: string | StringFieldRefInput<$PrismaModel> | null
@@ -8269,7 +8418,12 @@ export namespace Prisma {
     title?: SortOrder
     description?: SortOrder
     guests?: SortOrder
+    latitude?: SortOrder
+    longitude?: SortOrder
     country?: SortOrder
+    city?: SortOrder
+    street?: SortOrder
+    fullAddress?: SortOrder
     photo?: SortOrder
     gallery?: SortOrder
     price?: SortOrder
@@ -8282,6 +8436,8 @@ export namespace Prisma {
   }
 
   export type VehicleAvgOrderByAggregateInput = {
+    latitude?: SortOrder
+    longitude?: SortOrder
     price?: SortOrder
   }
 
@@ -8290,7 +8446,12 @@ export namespace Prisma {
     title?: SortOrder
     description?: SortOrder
     guests?: SortOrder
+    latitude?: SortOrder
+    longitude?: SortOrder
     country?: SortOrder
+    city?: SortOrder
+    street?: SortOrder
+    fullAddress?: SortOrder
     photo?: SortOrder
     price?: SortOrder
     categoryName?: SortOrder
@@ -8306,7 +8467,12 @@ export namespace Prisma {
     title?: SortOrder
     description?: SortOrder
     guests?: SortOrder
+    latitude?: SortOrder
+    longitude?: SortOrder
     country?: SortOrder
+    city?: SortOrder
+    street?: SortOrder
+    fullAddress?: SortOrder
     photo?: SortOrder
     price?: SortOrder
     categoryName?: SortOrder
@@ -8318,7 +8484,25 @@ export namespace Prisma {
   }
 
   export type VehicleSumOrderByAggregateInput = {
+    latitude?: SortOrder
+    longitude?: SortOrder
     price?: SortOrder
+  }
+
+  export type FloatNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedFloatNullableFilter<$PrismaModel>
+    _min?: NestedFloatNullableFilter<$PrismaModel>
+    _max?: NestedFloatNullableFilter<$PrismaModel>
   }
 
   export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -8675,6 +8859,14 @@ export namespace Prisma {
     connect?: ReservationWhereUniqueInput | ReservationWhereUniqueInput[]
   }
 
+  export type NullableFloatFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
   export type VehicleUpdategalleryInput = {
     set?: string[]
     push?: string | string[]
@@ -8976,6 +9168,17 @@ export namespace Prisma {
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
+  export type NestedFloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
   export type NestedBoolFilter<$PrismaModel = never> = {
     equals?: boolean | BooleanFieldRefInput<$PrismaModel>
     not?: NestedBoolFilter<$PrismaModel> | boolean
@@ -8992,6 +9195,22 @@ export namespace Prisma {
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
+  export type NestedFloatNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedFloatNullableFilter<$PrismaModel>
+    _min?: NestedFloatNullableFilter<$PrismaModel>
+    _max?: NestedFloatNullableFilter<$PrismaModel>
+  }
+
   export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel> | null
     in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
@@ -9006,17 +9225,6 @@ export namespace Prisma {
     _sum?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedIntNullableFilter<$PrismaModel>
     _max?: NestedIntNullableFilter<$PrismaModel>
-  }
-
-  export type NestedFloatNullableFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
   }
 
   export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
@@ -9073,7 +9281,12 @@ export namespace Prisma {
     title?: string | null
     description?: string | null
     guests?: string | null
+    latitude?: number | null
+    longitude?: number | null
     country?: string | null
+    city?: string | null
+    street?: string | null
+    fullAddress?: string | null
     photo?: string | null
     gallery?: VehicleCreategalleryInput | string[]
     price?: number | null
@@ -9091,7 +9304,12 @@ export namespace Prisma {
     title?: string | null
     description?: string | null
     guests?: string | null
+    latitude?: number | null
+    longitude?: number | null
     country?: string | null
+    city?: string | null
+    street?: string | null
+    fullAddress?: string | null
     photo?: string | null
     gallery?: VehicleCreategalleryInput | string[]
     price?: number | null
@@ -9194,7 +9412,12 @@ export namespace Prisma {
     title?: StringNullableFilter<"Vehicle"> | string | null
     description?: StringNullableFilter<"Vehicle"> | string | null
     guests?: StringNullableFilter<"Vehicle"> | string | null
+    latitude?: FloatNullableFilter<"Vehicle"> | number | null
+    longitude?: FloatNullableFilter<"Vehicle"> | number | null
     country?: StringNullableFilter<"Vehicle"> | string | null
+    city?: StringNullableFilter<"Vehicle"> | string | null
+    street?: StringNullableFilter<"Vehicle"> | string | null
+    fullAddress?: StringNullableFilter<"Vehicle"> | string | null
     photo?: StringNullableFilter<"Vehicle"> | string | null
     gallery?: StringNullableListFilter<"Vehicle">
     price?: IntNullableFilter<"Vehicle"> | number | null
@@ -9437,7 +9660,12 @@ export namespace Prisma {
     title?: string | null
     description?: string | null
     guests?: string | null
+    latitude?: number | null
+    longitude?: number | null
     country?: string | null
+    city?: string | null
+    street?: string | null
+    fullAddress?: string | null
     photo?: string | null
     gallery?: VehicleCreategalleryInput | string[]
     price?: number | null
@@ -9455,7 +9683,12 @@ export namespace Prisma {
     title?: string | null
     description?: string | null
     guests?: string | null
+    latitude?: number | null
+    longitude?: number | null
     country?: string | null
+    city?: string | null
+    street?: string | null
+    fullAddress?: string | null
     photo?: string | null
     gallery?: VehicleCreategalleryInput | string[]
     price?: number | null
@@ -9520,7 +9753,12 @@ export namespace Prisma {
     title?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     guests?: NullableStringFieldUpdateOperationsInput | string | null
+    latitude?: NullableFloatFieldUpdateOperationsInput | number | null
+    longitude?: NullableFloatFieldUpdateOperationsInput | number | null
     country?: NullableStringFieldUpdateOperationsInput | string | null
+    city?: NullableStringFieldUpdateOperationsInput | string | null
+    street?: NullableStringFieldUpdateOperationsInput | string | null
+    fullAddress?: NullableStringFieldUpdateOperationsInput | string | null
     photo?: NullableStringFieldUpdateOperationsInput | string | null
     gallery?: VehicleUpdategalleryInput | string[]
     price?: NullableIntFieldUpdateOperationsInput | number | null
@@ -9538,7 +9776,12 @@ export namespace Prisma {
     title?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     guests?: NullableStringFieldUpdateOperationsInput | string | null
+    latitude?: NullableFloatFieldUpdateOperationsInput | number | null
+    longitude?: NullableFloatFieldUpdateOperationsInput | number | null
     country?: NullableStringFieldUpdateOperationsInput | string | null
+    city?: NullableStringFieldUpdateOperationsInput | string | null
+    street?: NullableStringFieldUpdateOperationsInput | string | null
+    fullAddress?: NullableStringFieldUpdateOperationsInput | string | null
     photo?: NullableStringFieldUpdateOperationsInput | string | null
     gallery?: VehicleUpdategalleryInput | string[]
     price?: NullableIntFieldUpdateOperationsInput | number | null
@@ -9604,7 +9847,12 @@ export namespace Prisma {
     title?: string | null
     description?: string | null
     guests?: string | null
+    latitude?: number | null
+    longitude?: number | null
     country?: string | null
+    city?: string | null
+    street?: string | null
+    fullAddress?: string | null
     photo?: string | null
     gallery?: VehicleCreategalleryInput | string[]
     price?: number | null
@@ -9622,7 +9870,12 @@ export namespace Prisma {
     title?: string | null
     description?: string | null
     guests?: string | null
+    latitude?: number | null
+    longitude?: number | null
     country?: string | null
+    city?: string | null
+    street?: string | null
+    fullAddress?: string | null
     photo?: string | null
     gallery?: VehicleCreategalleryInput | string[]
     price?: number | null
@@ -9714,7 +9967,12 @@ export namespace Prisma {
     title?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     guests?: NullableStringFieldUpdateOperationsInput | string | null
+    latitude?: NullableFloatFieldUpdateOperationsInput | number | null
+    longitude?: NullableFloatFieldUpdateOperationsInput | number | null
     country?: NullableStringFieldUpdateOperationsInput | string | null
+    city?: NullableStringFieldUpdateOperationsInput | string | null
+    street?: NullableStringFieldUpdateOperationsInput | string | null
+    fullAddress?: NullableStringFieldUpdateOperationsInput | string | null
     photo?: NullableStringFieldUpdateOperationsInput | string | null
     gallery?: VehicleUpdategalleryInput | string[]
     price?: NullableIntFieldUpdateOperationsInput | number | null
@@ -9732,7 +9990,12 @@ export namespace Prisma {
     title?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     guests?: NullableStringFieldUpdateOperationsInput | string | null
+    latitude?: NullableFloatFieldUpdateOperationsInput | number | null
+    longitude?: NullableFloatFieldUpdateOperationsInput | number | null
     country?: NullableStringFieldUpdateOperationsInput | string | null
+    city?: NullableStringFieldUpdateOperationsInput | string | null
+    street?: NullableStringFieldUpdateOperationsInput | string | null
+    fullAddress?: NullableStringFieldUpdateOperationsInput | string | null
     photo?: NullableStringFieldUpdateOperationsInput | string | null
     gallery?: VehicleUpdategalleryInput | string[]
     price?: NullableIntFieldUpdateOperationsInput | number | null
@@ -9814,7 +10077,12 @@ export namespace Prisma {
     title?: string | null
     description?: string | null
     guests?: string | null
+    latitude?: number | null
+    longitude?: number | null
     country?: string | null
+    city?: string | null
+    street?: string | null
+    fullAddress?: string | null
     photo?: string | null
     gallery?: VehicleCreategalleryInput | string[]
     price?: number | null
@@ -9847,7 +10115,12 @@ export namespace Prisma {
     title?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     guests?: NullableStringFieldUpdateOperationsInput | string | null
+    latitude?: NullableFloatFieldUpdateOperationsInput | number | null
+    longitude?: NullableFloatFieldUpdateOperationsInput | number | null
     country?: NullableStringFieldUpdateOperationsInput | string | null
+    city?: NullableStringFieldUpdateOperationsInput | string | null
+    street?: NullableStringFieldUpdateOperationsInput | string | null
+    fullAddress?: NullableStringFieldUpdateOperationsInput | string | null
     photo?: NullableStringFieldUpdateOperationsInput | string | null
     gallery?: VehicleUpdategalleryInput | string[]
     price?: NullableIntFieldUpdateOperationsInput | number | null
@@ -9865,7 +10138,12 @@ export namespace Prisma {
     title?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     guests?: NullableStringFieldUpdateOperationsInput | string | null
+    latitude?: NullableFloatFieldUpdateOperationsInput | number | null
+    longitude?: NullableFloatFieldUpdateOperationsInput | number | null
     country?: NullableStringFieldUpdateOperationsInput | string | null
+    city?: NullableStringFieldUpdateOperationsInput | string | null
+    street?: NullableStringFieldUpdateOperationsInput | string | null
+    fullAddress?: NullableStringFieldUpdateOperationsInput | string | null
     photo?: NullableStringFieldUpdateOperationsInput | string | null
     gallery?: VehicleUpdategalleryInput | string[]
     price?: NullableIntFieldUpdateOperationsInput | number | null
@@ -9883,7 +10161,12 @@ export namespace Prisma {
     title?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     guests?: NullableStringFieldUpdateOperationsInput | string | null
+    latitude?: NullableFloatFieldUpdateOperationsInput | number | null
+    longitude?: NullableFloatFieldUpdateOperationsInput | number | null
     country?: NullableStringFieldUpdateOperationsInput | string | null
+    city?: NullableStringFieldUpdateOperationsInput | string | null
+    street?: NullableStringFieldUpdateOperationsInput | string | null
+    fullAddress?: NullableStringFieldUpdateOperationsInput | string | null
     photo?: NullableStringFieldUpdateOperationsInput | string | null
     gallery?: VehicleUpdategalleryInput | string[]
     price?: NullableIntFieldUpdateOperationsInput | number | null

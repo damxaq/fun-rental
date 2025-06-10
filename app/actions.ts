@@ -119,7 +119,12 @@ export async function createDescription(formData: FormData) {
 
 export async function createLocation(formData: FormData) {
   const vehicleId = formData.get("vehicleId") as string;
-  const countryValue = formData.get("countryValue") as string;
+  const country = formData.get("country") as string;
+  const city = formData.get("city") as string;
+  const street = formData.get("street") as string;
+  const fullAddress = formData.get("fullAddress") as string;
+  const latitude = formData.get("latitude") as string;
+  const longitude = formData.get("longitude") as string;
 
   const data = await prisma.vehicle.update({
     where: {
@@ -127,7 +132,12 @@ export async function createLocation(formData: FormData) {
     },
     data: {
       addedLocation: true,
-      country: countryValue,
+      latitude: parseFloat(latitude),
+      longitude: parseFloat(longitude),
+      country: country,
+      city: city,
+      street: street,
+      fullAddress: fullAddress,
     },
   });
 

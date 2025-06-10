@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useCountries } from "../lib/getCountries";
 import {
   AddToFavoriteButton,
   DeleteFromFavoriteButton,
@@ -30,8 +29,6 @@ export function ListingCard({
   vehicleId,
   pathName,
 }: ListingCardProps) {
-  const { getCountryByValue } = useCountries();
-  const country = getCountryByValue(location);
   return (
     <div className="flex flex-col">
       <div className="relative h-72">
@@ -43,7 +40,7 @@ export function ListingCard({
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           priority={true}
         />
-        {/* {userId && (
+        {userId && (
           <div className="z-10 absolute top-2 right-2">
             {isInFavorites ? (
               <form action={removeFromFavorite}>
@@ -61,12 +58,10 @@ export function ListingCard({
               </form>
             )}
           </div>
-        )} */}
+        )}
       </div>
       <Link href={`/offer/${vehicleId}`} className="mt-2">
-        <h3 className="font-medium text-base">
-          {country?.flag} {country?.label} / {country?.region}
-        </h3>
+        <h3 className="font-medium text-base">{location}</h3>
         <p className="text-muted-foreground text-sm line-clamp-2">
           {description}
         </p>

@@ -1,4 +1,3 @@
-import { useCountries } from "@/app/lib/getCountries";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { redirect } from "next/navigation";
 import { Chat } from "@/app/components/Chat";
@@ -16,9 +15,6 @@ export default async function ReservationDetailsRoute({
   if (!user) return redirect("/");
   const { id } = await params;
   const data = await getReservation(id);
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const { getCountryByValue } = useCountries();
-  const country = getCountryByValue(data?.Vehicle?.country as string);
 
   return (
     <div className="w-[90%] lg:w-[75%] mx-auto mt-10 mb-20 flex flex-col-reverse md:flex-row">
@@ -31,7 +27,7 @@ export default async function ReservationDetailsRoute({
         id={id}
         title={data?.Vehicle?.title as string}
         photo={data?.Vehicle?.photo as string}
-        location={`${country?.label} / ${country?.region}`}
+        location={`${data?.Vehicle?.city} / ${data?.Vehicle?.country}`}
         profileImage={data?.Vehicle?.User?.profileImage as string}
         person={
           data?.Vehicle?.User?.firstName + " " + data?.Vehicle?.User?.lastName

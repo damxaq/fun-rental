@@ -4,7 +4,11 @@ import { Button } from "@/components/ui/button";
 import { Loader2 } from "lucide-react";
 import { useFormStatus } from "react-dom";
 
-export function CreationSubmit() {
+type CreationSubmitProps = {
+  disabledNext?: boolean;
+};
+
+export function CreationSubmit({ disabledNext = false }: CreationSubmitProps) {
   const { pending } = useFormStatus();
   return (
     <>
@@ -14,7 +18,12 @@ export function CreationSubmit() {
           Please Wait
         </Button>
       ) : (
-        <Button type="submit" size="lg" className="cursor-pointer">
+        <Button
+          type="submit"
+          size="lg"
+          className="cursor-pointer"
+          disabled={disabledNext}
+        >
           Next
         </Button>
       )}

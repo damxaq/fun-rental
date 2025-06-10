@@ -3,7 +3,7 @@ import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 
-export default function ImageGallery({ gallery }: { gallery: string[] }) {
+export const ImageGallery = ({ gallery }: { gallery: string[] }) => {
   const [fullImageIndex, setFullImageIndex] = useState(0);
 
   function handleNextImage() {
@@ -69,4 +69,4 @@ export default function ImageGallery({ gallery }: { gallery: string[] }) {
       )}
     </div>
   );
-}
+};

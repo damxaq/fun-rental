@@ -30,7 +30,7 @@ import { Counter } from "./Counter";
 export function SearchComponent() {
   const [step, setStep] = useState(1);
   const [locationValue, setLocationValue] = useState("");
-  const { getAllCountries } = useCountries();
+  const { getAllCountries, getCountryByLabel } = useCountries();
 
   function SubmitButton() {
     if (step === 1) {
@@ -42,6 +42,13 @@ export function SearchComponent() {
     } else if (step === 2) {
       return <CreationSubmit />;
     }
+  }
+
+  function getCoords() {
+    const latLang = getCountryByLabel(locationValue)?.latLang;
+    if (latLang && latLang.length > 1)
+      return { latitude: latLang[0], longitude: latLang[1] };
+    return { latitude: 27.6648, longitude: -81.5158 };
   }
 
   return (
@@ -71,7 +78,7 @@ export function SearchComponent() {
 
               <Select
                 required
-                onValueChange={(value) => setLocationValue(value)}
+                onValueChange={(label) => setLocationValue(label)}
                 value={locationValue}
               >
                 <SelectTrigger className="w-full">
@@ -81,7 +88,8 @@ export function SearchComponent() {
                   <SelectGroup>
                     <SelectLabel>Countries</SelectLabel>
                     {getAllCountries().map((country) => (
-                      <SelectItem key={country.value} value={country.value}>
+                      // TODO: filter countries by typing
+                      <SelectItem key={country.label} value={country.label}>
                         {/* TODO: Flags dont work on windows: https://stackoverflow.com/questions/54519758/flag-emojis-not-rendering/54663926 */}
                         {country.flag} {country.label} / {country.region}
                       </SelectItem>
@@ -89,7 +97,7 @@ export function SearchComponent() {
                   </SelectGroup>
                 </SelectContent>
               </Select>
-              <OfferMap locationValue={locationValue} />
+              <OfferMap locationValue={getCoords()} />
             </>
           ) : (
             <>

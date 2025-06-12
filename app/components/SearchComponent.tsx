@@ -9,15 +9,7 @@ import {
   DialogTitle,
   DialogFooter,
 } from "@/components/ui/dialog";
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import Select from "react-select";
 import { SearchIcon } from "lucide-react";
 import { useState } from "react";
 import { useCountries } from "../lib/getCountries";
@@ -77,26 +69,12 @@ export function SearchComponent() {
               </DialogHeader>
 
               <Select
-                required
-                onValueChange={(label) => setLocationValue(label)}
-                value={locationValue}
-              >
-                <SelectTrigger className="w-full">
-                  <SelectValue placeholder="Select a Country" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectGroup>
-                    <SelectLabel>Countries</SelectLabel>
-                    {getAllCountries().map((country) => (
-                      // TODO: filter countries by typing
-                      <SelectItem key={country.label} value={country.label}>
-                        {/* TODO: Flags dont work on windows: https://stackoverflow.com/questions/54519758/flag-emojis-not-rendering/54663926 */}
-                        {country.flag} {country.label} / {country.region}
-                      </SelectItem>
-                    ))}
-                  </SelectGroup>
-                </SelectContent>
-              </Select>
+                options={getAllCountries().map((country) => ({
+                  value: country.label,
+                  label: `${country.label} / ${country.region}`,
+                }))}
+                onChange={(label) => setLocationValue(label?.value as string)}
+              />
               <OfferMap locationValue={getCoords()} />
             </>
           ) : (

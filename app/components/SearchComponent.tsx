@@ -43,6 +43,13 @@ export function SearchComponent() {
     return { latitude: 27.6648, longitude: -81.5158 };
   }
 
+  function handleSearch(e: any) {
+    e.preventDefault();
+    e.target.action =
+      window.location.origin + "/?" + e.target.action.split("?")[1];
+    e.target.submit();
+  }
+
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -57,7 +64,7 @@ export function SearchComponent() {
         </div>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[800px]">
-        <form className="gap-4 flex flex-col">
+        <form className="gap-4 flex flex-col" onSubmit={handleSearch}>
           <input type="hidden" name="country" value={locationValue} />
           {step === 1 ? (
             <>

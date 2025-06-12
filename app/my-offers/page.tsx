@@ -11,7 +11,7 @@ export default async function MyOffers() {
   const data = await getOwnedVehicles(user.id);
 
   return (
-    <section className="container mx-auto px-5 lg:px-10 mt-10">
+    <section className="container mx-auto px-5 lg:px-10 mt-10 mb-10">
       <h2 className="text-3xl font-semibold tracking-tight">Your Offers</h2>
 
       {data.length === 0 ? (
@@ -28,7 +28,7 @@ export default async function MyOffers() {
               vehicleId={item.id}
               price={item.price as number}
               description={item.description as string}
-              location={item.country as string}
+              location={`${item.city} / ${item.country}`}
               userId={user.id}
               pathName="/my-offers"
               favoriteId={item.Favorite[0]?.id}

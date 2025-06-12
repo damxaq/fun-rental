@@ -24,24 +24,28 @@ export default async function ReservationsRoute() {
         />
       ) : (
         <div className="mt-8">
-          {data.reverse().map((item: any, index: number) => (
-            <ReservationCard
-              key={index}
-              title={item.Vehicle.title}
-              imagePath={item.Vehicle?.photo as string}
-              userId={user.id}
-              isInFavorites={item.Vehicle?.Favorite.length > 0}
-              dates={formatDaysRange(item.startDate, item.endDate)}
-              totalPrice={
-                daysBetween(item.startDate, item.endDate) * item.Vehicle?.price
-              }
-              status={item.status}
-              person={
-                item.Vehicle.User.firstName + " " + item.Vehicle.User.lastName
-              }
-              url={`/reservation/${item.id}`}
-            />
-          ))}
+          {data
+            .filter((item) => item.Vehicle !== null)
+            .reverse()
+            .map((item: any, index: number) => (
+              <ReservationCard
+                key={index}
+                title={item.Vehicle.title}
+                imagePath={item.Vehicle?.photo as string}
+                userId={user.id}
+                isInFavorites={item.Vehicle?.Favorite.length > 0}
+                dates={formatDaysRange(item.startDate, item.endDate)}
+                totalPrice={
+                  daysBetween(item.startDate, item.endDate) *
+                  item.Vehicle?.price
+                }
+                status={item.status}
+                person={
+                  item.Vehicle.User.firstName + " " + item.Vehicle.User.lastName
+                }
+                url={`/reservation/${item.id}`}
+              />
+            ))}
         </div>
       )}
     </section>

@@ -21,20 +21,22 @@ export default async function FavoriteRoute() {
         />
       ) : (
         <div className="grid lg:grid-cols-3 sm:grid-cols-1 md:grid-cols-2 grid-cols-1 gap-8 mt-8">
-          {data.map((item: any, index: any) => (
-            <ListingCard
-              key={index}
-              description={item.Vehicle?.description as string}
-              location={item.Vehicle?.country as string}
-              pathName="/favorites"
-              vehicleId={item.Vehicle?.id as string}
-              imagePath={item.Vehicle?.photo as string}
-              price={item.Vehicle?.price as number}
-              userId={user.id}
-              favoriteId={item.Vehicle?.Favorite[0].id as string}
-              isInFavorites={item.Vehicle?.Favorite.length > 0}
-            />
-          ))}
+          {data
+            .filter((item) => item.Vehicle !== null)
+            .map((item: any, index: any) => (
+              <ListingCard
+                key={index}
+                description={item.Vehicle?.description as string}
+                location={item.Vehicle?.country as string}
+                pathName="/favorites"
+                vehicleId={item.Vehicle?.id as string}
+                imagePath={item.Vehicle?.photo as string}
+                price={item.Vehicle?.price as number}
+                userId={user.id}
+                favoriteId={item.Vehicle?.Favorite[0].id as string}
+                isInFavorites={item.Vehicle?.Favorite.length > 0}
+              />
+            ))}
         </div>
       )}
     </section>

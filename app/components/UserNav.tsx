@@ -13,8 +13,8 @@ import {
 } from "@kinde-oss/kinde-auth-nextjs/components";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import Link from "next/link";
-import { DropdownMenuSeparator } from "@radix-ui/react-dropdown-menu";
 import { createFunRent } from "../actions";
+import { Separator } from "@/components/ui/separator";
 
 export async function UserNav() {
   const { getUser } = getKindeServerSession();
@@ -53,6 +53,7 @@ export async function UserNav() {
                 </button>
               </form>
             </DropdownMenuItem>
+            <Separator />
             <DropdownMenuItem asChild>
               <Link href="/my-offers" className="w-full cursor-pointer">
                 My Listings
@@ -63,6 +64,7 @@ export async function UserNav() {
                 My Favorites
               </Link>
             </DropdownMenuItem>
+            <Separator />
             <DropdownMenuItem asChild>
               <Link href="/reservations" className="w-full cursor-pointer">
                 My Reservations
@@ -73,7 +75,7 @@ export async function UserNav() {
                 Bookings Awaiting
               </Link>
             </DropdownMenuItem>
-            <DropdownMenuSeparator />
+            <Separator />
             <DropdownMenuItem asChild>
               <LogoutLink className="w-full cursor-pointer">Logout</LogoutLink>
             </DropdownMenuItem>

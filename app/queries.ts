@@ -246,6 +246,7 @@ export async function getOwnedVehicles(userId: string) {
       photo: true,
       id: true,
       price: true,
+      city: true,
       country: true,
       description: true,
       Favorite: {

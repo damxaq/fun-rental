@@ -60,7 +60,10 @@ export function ListingCard({
           </div>
         )}
       </div>
-      <Link href={`/offer/${vehicleId}`} className="mt-2">
+      <Link
+        href={`/offer/${vehicleId}`}
+        className="py-3 px-3 mb-2 bg-blue-50 rounded-b-md hover:bg-white"
+      >
         <h3 className="font-medium text-base">{location}</h3>
         <p className="text-muted-foreground text-sm line-clamp-2">
           {description}

@@ -88,7 +88,7 @@ export async function createDescription(formData: FormData) {
     });
 
   const galleryData: any[] = [];
-  if (galleryFiles && galleryFiles.length)
+  if (galleryFiles && galleryFiles.length && galleryFiles[0].size > 0)
     for (const file of galleryFiles) {
       const { data: galleryItem } = await supabase.storage
         .from("images")

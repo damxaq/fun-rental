@@ -3,7 +3,7 @@
 import { createLocation } from "@/app/actions";
 import { CreationBottomBar } from "@/app/components/CreationBottomBar";
 import Map from "@/app/components/Map";
-import { useState, use } from "react";
+import React, { useState, use } from "react";
 
 export interface Location {
   country?: string;

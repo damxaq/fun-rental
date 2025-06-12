@@ -6,6 +6,7 @@ import Image from "next/image";
 import { usePathname, useSearchParams } from "next/navigation";
 import { useCallback } from "react";
 import { cn } from "@/lib/utils";
+import All from "../../public/categories/all.png";
 
 export function MapFilterItems() {
   const searchParams = useSearchParams();
@@ -34,7 +35,7 @@ export function MapFilterItems() {
       >
         <div className="relative w-6 h-6">
           <Image
-            src={"/categories/all.png"}
+            src={All}
             alt="category image"
             className="w-6 h-6"
             width={24}

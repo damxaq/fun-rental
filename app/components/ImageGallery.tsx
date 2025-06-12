@@ -1,10 +1,12 @@
 "use client";
+
 import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
 import Image from "next/image";
-import { useState } from "react";
+import React, { useState } from "react";
 
 export const ImageGallery = ({ gallery }: { gallery: string[] }) => {
   const [fullImageIndex, setFullImageIndex] = useState(0);
+  window.scrollTo(0, 0);
 
   function handleNextImage() {
     setFullImageIndex((prev) => prev + 1);

@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Minus, Plus } from "lucide-react";
-import { useState } from "react";
+import React, { useState } from "react";
 
 export function Counter({ name }: { name: string }) {
   const [amount, setAmount] = useState(0);

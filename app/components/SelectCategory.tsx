@@ -3,7 +3,7 @@
 import { Card, CardHeader } from "@/components/ui/card";
 import { categoryItems } from "../lib/categoryItems";
 import Image from "next/image";
-import { useState } from "react";
+import React, { useState } from "react";
 
 export function SelectCategory() {
   const [selectedCategory, setSelectedCategory] = useState<string | undefined>(

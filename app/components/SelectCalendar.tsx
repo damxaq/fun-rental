@@ -3,7 +3,7 @@
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { DateRange } from "react-date-range";
-import { useState } from "react";
+import React, { useState } from "react";
 import { eachDayOfInterval } from "date-fns";
 
 export function SelectCalendar({

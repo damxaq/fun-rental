@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/dialog";
 import Select from "react-select";
 import { SearchIcon } from "lucide-react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { useCountries } from "../lib/getCountries";
 import { OfferMap } from "./OfferMap";
 import { Button } from "@/components/ui/button";

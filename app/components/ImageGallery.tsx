@@ -6,7 +6,7 @@ import React, { useState } from "react";
 
 export const ImageGallery = ({ gallery }: { gallery: string[] }) => {
   const [fullImageIndex, setFullImageIndex] = useState(0);
-  window.scrollTo(0, 0);
+  if (typeof window !== "undefined") window.scrollTo(0, 0);
 
   function handleNextImage() {
     setFullImageIndex((prev) => prev + 1);
@@ -17,12 +17,8 @@ export const ImageGallery = ({ gallery }: { gallery: string[] }) => {
   }
 
   return (
-    <div className="flex flex-row">
-      <div
-        className={`relative h-[300px] md:h-[550px] ${
-          gallery.length > 1 ? "sm:w-[80%] w-[100%]" : "w-[100%]"
-        }`}
-      >
+    <div className="flex flex-col w-[95%] lg:w-[60%] mb-8">
+      <div className="relative h-[200px] md:h-[450px] mb-4">
         <Image
           alt="Offer Image"
           src={`https://ulsjeycbmhzuambfgfob.supabase.co/storage/v1/object/public/images/${gallery[fullImageIndex]}`}
@@ -34,7 +30,7 @@ export const ImageGallery = ({ gallery }: { gallery: string[] }) => {
         />
         {fullImageIndex < gallery.length - 1 && (
           <div
-            className="absolute right-2 top-[45%] text-white opacity-50 cursor-pointer select-none"
+            className="absolute right-2 top-[45%] text-white opacity-80 cursor-pointer select-none"
             onClick={handleNextImage}
           >
             <ArrowBigRight size={50} />
@@ -42,7 +38,7 @@ export const ImageGallery = ({ gallery }: { gallery: string[] }) => {
         )}
         {fullImageIndex > 0 && (
           <div
-            className="absolute left-2 top-[45%] text-white opacity-50 cursor-pointer select-none"
+            className="absolute left-2 top-[45%] text-white opacity-80 cursor-pointer select-none"
             onClick={handlePreviousImage}
           >
             <ArrowBigLeft size={50} />
@@ -50,19 +46,19 @@ export const ImageGallery = ({ gallery }: { gallery: string[] }) => {
         )}
       </div>
       {gallery && gallery.length > 1 && (
-        <div className="w-0 h-[300px] md:h-[550px] sm:flex flex-col overflow-x-hidden overflow-y-scroll items-center hidden sm:w-[20%]">
+        <div className="w-full flex flex-row overflow-x-scroll">
           {gallery.map((image: string, index: number) => (
             <Image
               key={index}
               src={`https://ulsjeycbmhzuambfgfob.supabase.co/storage/v1/object/public/images/${encodeURI(
                 image
               )}`}
-              className={`rounded-xl w-[80%] mx-2 mb-2 cursor-pointer hover:opacity-80 ${
+              className={`rounded-xl w-72 mx-2 mb-2 cursor-pointer hover:opacity-80 ${
                 image === gallery[fullImageIndex] ? "opacity-30" : ""
               }`}
               sizes="(max-width: 768px) 100vw, 33vw"
-              width={100}
-              height={100}
+              width={80}
+              height={80}
               alt="Gallery image"
               onClick={() => setFullImageIndex(index)}
             />

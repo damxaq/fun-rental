@@ -10,8 +10,8 @@ export function CategoryShowcase({ categoryName }: { categoryName: string }) {
       <Image
         src={category?.imageUrl as StaticImport}
         alt="Category Image"
-        width={44}
-        height={44}
+        width={40}
+        height={40}
       />
       <div className="flex flex-col ml-4">
         <h3 className="font-medium">{category?.title}</h3>

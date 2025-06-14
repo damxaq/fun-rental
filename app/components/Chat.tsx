@@ -16,7 +16,6 @@ export function Chat({ id, userName, messages }: ChatProps) {
   })) as ChatMessage[];
 
   const handleMessage = (messages: ChatMessage) => {
-    console.log(messages);
     addMessage(messages, id);
   };
   return (

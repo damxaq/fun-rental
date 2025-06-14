@@ -36,12 +36,12 @@ export function ReservationSubmitButton() {
   return (
     <>
       {pending ? (
-        <Button disabled className="w-full">
+        <Button disabled className="w-full h-16">
           <Loader2 className="w-4 h-4 animate-spin mr-2" /> Please wait...
         </Button>
       ) : (
-        <Button type="submit" className="w-full cursor-pointer">
-          Make a reservation
+        <Button type="submit" className="w-full cursor-pointer h-16">
+          REQUEST TO BOOK
         </Button>
       )}
     </>

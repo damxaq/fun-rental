@@ -1,15 +1,13 @@
-import { createReservation } from "@/app/actions";
-import { CategoryShowcase } from "@/app/components/CategoryShowcase";
-import { OfferMap } from "@/app/components/OfferMap";
-import { SelectCalendar } from "@/app/components/SelectCalendar";
-import { ReservationSubmitButton } from "@/app/components/SubmitButtons";
-import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
-import Image from "next/image";
-import Link from "next/link";
 import { ImageGallery } from "@/app/components/ImageGallery";
 import { getSingleVehicle } from "@/app/queries";
+import OfferDetailsFrame from "@/app/components/OfferDetailsFrame";
+import FeaturesFrame from "@/app/components/FeaturesFrame";
+import { createReservation } from "@/app/actions";
+import { SelectCalendar } from "@/app/components/SelectCalendar";
+import { OfferMap } from "@/app/components/OfferMap";
+import SpecificationsFrame from "@/app/components/SpecificationsFrame";
 
 export default async function OfferRoute({
   params,
@@ -22,42 +20,55 @@ export default async function OfferRoute({
   const user = await getUser();
 
   return (
-    <div className="w-[90%] lg:w-[75%] mx-auto mt-10 mb-20">
-      <h1 className="font-medium text-2xl mb-5">{data?.title}</h1>
-      <ImageGallery
-        gallery={[data?.photo as string, ...(data?.gallery as string[])]}
-      />
-      <div className="flex justify-between gap-x-24 mt-8 flex-col lg:flex-row">
-        <div className="lg:w-2/3 w-full">
-          <h3 className="text-xl font-medium">
-            {data?.city} / {data?.country}
-          </h3>
-          <div className="flex gap-x-2 text-muted-foreground">
-            <p>{data?.guests} Guests</p>
+    <div className="w-[95%] md:w-[90%] lg:w-[85%] mx-auto mt-10 mb-32">
+      <div className="flex flex-col lg:flex-row mb-12">
+        <ImageGallery
+          gallery={[data?.photo as string, ...(data?.gallery as string[])]}
+        />
+        <OfferDetailsFrame data={data} />
+      </div>
+      <Separator />
+      <div className="flex justify-between gap-x-24 mt-8 flex-col lg:flex-row gap-y-6">
+        <div className="w-full lg:w-[40%]">
+          <h1 className="font-medium text-2xl mb-5 capitalize">
+            {data?.categoryName} details
+          </h1>
+          <div className="flex justify-center w-full">
+            <i className="text-2xl mb-5 capitalize font-medium text-muted-foreground underline font-serif">
+              {data?.title}
+            </i>
           </div>
-          <div className="flex items-center mt-6">
-            <Image
-              src={
-                data?.User?.profileImage ??
-                "https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg"
-              }
-              alt="User Profile"
-              className="w-11 h-11 rounded-full"
-              width={100}
-              height={100}
-            />
-            <div className="flex flex-col ml-4">
-              <h3 className="font-medium">Hosted by {data?.User?.firstName}</h3>
-              <p className="text-sm text-muted-foreground">Host since 2020</p>
-            </div>
-          </div>
-
-          <Separator className="my-7" />
-
-          <CategoryShowcase categoryName={data?.categoryName as string} />
-          <Separator className="my-7" />
           <p className="text-muted-foreground">{data?.description}</p>
-          <Separator className="my-7" />
+        </div>
+        <div className="w-full lg:w-[60%]">
+          <FeaturesFrame data={data} />
+          <SpecificationsFrame data={data} />
+        </div>
+      </div>
+      <Separator />
+      <div className="flex justify-between gap-x-24 mt-8 flex-col lg:flex-row gap-y-6 bg-blue-900 p-4 rounded-xl">
+        <div className="w-full lg:w-[40%]">
+          <h1 className="font-medium text-2xl mb-5 capitalize text-white">
+            Booking options
+          </h1>
+          <p className="text-white">Please select your booking options.</p>
+        </div>
+        <div className="w-full lg:w-[60%]">
+          <form action={createReservation}>
+            <input type="hidden" name="userId" value={user?.id} />
+            <input type="hidden" name="vehicleId" value={id} />
+            <input type="hidden" name="ownerId" value={data?.User?.id} />
+            <SelectCalendar
+              reservation={data?.Reservation}
+              isUserSignedIn={!!user?.id}
+              price={data?.price as number}
+            />
+          </form>
+        </div>
+      </div>
+      <Separator className="my-10" />
+      <div className="flex justify-between gap-x-24 mt-8 flex-col lg:flex-row gap-y-6">
+        <div className="w-full lg:w-[60%]">
           {data?.latitude && data.longitude && (
             <OfferMap
               locationValue={{
@@ -67,23 +78,15 @@ export default async function OfferRoute({
             />
           )}
         </div>
-        <form
-          action={createReservation}
-          className="flex flex-col items-center mx-auto max-w-60 border-0"
-        >
-          <input type="hidden" name="userId" value={user?.id} />
-          <input type="hidden" name="vehicleId" value={id} />
-          <input type="hidden" name="ownerId" value={data?.User?.id} />
-          <SelectCalendar reservation={data?.Reservation} />
-          {user?.id ? (
-            <ReservationSubmitButton />
-          ) : (
-            <Button className="w-full" asChild>
-              {/* TODO: redirect to the same page after login */}
-              <Link href="/api/auth/login">Make a reservation</Link>
-            </Button>
-          )}
-        </form>
+        <div className="w-full lg:w-[40%]">
+          <h1 className="font-medium text-2xl mb-5 capitalize">
+            {data?.categoryName} location
+          </h1>
+          <p>
+            Exact location information is provided after a booking is confirmed
+            by the owner.
+          </p>
+        </div>
       </div>
     </div>
   );

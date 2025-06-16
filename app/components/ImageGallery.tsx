@@ -17,7 +17,7 @@ export const ImageGallery = ({ gallery }: { gallery: string[] }) => {
   }
 
   return (
-    <div className="flex flex-col w-[95%] lg:w-[60%] mb-8">
+    <div className="flex flex-col w-[95%] lg:w-[50%] mb-8">
       <div className="relative h-[200px] md:h-[450px] mb-4">
         <Image
           alt="Offer Image"

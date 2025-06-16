@@ -30,7 +30,7 @@ export default async function OfferRoute({
       </div>
       <Separator />
       <div className="flex justify-between gap-x-24 mt-8 flex-col lg:flex-row gap-y-6">
-        <div className="w-full lg:w-[40%]">
+        <div className="w-full lg:w-[50%]">
           <h1 className="font-medium text-2xl mb-5 capitalize">
             {data?.categoryName} details
           </h1>

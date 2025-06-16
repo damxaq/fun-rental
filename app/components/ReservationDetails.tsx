@@ -19,6 +19,7 @@ type ReservationDetailsProps = {
   categoryName: string;
   dates: string;
   status: string;
+  guests: number;
   isOwner?: boolean;
 };
 
@@ -33,6 +34,7 @@ export default function ReservationDetails({
   dates,
   status,
   isOwner = false,
+  guests,
 }: ReservationDetailsProps) {
   return (
     <div className="w-full md:w-1/2">
@@ -74,8 +76,7 @@ export default function ReservationDetails({
           <span className="text-muted-foreground">{dates}</span>
           <Separator className="my-2" />
           <div className="flex gap-x-2 text-muted-foreground">
-            {/* <p>{data?.guests} Guests</p> */}
-            <p> Guests</p>
+            <p>{guests} Passengers</p>
           </div>
           <Separator className="my-2" />
           {isOwner ? (

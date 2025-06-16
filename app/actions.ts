@@ -191,7 +191,7 @@ export async function createReservation(formData: FormData) {
   const startDate = formData.get("startDate") as string;
   const endDate = formData.get("endDate") as string;
   const ownerId = formData.get("ownerId") as string;
-  // TODO: add guests field
+  const guests = formData.get("guests") as string;
 
   const data = await prisma.reservation.create({
     data: {
@@ -200,7 +200,7 @@ export async function createReservation(formData: FormData) {
       startDate: startDate,
       endDate: endDate,
       ownerId: ownerId,
-      guests: 1,
+      guests: guests ? parseInt(guests) : 0,
     },
   });
 

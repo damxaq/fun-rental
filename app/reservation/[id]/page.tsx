@@ -35,6 +35,7 @@ export default async function ReservationDetailsRoute({
         categoryName={data?.Vehicle?.categoryName as string}
         dates={formatDaysRange(data?.startDate, data?.endDate)}
         status={data?.status as string}
+        guests={data?.guests as number}
       />
     </div>
   );

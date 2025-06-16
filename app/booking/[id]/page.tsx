@@ -29,6 +29,7 @@ export default async function ReservationDetailsRoute({
         dates={formatDaysRange(data?.startDate, data?.endDate)}
         status={data?.status as string}
         isOwner={true}
+        guests={data?.guests as number}
       />
       <Chat
         id={id}

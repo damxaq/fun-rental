@@ -8,6 +8,7 @@ import { createReservation } from "@/app/actions";
 import { SelectCalendar } from "@/app/components/SelectCalendar";
 import { OfferMap } from "@/app/components/OfferMap";
 import SpecificationsFrame from "@/app/components/SpecificationsFrame";
+import { Counter } from "@/app/components/Counter";
 
 export default async function OfferRoute({
   params,
@@ -46,26 +47,36 @@ export default async function OfferRoute({
         </div>
       </div>
       <Separator />
-      <div className="flex justify-between gap-x-24 mt-8 flex-col lg:flex-row gap-y-6 bg-blue-900 p-4 rounded-xl">
-        <div className="w-full lg:w-[40%]">
-          <h1 className="font-medium text-2xl mb-5 capitalize text-white">
+
+      <form
+        action={createReservation}
+        className="flex justify-between gap-x-24 mt-8 flex-col lg:flex-row gap-y-6 bg-blue-900 p-4 rounded-xl"
+      >
+        <div className="w-full lg:w-[40%] text-white">
+          <h1 className="font-medium text-2xl mb-5 capitalize">
             Booking options
           </h1>
-          <p className="text-white">Please select your booking options.</p>
+          <p className="mb-4">Please select your booking options.</p>
+          <Separator className="mb-10" />
+          {data?.guests && data.guests !== "0" && (
+            <>
+              <div className="mb-2">How many passengers?</div>
+              <Counter name="guests" max={parseInt(data.guests)} />
+            </>
+          )}
         </div>
         <div className="w-full lg:w-[60%]">
-          <form action={createReservation}>
-            <input type="hidden" name="userId" value={user?.id} />
-            <input type="hidden" name="vehicleId" value={id} />
-            <input type="hidden" name="ownerId" value={data?.User?.id} />
-            <SelectCalendar
-              reservation={data?.Reservation}
-              isUserSignedIn={!!user?.id}
-              price={data?.price as number}
-            />
-          </form>
+          <input type="hidden" name="userId" value={user?.id} />
+          <input type="hidden" name="vehicleId" value={id} />
+          <input type="hidden" name="ownerId" value={data?.User?.id} />
+          <SelectCalendar
+            reservation={data?.Reservation}
+            isUserSignedIn={!!user?.id}
+            price={data?.price as number}
+          />
         </div>
-      </div>
+      </form>
+
       <Separator className="my-10" />
       <div className="flex justify-between gap-x-24 mt-8 flex-col lg:flex-row gap-y-6">
         <div className="w-full lg:w-[60%]">

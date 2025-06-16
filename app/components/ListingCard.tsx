@@ -36,7 +36,7 @@ export function ListingCard({
           src={`https://ulsjeycbmhzuambfgfob.supabase.co/storage/v1/object/public/images/${imagePath}`}
           alt="Offer Image"
           fill
-          className="rounded-lg h-full object-cover mb-3"
+          className="rounded-lg rounded-b-none h-full object-cover mb-3"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           priority={true}
         />
@@ -62,7 +62,7 @@ export function ListingCard({
       </div>
       <Link
         href={`/offer/${vehicleId}`}
-        className="py-3 px-3 mb-2 bg-blue-50 rounded-b-md hover:bg-white"
+        className="py-3 px-3 mb-2 bg-blue-50 rounded-b-md hover:bg-white shadow-2xl"
       >
         <h3 className="font-medium text-base">{location}</h3>
         <p className="text-muted-foreground text-sm line-clamp-2">

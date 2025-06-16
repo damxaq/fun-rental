@@ -4,11 +4,11 @@ import { Button } from "@/components/ui/button";
 import { Minus, Plus } from "lucide-react";
 import React, { useState } from "react";
 
-export function Counter({ name }: { name: string }) {
+export function Counter({ name, max = 0 }: { name: string; max?: number }) {
   const [amount, setAmount] = useState(0);
 
   function increase() {
-    setAmount((amount) => amount + 1);
+    if (max == 0 || amount < max) setAmount((amount) => amount + 1);
   }
   function decrease() {
     if (amount > 0) setAmount((amount) => amount - 1);

@@ -17,7 +17,9 @@ export async function getVehicles(
       addedLocation: true,
       categoryName: searchParams?.filter ?? undefined,
       country: searchParams?.country ?? undefined,
-      guests: searchParams?.guest ?? undefined,
+      guests: {
+        gte: searchParams?.guest ?? undefined,
+      },
     },
     select: {
       photo: true,
@@ -85,8 +87,7 @@ export async function getBooking(reservationId: string) {
       startDate: true,
       endDate: true,
       status: true,
-      //TODO: how many guests
-      // who is renting
+      guests: true,
       User: {
         select: {
           id: true,
@@ -168,8 +169,7 @@ export async function getReservation(reservationId: string) {
       startDate: true,
       endDate: true,
       status: true,
-      //TODO: how many guests
-      // who is renting
+      guests: true,
       User: {
         select: {
           id: true,

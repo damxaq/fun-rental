@@ -1,3 +1,22 @@
+Link to the app: https://funrental.vercel.app/
+
+My first personal project which I am ready to use commercially, after growing a user-base, enabling Stripe payment and further improvements.
+
+Its main purpose is to give customers a chance to share their recreation vehicles, such as boats, golf carts, jet skis and so on. Taking advantage of serverless solutions, it lets users add new vehicles, use a reservation calendar, manage their bookings, choose locations on Google Maps and communicate with each other through real-time chat messages. Supplied with Google or email authentication, the application is ready to provide a great experience also for mobile users.
+
+NextJs
+React
+Typescript
+Tailwind
+Prisma
+Google Authentication
+Kinde
+Vertex
+Responsive
+
+
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
